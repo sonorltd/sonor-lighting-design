@@ -1,0 +1,8 @@
+/* Lighting Design — app-vars.css
+   Thin aliasing layer. Generic tokens from brand.css → app vocabulary.
+   NO raw hex. NO :root palette. Per Spine S-4.1 + S-4.2. */
+
+:root {
+  --lighting-design-surface: var(--surface-card);
+  --lighting-design-accent:  var(--s04);   /* service 04 — Smart Lighting yellow */
+}
