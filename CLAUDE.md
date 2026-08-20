@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.2.0)
+# Lighting Design — Claude Code Context (v0.2.1)
 
 > **Spine version: 1.2** (SONOR-APP-SPINE.md)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
@@ -146,6 +146,20 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   Headless-verified end-to-end: 32-page pack rendered + eyeballed (photos,
   polar plots, appendix stamps); sandbox Chromium needed a curl route shim for
   supabase fetches — production browsers unaffected.
+
+- v0.2.1 (2026-08-20) — **Sandiway review round** (Bryn: "project doesnt populate,
+  we need same save load as cine aes, pricing doesnt include all lines").
+  (1) Project populate hardened: onProject now fetches the `projects` row
+  DIRECTLY (client_name + address/name) instead of relying on the bar's adopt
+  path handing the record over — the WC2R export shipped 'Your Home / — / —'
+  while the plan pulled fine. (2) **Landing PROJECT OVERVIEW** (cine-aesthetic
+  pattern): saved lighting designs listed on the front page per project with
+  Open buttons (`#ovw` + loadOverview/renderOverview/openFromOverview);
+  refreshes on project change, save and open; openSaved restore whitelist
+  gains `_planPulledAt`. (3) **Budget shows EVERY line**: unpriced/TBC kinds
+  render as 'at quotation' rows instead of vanishing; LED driver count (from
+  the run schedule) and the control system (keypad count) ride as allowance
+  rows; total relabelled 'priced lines only'; RRP lines note trade terms.
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).

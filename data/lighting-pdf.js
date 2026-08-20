@@ -561,8 +561,12 @@
       m.budget.lines.forEach(function (l) {
         P.text(trunc(F.r, l.label, 9.5, 290), M, y - 9, 9.5, F.r, COL.INK2);
         P.right(String(l.qty), A4.w - M - 128, y - 9, 9.5, F.r, COL.INK2);
-        P.right(lx.money(l.unit), A4.w - M - 64, y - 9, 9.5, F.r, COL.INK2);
-        P.right(lx.money(l.total), A4.w - M, y - 9, 9.5, F.b, COL.INK);
+        if (l.poa) {
+          P.right('at quotation', A4.w - M, y - 8.5, 8.5, F.r, COL.MUT);
+        } else {
+          P.right(lx.money(l.unit), A4.w - M - 64, y - 9, 9.5, F.r, COL.INK2);
+          P.right(lx.money(l.total), A4.w - M, y - 9, 9.5, F.b, COL.INK);
+        }
         if (l.note) { y += 12; P.text(trunc(F.r, l.note, 7.5, 290), M + 10, y - 9, 7.5, F.r, COL.MUT); }
         P.hline(M, A4.w - M, y + 6, COL.LINE, 0.35, 0.5);
         y += 21;
@@ -570,11 +574,11 @@
       y += 6;
       P.hline(M, A4.w - M, y, COL.GOLD, 0.9, 0.9);
       y += 14;
-      P.text('Indicative supply total, ex VAT', M, y - 9, 10, F.r, COL.INK2);
+      P.text('Indicative supply total, ex VAT — priced lines only', M, y - 9, 10, F.r, COL.INK2);
       P.right(lx.money(Math.round(m.budget.total)), A4.w - M, y - 10, 13, F.b, COL.INK);
       y += 22;
-      if (m.budget.poa) P.text(m.budget.poa + ' specification line(s) priced at quotation. Drivers, control hardware and installation follow on the formal quotation.', M, y - 6, 8.5, F.r, COL.MUT, { maxWidth: A4.w - M * 2 });
-      else P.text('Drivers, control hardware and installation follow on the formal quotation.', M, y - 6, 8.5, F.r, COL.MUT);
+      if (m.budget.poa) P.text(m.budget.poa + ' line(s) at quotation — trade pricing follows on the formal quotation, which covers every line above plus installation.', M, y - 6, 8.5, F.r, COL.MUT, { maxWidth: A4.w - M * 2 });
+      else P.text('Installation follows on the formal quotation.', M, y - 6, 8.5, F.r, COL.MUT);
       lx.pageFoot(P, F);
     };
   }

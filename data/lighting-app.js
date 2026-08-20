@@ -583,6 +583,10 @@
   function setControl(id) { cfg.control.system = id; renderStep(); }
 
   // ── SUMMARY ──────────────────────────────────────────────────────────────
+  // v0.2.1 — EVERY specified line appears (Bryn: "pricing doesnt include all
+  // lines"): priced lines carry WQ sell or public RRP; unpriced lines show as
+  // 'at quotation' rows instead of vanishing. Drivers + control ride as
+  // allowance rows so the budget reads as the whole package.
   function budget() {
     var t = totalsAcross();
     var lines = [], total = 0, poa = 0;
@@ -590,17 +594,33 @@
       var n = t.byKind[k.id] || 0;
       if (!n) return;
       var it = E.item(cfg.picks[k.id]);
-      if (!it) return;
-      var pr = E.priceOf(it);
-      if (pr) { var v = pr.value * n; total += v; lines.push({ label: k.label + ' · ' + it.name, qty: n, unit: pr.value, total: v, src: pr.src }); }
-      else poa++;
+      var pr = it ? E.priceOf(it) : null;
+      if (pr) {
+        var v = pr.value * n;
+        total += v;
+        lines.push({ label: k.label + ' · ' + it.name, qty: n, unit: pr.value, total: v, src: pr.src, note: pr.src === 'rrp' ? 'public RRP — trade terms at quotation' : null });
+      } else {
+        poa++;
+        lines.push({ label: k.label + ' · ' + (it ? it.name : 'TBC — chosen at design development'), qty: n, unit: null, total: null, poa: true, note: it ? 'trade pricing at quotation' : null });
+      }
     });
     var strip = E.item(cfg.led.stripId);
-    if (strip && t.ledM) {
-      var reel = (strip.specs || {}).reel_m || 5;
-      var pr2 = E.priceOf(strip);
-      if (pr2) { var reels = Math.ceil(t.ledM / reel); var v2 = reels * pr2.value; total += v2; lines.push({ label: 'LED strip · ' + strip.name, qty: reels, unit: pr2.value, total: v2, src: pr2.src, note: t.ledM + ' m as ' + reels + ' × ' + reel + ' m reels' }); }
+    if (t.ledM) {
+      if (strip) {
+        var reel = (strip.specs || {}).reel_m || 5;
+        var pr2 = E.priceOf(strip);
+        var reels = Math.ceil(t.ledM / reel);
+        if (pr2) { var v2 = reels * pr2.value; total += v2; lines.push({ label: 'LED strip · ' + strip.name, qty: reels, unit: pr2.value, total: v2, src: pr2.src, note: t.ledM + ' m as ' + reels + ' × ' + reel + ' m reels' }); }
+        else { poa++; lines.push({ label: 'LED strip · ' + strip.name, qty: reels, unit: null, total: null, poa: true, note: t.ledM + ' m as ' + reels + ' × ' + reel + ' m reels' }); }
+      } else { poa++; lines.push({ label: 'LED strip · specification TBC', qty: 1, unit: null, total: null, poa: true, note: t.ledM + ' m of runs on the plan' }); }
+      // drivers — count from the engineered run schedule
+      var wpm = strip ? ((strip.specs || {}).w_per_m || 10) : 10;
+      var nDrivers = 0;
+      ledRunsAll().forEach(function (r) { var eng = C.stripRun(r.metres, wpm); if (eng) nDrivers += eng.drivers; });
+      if (nDrivers) { poa++; lines.push({ label: 'LED drivers · sized per the run schedule', qty: nDrivers, unit: null, total: null, poa: true }); }
     }
+    var sys = (CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; });
+    if (sys) { poa++; lines.push({ label: 'Lighting control · ' + sys.label + ' — keypads, dimming + processing', qty: t.keypads || 1, unit: null, total: null, poa: true, note: (t.keypads || 0) + ' keypads on the plan' }); }
     return { lines: lines, total: total, poa: poa };
   }
   function renderSummary() {
@@ -666,15 +686,71 @@
     try {
       var db = dbc();
       if (db && cfg.projectId) {
-        var b = await db.from('projects').select('metadata').eq('id', cfg.projectId).maybeSingle();
-        var md = (b.data && b.data.metadata) || {};
-        if (md.brief) ctx.brief = md.brief;
-        ctx.spec = md.lighting_spec || null;
+        // direct project fetch — never rely on the bar handing the record over
+        // (v0.2.1: the Sandiway export shipped 'Your Home / —' when the bar's
+        // adopt path returned the id without the project row)
+        var b = await db.from('projects').select('client_name,name,address,metadata').eq('id', cfg.projectId).maybeSingle();
+        if (b.data) {
+          if (!cfg.client.name && b.data.client_name) cfg.client.name = b.data.client_name;
+          if (!cfg.client.project) cfg.client.project = String(b.data.address || b.data.name || '').split('\n')[0].split(',')[0] || '';
+          var md = b.data.metadata || {};
+          if (md.brief) ctx.brief = md.brief;
+          ctx.spec = md.lighting_spec || null;
+        }
       }
     } catch (e) {}
     await pullPlan();
     loadSavedList();
+    loadOverview();   // v0.2.1 — landing overview (cine-aesthetic pattern)
   }
+
+  // ── v0.2.1 — landing PROJECT OVERVIEW: saved designs, open from the front ──
+  function fmtDate(s) { try { return new Date(s).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); } catch (e) { return ''; } }
+  async function loadOverview() {
+    var sec = $('ovw');
+    if (!sec) return;
+    var db = dbc();
+    if (CLIENT || !db || !cfg.projectId) { sec.style.display = 'none'; return; }
+    var designs = [];
+    try {
+      var rb = await db.from('lighting_configs').select('id,label,app_version,updated_at,config').eq('project_id', cfg.projectId).eq('archived', false).order('updated_at', { ascending: false }).limit(20);
+      designs = rb.data || [];
+    } catch (e) {}
+    renderOverview(designs);
+  }
+  function renderOverview(designs) {
+    var sec = $('ovw');
+    if (!sec) return;
+    if (CLIENT || !cfg.projectId) { sec.style.display = 'none'; return; }
+    sec.style.display = 'block';
+    var tt = $('ovwTitle');
+    if (tt) tt.innerHTML = esc(cfg.client.project || 'This project') + ' — <span class="lt">saved lighting designs</span>.';
+    var sm = $('ovwSummary');
+    if (sm) {
+      var t = totalsAcross();
+      var bits = [];
+      if (cfg.rooms.length) bits.push(cfg.rooms.length + ' rooms · ' + t.fixtures + ' fittings on the current plan');
+      if (ctx.spec && ctx.spec.updated_at) bits.push('Published spec: v' + (ctx.spec.app_version || '?') + ' · ' + fmtDate(ctx.spec.updated_at));
+      else bits.push('No lighting spec published yet — save a design to publish it.');
+      sm.textContent = bits.join('  ·  ');
+    }
+    var bo = $('ovwDesigns');
+    if (bo) {
+      bo.innerHTML = (designs && designs.length) ? designs.map(function (r) {
+        var cur = r.id === cfg._savedId;
+        var c = r.config || {};
+        var nRooms = (c.rooms || []).length;
+        return '<div class="ovw-row' + (cur ? ' cur' : '') + '">' +
+          '<div class="ovw-b"><div class="ovw-n">' + esc(r.label || 'Design') + (cur ? ' <span class="ovw-badge">✓ Open</span>' : '') + '</div>' +
+          '<div class="ovw-d">' + (nRooms ? nRooms + ' rooms · ' : '') + fmtDate(r.updated_at) + ' · v' + esc(r.app_version || '') + '</div></div>' +
+          '<button class="ovw-btn gold" onclick="LightingApp.openFromOverview(\'' + r.id + '\')">Open</button>' +
+          '</div>';
+      }).join('') : '<div class="ovw-hint">No saved designs yet for this project — start one below.</div>';
+    }
+    var nt = $('ovwNote');
+    if (nt) nt.textContent = 'Saving a design publishes it as the project’s confirmed lighting spec — other Sonor apps read the same source.';
+  }
+  function openFromOverview(id) { enter(); openSaved(id); }
 
   // ── saved designs (lighting_configs — this app's ONLY table writes) ──────
   async function saveConfig() {
@@ -688,6 +764,7 @@
       if (res.data) { cfg._savedId = res.data.id; cfg._savedLabel = label; }
       loadSavedList();
       publishLightingSpec();   // ONE SOURCE: confirmed lighting → projects.metadata.lighting_spec
+      loadOverview();          // v0.2.1 — landing list stays current
     } catch (e) { console.warn('[lighting] save failed', e); }
   }
   // ── ONE SOURCE — projects.metadata.lighting_spec (single writer, RPC merge)
@@ -733,10 +810,11 @@
       var res = await db.from('lighting_configs').select('id,label,config').eq('id', id).single();
       if (res.data && res.data.config) {
         var c = res.data.config;
-        ['rooms', 'picks', 'cct', 'dimToWarm', 'led', 'control', 'sceneNotes', 'client'].forEach(function (k) { if (c[k] != null) cfg[k] = c[k]; });
+        ['rooms', 'picks', 'cct', 'dimToWarm', 'led', 'control', 'sceneNotes', 'client', '_planPulledAt'].forEach(function (k) { if (c[k] != null) cfg[k] = c[k]; });
         cfg._savedId = res.data.id;
         cfg._savedLabel = res.data.label || null;
         cfg.step = STEPS.length; renderStep();
+        loadOverview();
       }
     } catch (e) {}
   }
@@ -943,6 +1021,8 @@
     pick: pick, setCct: setCct, setDtw: setDtw, setStrip: setStrip, setProfile: setProfile,
     setControl: setControl, setClient: setClient,
     saveConfig: saveConfig, openSaved: openSaved, savePdf: savePdf,
+    openFromOverview: openFromOverview,
+    _renderOverview: renderOverview,   // harness hook (headless overview render)
     _debug: function () { return { cfg: cfg, ctx: ctx }; }   // harness hook (headless render tests)
   };
 })(window);

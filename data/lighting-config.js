@@ -13,7 +13,7 @@
 */
 (function () {
   window.__LIGHTING_CONFIG__ = {
-    version: '0.2.0',
+    version: '0.2.1',
     buildDate: '2026-08-20',
     steps: ['Plan', 'Fixtures', 'LED & Drivers', 'Circuits & Scenes', 'Summary'],
 

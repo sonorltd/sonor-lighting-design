@@ -204,6 +204,22 @@
     .hero-tags span { display:inline-flex; align-items:center; gap:.55rem; }
     .hero-tags span::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--w-amb); }
 
+    /* v0.2.1 — landing project overview (cine-aesthetic pattern) */
+    .ovw-grid { display:grid; grid-template-columns:1fr; gap:22px; margin-top:1.6rem; max-width:760px; }
+    .ovw-col { background:var(--w-bg1); border:1px solid rgba(245,208,92,.16); border-radius:14px; padding:18px 20px; }
+    .ovw-h { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--w-amb); margin-bottom:12px; }
+    .ovw-row { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid rgba(245,208,92,.10); }
+    .ovw-row:last-child { border-bottom:none; }
+    .ovw-row.cur { background:linear-gradient(90deg, rgba(245,208,92,.08), transparent); border-radius:8px; padding-left:10px; margin-left:-10px; }
+    .ovw-b { flex:1; min-width:0; }
+    .ovw-n { font-size:.95rem; font-weight:600; color:var(--w-txt); display:flex; align-items:center; gap:8px; }
+    .ovw-d { font-size:.78rem; color:var(--w-txt2); margin-top:2px; }
+    .ovw-badge { display:inline-flex; align-items:center; gap:5px; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:#241f0e; background:var(--w-amb); border-radius:999px; padding:3px 9px; font-weight:700; }
+    .ovw-btn { background:none; border:1px solid rgba(245,208,92,.4); color:var(--w-txt); border-radius:8px; padding:6px 14px; font-size:.78rem; cursor:pointer; font-family:inherit; white-space:nowrap; }
+    .ovw-btn:hover { border-color:var(--w-amb); color:var(--w-amb); }
+    .ovw-btn.gold { background:var(--w-amb); border-color:var(--w-amb); color:#241f0e; font-weight:600; }
+    .ovw-hint { font-size:.82rem; color:var(--w-txt2); padding:8px 0; }
+    .ovw-note { margin-top:1.1rem; font-size:.8rem; color:var(--w-txt2); }
     .strip2 { background:var(--w-bg1); }
     .wrap { max-width:1180px; margin:0 auto; padding:clamp(3.5rem,8vw,5.5rem) clamp(20px,5vw,48px); }
     .sl { display:flex; align-items:center; gap:.7rem; font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--w-gold-l); margin-bottom:.9rem; font-weight:600; }
@@ -289,6 +305,17 @@
       </div></div>
     </section>
 
+    <!-- v0.2.1 — project overview: saved lighting designs (cine-aesthetic pattern) -->
+    <section class="strip2" id="ovw" style="display:none"><div class="wrap">
+      <div class="sl"><span></span>Project overview</div>
+      <h2 class="sec-h" id="ovwTitle">Saved <span class="lt">lighting designs</span>.</h2>
+      <p class="sec-p" id="ovwSummary"></p>
+      <div class="ovw-grid">
+        <div class="ovw-col"><div class="ovw-h">Saved designs</div><div id="ovwDesigns"><div class="ovw-hint">No designs yet — start one below.</div></div></div>
+      </div>
+      <div class="ovw-note" id="ovwNote"></div>
+    </div></section>
+
     <section class="strip2" id="how"><div class="wrap">
       <div class="sl"><span></span>How it works</div>
       <h2 class="sec-h">Five steps to <span class="lt">your lighting design</span>.</h2>
@@ -324,7 +351,7 @@
   </div>
 
   <script>
-    const APP_VERSION = '0.2.0';
+    const APP_VERSION = '0.2.1';
     document.addEventListener('DOMContentLoaded', function(){ var v = document.getElementById('hdrVer'); if (v) v.textContent = 'v' + APP_VERSION; });
     // one-line swappable hero image (see lighting-config.js → heroImage; null = branded gradient)
     (function(){ var cfg = window.__LIGHTING_CONFIG__ || {}; var el = document.getElementById('heroBg');
