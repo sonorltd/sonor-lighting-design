@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lighting Design — Sonor</title>
-  <link rel="icon" href="../data/favicon-theme.svg" type="image/svg+xml">
+  <link rel="icon" href="../data/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400&amp;display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -46,10 +46,10 @@
       min-height:100vh; display:flex; flex-direction:column; position:relative;
       color:var(--cream);
       background:
-        radial-gradient(1100px 500px at 50% -160px, rgba(245,208,92,.08), transparent 62%),
-        radial-gradient(900px 520px at 108% 8%, rgba(173,153,120,.14), transparent 55%),
-        radial-gradient(820px 560px at -8% 96%, rgba(245,208,92,.06), transparent 58%),
-        linear-gradient(#0c0a08, #090807);
+        radial-gradient(1100px 500px at 50% -160px, rgba(245,208,92,.16), transparent 62%),
+        radial-gradient(900px 520px at 108% 8%, rgba(245,208,92,.11), transparent 55%),
+        radial-gradient(820px 560px at -8% 96%, rgba(245,208,92,.09), transparent 58%),
+        linear-gradient(#0d0b07, #090807);
     }
     .sc::after { content:''; position:absolute; inset:0; pointer-events:none;
       background:radial-gradient(120% 80% at 50% 0%, transparent 60%, rgba(0,0,0,.45)); z-index:0; }
@@ -62,8 +62,8 @@
     .pillrow { flex:1; display:flex; align-items:center; justify-content:center; gap:2px; flex-wrap:wrap; }
     .pill { display:flex; align-items:center; gap:8px; padding:7px 17px; border-radius:22px; font-size:12px; letter-spacing:.02em; color:var(--muted); transition:.2s; }
     .pill.done { color:rgba(173,153,120,.75); cursor:pointer; }
-    .pill.active { color:var(--gold); border:1px solid rgba(173,153,120,.3);
-      background:linear-gradient(180deg, rgba(173,153,120,.14), rgba(245,208,92,.08)); box-shadow:0 6px 20px -12px rgba(173,153,120,.6); }
+    .pill.active { color:var(--amb); border:1px solid rgba(245,208,92,.35);
+      background:linear-gradient(180deg, rgba(245,208,92,.16), rgba(173,153,120,.10)); box-shadow:0 6px 20px -12px rgba(245,208,92,.55); }
     .pn { width:19px; height:19px; border-radius:50%; border:1.5px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; }
     .pill.active .pn { background:linear-gradient(140deg,var(--gold2),var(--gold)); color:#120c06; border-color:transparent; }
     .pill.done .pn { background:rgba(173,153,120,.55); color:#120c06; border-color:transparent; }
@@ -174,9 +174,10 @@
     .hero { position:relative; min-height:clamp(520px,82vh,860px); display:flex; align-items:center; overflow:hidden; background:var(--w-bg0); }
     .hero-bg { position:absolute; inset:0; background:#0a0908 center/cover no-repeat; }
     .hero-bg.grad { background:
-        radial-gradient(ellipse 70% 62% at 76% 36%, rgba(245,208,92,.14) 0%, rgba(173,153,120,.08) 46%, transparent 74%),
-        radial-gradient(ellipse 46% 44% at 20% 80%, rgba(173,153,120,.10), transparent 70%),
-        #0a0908; }
+        radial-gradient(ellipse 70% 62% at 76% 36%, rgba(245,208,92,.22) 0%, rgba(245,208,92,.09) 46%, transparent 74%),
+        radial-gradient(ellipse 46% 44% at 20% 80%, rgba(245,208,92,.12), transparent 70%),
+        radial-gradient(ellipse 30% 26% at 55% 20%, rgba(255,236,170,.10), transparent 75%),
+        #0b0a07; }
     .hero-bg::after { content:''; position:absolute; inset:0;
       background:
         linear-gradient(90deg, rgba(9,8,7,.94) 0%, rgba(9,8,7,.74) 40%, rgba(9,8,7,.30) 70%, rgba(9,8,7,.52) 100%),
@@ -323,7 +324,7 @@
   </div>
 
   <script>
-    const APP_VERSION = '0.1.0';
+    const APP_VERSION = '0.2.0';
     document.addEventListener('DOMContentLoaded', function(){ var v = document.getElementById('hdrVer'); if (v) v.textContent = 'v' + APP_VERSION; });
     // one-line swappable hero image (see lighting-config.js → heroImage; null = branded gradient)
     (function(){ var cfg = window.__LIGHTING_CONFIG__ || {}; var el = document.getElementById('heroBg');

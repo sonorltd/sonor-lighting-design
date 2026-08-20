@@ -345,6 +345,26 @@
     return null;
   }
   var ASSUMED_DL_LM = 450;   // conservative quality-downlight assumption when the library row has no output data yet
+  // v0.2.0 — reference tags per fixture kind (schedule ↔ cut sheet ↔ key)
+  var KIND_REFS = { downlight: 'D', spot: 'S', pendant: 'P', wall: 'W', picture: 'PL', lamp5a: 'LP', cabinet: 'C', lowlevel: 'LV', exterior: 'E' };
+  // v0.2.0 — assumed delivered lumens per kind for the whole-layer ambient
+  // estimate (used only when the library row carries no output data)
+  var KIND_ASSUMED_LM = { downlight: 450, pendant: 800, wall: 300, spot: 350, picture: 120, lamp5a: 800, cabinet: 400, lowlevel: 100, exterior: 300 };
+  function kindLumens(kindId) {
+    var it = E.item(cfg.picks[kindId]);
+    return itemLumens(it) || KIND_ASSUMED_LM[kindId] || 300;
+  }
+  // whole-layer maintained-lux estimate for a room (all counted fittings)
+  function roomLuxEstimate(r) {
+    var totalLm = 0, counted = 0;
+    Object.keys(r.counts || {}).forEach(function (k) {
+      var n = r.counts[k] || 0;
+      if (!n || k === 'exterior' && r.type !== 'exterior') return;
+      totalLm += n * kindLumens(k); counted += n;
+    });
+    if (!counted || !r.area) return null;
+    return C.achievedLux({ area_m2: r.area, lumens: totalLm, count: 1 });
+  }
   function lints() {
     var out = [];
     // IP lint per room type in use vs picked items
@@ -371,21 +391,18 @@
     return out.filter(function (v, i, a) { return a.indexOf(v) === i; });
   }
   function luxTable() {
-    var dl = E.item(cfg.picks.downlight);
-    var lm = itemLumens(dl) || (dl ? ASSUMED_DL_LM : null);
-    var assumed = dl && !itemLumens(dl);
-    var h = '<table class="lux"><thead><tr><th style="text-align:left">Room</th><th>Target</th><th>Achieved</th><th></th></tr></thead><tbody>';
+    var h = '<table class="lux"><thead><tr><th style="text-align:left">Room</th><th>Target</th><th>Estimate</th><th></th></tr></thead><tbody>';
     cfg.rooms.forEach(function (r) {
       var rt = roomType(r.type) || {};
-      var n = (r.counts || {}).downlight || 0;
-      var got = lm && n ? C.achievedLux({ area_m2: r.area, lumens: lm, count: n }) : null;
+      var got = roomLuxEstimate(r);
       var need = rt.ambient || null;
-      var okc = got == null || need == null ? '' : (got >= need * 0.85 ? 'ok' : 'low');
+      var okc = got == null || need == null ? '' : (got >= need * 0.6 ? 'ok' : 'low');
+      var dlm = kindLumens('downlight');
       h += '<tr><td style="text-align:left">' + esc(r.name) + '</td><td>' + (need ? need + ' lx' : '—') + '</td>' +
         '<td class="' + okc + '">' + (got != null ? Math.round(got) + ' lx' : '—') + '</td>' +
-        '<td class="hint" style="font-size:10px">' + (got != null && need && got < need * 0.85 && lm ? '+' + Math.max(0, (C.fittingsNeeded({ area_m2: r.area, lumens: lm, targetLux: need }) || 0) - n) + ' more' : '') + '</td></tr>';
+        '<td class="hint" style="font-size:10px">' + (got != null && need && got < need * 0.6 && dlm ? '+' + Math.max(0, (C.fittingsNeeded({ area_m2: r.area, lumens: dlm, targetLux: need - got }) || 0)) + ' DL' : '') + '</td></tr>';
     });
-    return h + '</tbody></table><div class="hint" style="margin-top:8px">Lumen method · UF 0.5 · MF 0.8 — downlight layer only; linear + accent layers add on top.' + (assumed ? ' Output data missing on the chosen downlight — ' + ASSUMED_DL_LM + ' lm assumed until the Library files it.' : '') + '</div>';
+    return h + '</tbody></table><div class="hint" style="margin-top:8px">Lumen method · UF 0.5 · MF 0.8 — all counted fittings, published or typical outputs. Linear LED adds on top. Final levels are set at commissioning.</div>';
   }
   function renderFixtures() {
     var t = totalsAcross();
@@ -401,7 +418,9 @@
       var qty = t.byKind[k.id] || 0;
       var it = E.item(cfg.picks[k.id]);
       h += '<div class="panel"><div class="ptt">' + esc(k.label) + ' <span class="opt-tag">· ' + qty + '× across the plan · ' + esc(k.layer) + ' layer</span></div>' +
+        (it && it.img ? '<div style="display:flex;gap:14px;align-items:flex-start"><img src="' + esc(it.img) + '" alt="" style="width:74px;height:74px;object-fit:contain;background:#fff;border-radius:9px;border:1px solid var(--brd2);flex:0 0 auto"><div style="flex:1;min-width:0">' : '') +
         (k.cats.length ? itemSelect(k.id, k.cats, cfg.picks[k.id]) : '<div class="hint">Client-supplied or by others — carried as a wiring point.</div>') +
+        (it && it.img ? '</div></div>' : '') +
         (it ? '<div class="chips">' + itemChips(it) + '</div>' +
           '<div class="linkrow">' + (it.product_url ? '<a href="' + esc(it.product_url) + '" target="_blank" rel="noopener">Product page ↗</a>' : '') +
           (it.datasheet_url ? '<a href="' + esc(it.datasheet_url) + '" target="_blank" rel="noopener">Datasheet ↗</a>' : '') +
@@ -505,18 +524,19 @@
         if (!n) return;
         var it = E.item(cfg.picks[k.id]);
         var w = (it && it.watts) || k.wDefault || 5;
-        if (k.id === 'lamp5a') push('5A lamp circuit', '5A switched socket', n, n * w, 'Dimmed via plug-in modules or switched');
-        else if (k.id === 'cabinet') push('Cabinet lighting spur', 'ELV driver spur', n, n * w, 'Dimmed with the room accents');
-        else push(k.label, k.layer === 'ambient' ? 'LED dimmed' : 'LED dimmed (decorative)', n, n * w, 'Trailing-edge / ' + (cfg.control.system === 'lutron' ? 'Lutron' : cfg.control.system === 'control4' ? 'Control4' : 'Rako') + ' dim');
+        var sys = (cfg.control.system === 'lutron' ? 'Lutron' : cfg.control.system === 'control4' ? 'Control4' : 'Rako');
+        if (k.id === 'lamp5a') push('5A lamp circuit', '5A socket', n, n * w, sys + ' dim / switched');
+        else if (k.id === 'cabinet') push('Cabinet lighting spur', 'ELV spur', n, n * w, 'Dims with the room accents');
+        else push(k.label, k.layer === 'ambient' ? 'Dim' : 'Dim · dec', n, n * w, 'Trailing-edge · ' + sys);
       });
       (r.ledRuns || []).forEach(function (l) {
         var eng = C.stripRun(Number(l.metres) || 0, wpm);
-        if (eng) push('Linear LED — ' + r.name, '24V ELV strip', 1, eng.load_w, 'ELV dim via ' + (eng.drivers > 1 ? eng.drivers + '× ' : '') + eng.driver_w + ' W driver');
+        if (eng) push('Linear LED — ' + r.name, 'ELV 24V', 1, eng.load_w, 'ELV dim · ' + (eng.drivers > 1 ? eng.drivers + '× ' : '') + eng.driver_w + ' W driver');
       });
       var extra = Math.max(0, ((r.lcMix || {}).dimmed || 0) - out.filter(function (c) { return c.room === r.name && /dim/i.test(c.loadType); }).length);
-      if (extra) push('Estimated dimmed circuits', 'LED dimmed (allowance)', extra, extra * 50, 'From the Takeoffs LC estimate');
+      if (extra) push('Dimmed circuit allowance', 'Dim', extra, extra * 50, 'From the Takeoffs LC estimate');
       var sw = (r.lcMix || {}).switched || 0;
-      if (sw) push('Switched circuits', 'Switched (allowance)', sw, sw * 30, 'From the Takeoffs LC estimate');
+      if (sw) push('Switched circuit allowance', 'Switched', sw, sw * 30, 'From the Takeoffs LC estimate');
     });
     return out;
   }
@@ -744,10 +764,19 @@
     [/home\s+office/gi, caseKeep('study')],
     [/\boffice\b/gi, caseKeep('study')],
     [/\boffset\b/gi, caseKeep('set-back')],
-    [/\bdiffuser\b/gi, caseKeep('opal cover')],
+    [/\bdiffusers?\b/gi, caseKeep('opal cover')],
+    [/\bdiffused\b/gi, caseKeep('softened')],
+    [/\bdiffuse\b/gi, caseKeep('soft')],
+    [/\bdiffusion\b/gi, caseKeep('soft spread')],
+    [/\bbaffles?\b/gi, caseKeep('louvres')],
     [/\befficacy\b/gi, caseKeep('output per watt')],
+    [/\befficien(t|cy)\b/gi, caseKeep('economical')],
+    [/\beffects?\b/gi, caseKeep('look')],
+    [/\beffective(ly)?\b/gi, caseKeep('true')],
+    [/\boffer(s|ed|ing)?\b/gi, caseKeep('provide')],
     [/\bcoffer(ed)?\b/gi, caseKeep('cove')],
-    [/\bsoffit\b/gi, caseKeep('eaves detail')],
+    [/\bsoffits?\b/gi, caseKeep('eaves detail')],
+    [/\bscaffold(ing)?\b/gi, caseKeep('access')],
     [/\bon\/off\b/gi, 'switched'],
     [/\boff\b/gi, caseKeep('out')],
     [/″/g, '"']
@@ -757,7 +786,7 @@
     PDF_SAFE.forEach(function (r) { out = out.replace(r[0], r[1]); });
     return out.replace(/ff/g, 'f f').replace(/FF/g, 'F F').replace(/Ff/g, 'F f');
   }
-  var SAFE_SKIP_KEYS = /url|img|image|filename|hex|datasheet|swatch|ies/i;
+  var SAFE_SKIP_KEYS = /url|img|image|filename|hex|datasheet|swatch|ies|mirror/i;
   function deepSafe(o) {
     if (o == null) return o;
     if (typeof o === 'string') return pdfSafe(o);
@@ -786,31 +815,40 @@
       stats: [
         ['Rooms', String(cfg.rooms.length)],
         ['Fittings', String(t.fixtures)],
-        ['Linear LED', t.ledM + ' m'],
+        t.ledM ? ['Linear LED', t.ledM + ' m'] : null,
         ['Circuits', String(circuits.length)],
         ['Colour', cfg.cct + 'K' + (cfg.dimToWarm ? ' · dim-to-warm' : '')],
         ['Control', ((CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; }) || {}).label || cfg.control.system]
-      ],
+      ].filter(Boolean),
       blurbs: CFG.sectionBlurbs || {},
       layers: CFG.layers || [],
-      luxAssumed: !!(dl && !itemLumens(dl)),
+      luxEstimated: true,
       floors: floors.map(function (fc) {
-        var dlLm = itemLumens(dl) || (dl ? ASSUMED_DL_LM : null);
         return {
           code: fc,
           rooms: roomsOfFloor(fc).map(function (r) {
             var rt = roomType(r.type) || {};
-            var n = (r.counts || {}).downlight || 0;
-            var got = dlLm && n ? C.achievedLux({ area_m2: r.area, lumens: dlLm, count: n }) : null;
+            var got = roomLuxEstimate(r);
             var fitBits = [];
-            (CFG.fixtureKinds || []).forEach(function (k) { var c2 = (r.counts || {})[k.id]; if (c2) fitBits.push(c2 + ' ' + k.label.toLowerCase()); });
+            (CFG.fixtureKinds || []).forEach(function (k) {
+              var c2 = (r.counts || {})[k.id];
+              if (c2) fitBits.push((KIND_REFS[k.id] || '?') + ' ×' + c2);
+            });
             var ledM = (r.ledRuns || []).reduce(function (s, l) { return s + (Number(l.metres) || 0); }, 0);
-            if (ledM) fitBits.push(Math.round(ledM * 10) / 10 + ' m LED');
+            if (ledM) fitBits.push('ST ×' + (Math.round(ledM * 10) / 10) + 'm');
+            var w = 0;
+            Object.keys(r.counts || {}).forEach(function (k) {
+              var it2 = E.item(cfg.picks[k]);
+              var kd = kindDef(k) || {};
+              w += (r.counts[k] || 0) * ((it2 && it2.watts) || kd.wDefault || 5);
+            });
             return {
               name: r.name, typeLabel: rt.label || r.type,
               target: rt.ambient || null, task: rt.task || null, taskNote: rt.taskNote || null,
               achieved: got != null ? Math.round(got) : null,
-              summary: fitBits.join(' · ') || 'wiring only'
+              watts: Math.round(w),
+              count: Object.keys(r.counts || {}).reduce(function (s, k) { return s + (r.counts[k] || 0); }, 0),
+              summary: fitBits.join('  ·  ') || 'wiring only'
             };
           })
         };
@@ -819,24 +857,38 @@
         var it = E.item(cfg.picks[k.id]);
         var n = t.byKind[k.id] || 0;
         if (!it && !n) return null;
+        var usedIn = [];
+        cfg.rooms.forEach(function (r) {
+          var c2 = (r.counts || {})[k.id];
+          if (c2) usedIn.push({ room: r.name, qty: c2 });
+        });
+        var md = (it && it.metadata) || {};
         return {
+          ref: KIND_REFS[k.id] || '?',
           kind: k.label, layer: k.layer, qty: n,
           name: it ? it.name : 'TBC — chosen at design development',
           manufacturer: it ? (it.manufacturer || '') : '',
-          spec: it ? [
-            it.watts ? it.watts + ' W' : null,
-            it.lumens ? it.lumens + ' lm' : null,
-            (it.cct || []).length ? it.cct.join('/') + 'K' : ((it.specs || {}).cct_tunable ? 'tunable' : null),
-            it.cri ? 'CRI ' + it.cri + '+' : null,
-            (it.beam || []).length ? it.beam.join('°/') + '°' : null,
-            it.ip || null,
-            (it.dimming || []).length ? it.dimming.join(' / ') : null
-          ].filter(Boolean).join('  ·  ') : null,
+          range: it ? (it.range || null) : null,
+          description: it ? (it.description || null) : null,
+          watts: it ? it.watts : null,
+          lumens: it ? itemLumens(it) : null,
+          cctText: it ? ((it.cct || []).length ? it.cct.join(' / ') + 'K' : ((it.specs || {}).cct_tunable ? String(it.specs.cct_tunable) : null)) : null,
+          cri: it ? it.cri : null,
+          beams: it ? (it.beam || []) : [],
+          beamZoom: it ? ((it.specs || {}).beam_zoom || null) : null,
+          ip: it ? it.ip : null,
+          dimmingText: it ? ((it.dimming || []).length ? it.dimming.join(' / ') : null) : null,
+          voltage: it ? it.voltage : null,
+          finishes: it ? (((it.specs || {}).finishes) || []).slice(0, 6) : [],
+          img: it ? it.img : null,
+          dsMirror: md.datasheet_mirror || null,
+          usedIn: usedIn,
           url: it ? it.product_url : null,
           datasheet: it ? it.datasheet_url : null,
           ies: it ? it.ies_url : null
         };
       }).filter(Boolean),
+      includeDatasheets: true,
       led: t.ledM ? {
         totalM: t.ledM,
         strip: strip ? {
@@ -849,7 +901,7 @@
             strip.voltage ? strip.voltage + 'V' : null,
             strip.ip || null
           ].filter(Boolean).join('  ·  '),
-          url: strip.product_url, datasheet: strip.datasheet_url
+          url: strip.product_url, datasheet: strip.datasheet_url, img: strip.img || null
         } : null,
         runs: ledRunsAll().map(function (r) {
           var eng = C.stripRun(r.metres, wpm);

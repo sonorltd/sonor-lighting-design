@@ -1,6 +1,8 @@
-/* Sonor Lighting Design — Tier-3 offline seed (GENERATED 2026-08-20)
+/* Sonor Lighting Design — Tier-3 offline seed (GENERATED 2026-08-20 · v0.2.0 asset-mirrored)
    window.__LIGHTING_SEED__ — snapshot of v_lighting_catalogue (lighting_items ⟕ wq_product_skus).
-   Regenerate: bash data/build-seed.sh. NO trade pricing beyond the WQ join columns.
+   img = lighting-assets bucket mirror (CORS-open for PDF embedding); originals in metadata.img_src;
+   metadata.datasheet_mirror = bucket-mirrored manufacturer PDF for inline appending.
+   Regenerate: bash data/build-seed.sh.
 */
 (function () {
   window.__LIGHTING_SEED__ = { generated: '2026-08-20', items:
@@ -31,7 +33,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/wiring-accessories/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SWITCH-BS-CERT.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/76878.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-wiring-accessories.png",
   "specs": {
    "voltage": "AC220-240V 50/60Hz",
    "finishes": [
@@ -46,8 +48,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/76878.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/76878.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-wiring-accessories.pdf"
   },
   "enabled": true,
   "sort_order": 90,
@@ -79,7 +83,7 @@
   "product_url": "https://www.lightingoflondon.co/product/demo-kit/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-demo-kit.png",
   "specs": {
    "finishes": [
     "Core Range kit",
@@ -94,6 +98,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/3-56.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/4-55.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/1.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -129,7 +134,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/casambi/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/400200304601-SRP-CS9105-24-150LCVT-instruction.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/CASAMBI.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-casambi.png",
   "specs": {
    "voltage": "CV: 24VDC 6.25A 150W; CC: 6-42VDC 100-700mA 15W; sensor 12-24VDC"
   },
@@ -138,8 +143,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/CASAMBI.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/CASAMBI.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/SR-CS9030A-PIR-D-instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/SR-CS9030A-PIR-D-instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-casambi.pdf"
   },
   "enabled": true,
   "sort_order": 90,
@@ -173,7 +180,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/zigbee/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/06/CC-ZIGBEE-DRIVER-15W.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/Casambi-remote-control.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-zigbee.png",
   "specs": {
    "voltage": "CV: 24VDC 150W max; CC: 6-42V 15W max; 2.4GHz, 30m range"
   },
@@ -182,8 +189,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/Casambi-remote-control.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/Casambi-remote-control.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/150W-2-CHANNEL-SRP-ZG9105-24-150LCVT-instruction1.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/10/150W-2-CHANNEL-SRP-ZG9105-24-150LCVT-instruction1.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-zigbee.pdf"
   },
   "enabled": true,
   "sort_order": 90,
@@ -215,7 +224,7 @@
   "product_url": "https://www.lightingoflondon.co/product/lens-filters/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/05/Lenses.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-57.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-lens-filters.png",
   "specs": {
    "finishes": [
     "Frosted",
@@ -232,6 +241,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/3-57.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/4-56.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-57.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -265,7 +275,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/demo-kit/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/09/DSC_0643.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-demo-kit.jpg",
   "specs": {
    "finishes": [
     "Solid Brass",
@@ -289,6 +299,7 @@
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/09/DSC_0643.jpg",
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/78-Demo-Box-scaled.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/09/DSC_0643.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -325,7 +336,7 @@
   "product_url": "https://www.ultraleds.co.uk/0-1-10v-push-dim-dimmer-driver-max-12a",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/ff98cdb6/6640b18d4d66a3001872aebb/DATA%20SHEET%20-%20PSCONN-110VPUSHDIM.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2830/29041/PSCONN-110VPUSHDIM_Dimmer_1__83643__95701.1772121102.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-010v-push-dim-dimmer-1ch.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 480,
@@ -337,8 +348,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2830/29041/PSCONN-110VPUSHDIM_Dimmer_1__83643__95701.1772121102.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2830/29041/PSCONN-110VPUSHDIM_Dimmer_1__83643__95701.1772121102.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-010v-push-dim-dimmer-1ch.pdf"
   },
   "enabled": true,
   "sort_order": 70,
@@ -372,7 +385,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-dmx-12-24v-led-decoder-24-channel-5a-rgb-ip20",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/7627a99a/69973001d0ccec645000004c/USER%20MANUAL%20-%2024CH5ADMXDEC.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4201/28507/24CH5ADMXDEC_MAIN__68337.1771951573.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-dmx-decoder-24ch.jpg",
   "specs": {
    "ip": "IP20",
    "voltage": "12-24V DC",
@@ -383,8 +396,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4201/28507/24CH5ADMXDEC_MAIN__68337.1771951573.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4201/28507/24CH5ADMXDEC_MAIN__68337.1771951573.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-dmx-decoder-24ch.pdf"
   },
   "enabled": true,
   "sort_order": 70,
@@ -419,7 +434,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-rf-2-4ghz-wi-fi-12-24v-5-in-1-led-controller-5-channel-single-colour-rgb-cct-ip20",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/7cc9f1d9/68f5ff99f4dc636dea00008b/DATA%20SHEET%20-%20PSCONN-5IN1WIFIRCVRB.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3992/28017/PSCONN-5IN1WIFIRCVR_Controller_1__39508__09939.1771944771.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-5in1-rf-wifi-controller.jpg",
   "specs": {
    "ip": "IP20",
    "voltage": "12-24V DC",
@@ -430,8 +445,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3992/28017/PSCONN-5IN1WIFIRCVR_Controller_1__39508__09939.1771944771.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3992/28017/PSCONN-5IN1WIFIRCVR_Controller_1__39508__09939.1771944771.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-5in1-rf-wifi-controller.pdf"
   },
   "enabled": true,
   "sort_order": 70,
@@ -463,7 +480,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-rf-2-4ghz-12-24v-in-line-led-dimmer-2-channel-10a-cct-tunable-white",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/2334fca8/69bbb124d0ccec709100004c/DATA%20SHEET%20-%202CH10ADIM.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4209/31649/2CH10ADIM_MAIN__41875.1777970731.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-inline-cct-dimmer-2ch.jpg",
   "specs": {
    "ip": "IP20",
    "voltage": "12-24V DC",
@@ -474,8 +491,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4209/31649/2CH10ADIM_MAIN__41875.1777970731.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4209/31649/2CH10ADIM_MAIN__41875.1777970731.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-inline-cct-dimmer-2ch.pdf"
   },
   "enabled": true,
   "sort_order": 70,
@@ -510,7 +529,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-12-24v-zigbee-rf-tuya-led-controller-max-15-5a-5-channels-ip20",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/3b8a5c53/670545997e3d8151df000055/DATA%20SHEET%20-%20TAG-ZB12243A.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3610/27947/TAG-ZB12243A_1__25453.1771942087.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-zigbee-5ch-controller.jpg",
   "specs": {
    "ip": "IP20",
    "voltage": "12-24V DC",
@@ -521,8 +540,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3610/27947/TAG-ZB12243A_1__25453.1771942087.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3610/27947/TAG-ZB12243A_1__25453.1771942087.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-zigbee-5ch-controller.pdf"
   },
   "enabled": true,
   "sort_order": 70,
@@ -561,7 +582,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/constant-current-led-driver/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/TCI-CC-DALI-26W-2.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-constant-current-led-driver.png",
   "specs": {
    "ip": "IP20",
    "voltage": "Output 100-1050mA / 2-54V DC by model; input 100-264V AC",
@@ -573,6 +594,7 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/TCI-CC-DALI-26W-2.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/TCI-CC-DALI-26W-2.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -612,7 +634,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/constant-voltage-led-driver/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/06/TCI-CV-ON-OFF-150W.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/06/TCI-CV-ON-OFF-150W.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-constant-voltage-led-driver.png",
   "specs": {
    "ip": "IP20 (most) / IP67 (MeanWell CV 150W)",
    "voltage": "60W/100W/120W/150W; output 24VDC (9-42Vdc LTECH 48V models); input 220-240VAC (200-305VAC MeanWell)"
@@ -622,8 +644,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/06/TCI-CV-ON-OFF-150W.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/06/TCI-CV-ON-OFF-150W.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-constant-voltage-led-driver.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -658,7 +682,7 @@
   "product_url": "https://www.lightingoflondon.co/product/driver-box/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/DriverBox.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2022/07/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-driver-box.png",
   "specs": {
    "watts": 150,
    "finishes": [
@@ -672,8 +696,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2022/07/1.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2022/07/1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-driver-box.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -709,7 +735,7 @@
   "product_url": "https://www.lightingoflondon.co/product/magtrak-150/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/MagtrakDriver.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2023/09/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-magtrak-150.png",
   "specs": {
    "ip": "IP20",
    "watts": 150,
@@ -720,8 +746,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2023/09/1.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2023/09/1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-magtrak-150.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -753,7 +781,7 @@
   "product_url": "https://www.ultraleds.co.uk/mean-well-hlg-series-24v-constant-voltage-led-driver-320w-ip65",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/313a7dcb/6640b1884d66a3001872adb2/HLG-320H-SPEC.PDF",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2648/29277/HLG-320_24A_W__68153.1772122276.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-meanwell-hlg-320h-24a.jpg",
   "specs": {
    "ip": "IP65",
    "watts": 320,
@@ -765,8 +793,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2648/29277/HLG-320_24A_W__68153.1772122276.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2648/29277/HLG-320_24A_W__68153.1772122276.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-meanwell-hlg-320h-24a.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -801,7 +831,7 @@
   "product_url": "https://www.ultraleds.co.uk/mean-well-spwm-24v-constant-voltage-3-in-1-dimmable-led-driver-ip20",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/fe6262ed/69c3c251d0ccec7e3a000046/DATA%20SHEET%20-%20SPWM.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4235/31913/SPWM-24-DALI_MAIN__23814.1781264757.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-meanwell-spwm-24v-3in1-dimmable.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 240,
@@ -813,6 +843,7 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4235/31913/SPWM-24-DALI_MAIN__23814.1781264757.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4235/31913/SPWM-24-DALI_MAIN__23814.1781264757.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -846,7 +877,7 @@
   "product_url": "https://www.ultraleds.co.uk/mean-well-xlg-series-24v-constant-voltage-led-driver-150w-ip67",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/23c73001/6982103f8c0fb3527200005f/1/DATA%20SHEET%20-%20XLG-150.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2635/28472/XLG-150_24__87942__20940__51116__31333.1771951428.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-meanwell-xlg-150-24-a.jpg",
   "specs": {
    "ip": "IP67",
    "watts": 150,
@@ -858,8 +889,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2635/28472/XLG-150_24__87942__20940__51116__31333.1771951428.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2635/28472/XLG-150_24__87942__20940__51116__31333.1771951428.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-meanwell-xlg-150-24-a.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -894,7 +927,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank250/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/PowerBank250.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2021/02/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank250.png",
   "specs": {
    "ip": "IP20",
    "watts": 10.5,
@@ -906,8 +939,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2021/02/1.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Powerbank250.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2021/02/1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank250.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -942,7 +977,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank250-dali/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/PowerBank250D.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2021/04/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank250-dali.png",
   "specs": {
    "ip": "IP20",
    "watts": 14.7,
@@ -953,8 +988,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2021/04/1.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2021/04/1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank250-dali.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -989,7 +1026,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank350-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank350L.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-61.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank350-l.png",
   "specs": {
    "ip": "IP20",
    "watts": 14.7,
@@ -1000,8 +1037,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-61.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-61.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank350-l.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1036,7 +1075,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank350-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank350M.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-60.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank350-m.png",
   "specs": {
    "ip": "IP20",
    "watts": 8.4,
@@ -1047,8 +1086,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-60.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-60.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank350-m.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1083,7 +1124,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank350-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank350S.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2020/11/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank350-s.png",
   "specs": {
    "ip": "IP20",
    "watts": 4.2,
@@ -1094,8 +1135,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2020/11/1.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2020/11/1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank350-s.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1130,7 +1173,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank350-xl/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/PowerBank350XL.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-62.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank350-xl.png",
   "specs": {
    "ip": "IP20",
    "watts": 25,
@@ -1141,8 +1184,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-62.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-62.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank350-xl.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1177,7 +1222,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank500-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank500L.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-59.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank500-l.png",
   "specs": {
    "ip": "IP20",
    "watts": 21,
@@ -1188,8 +1233,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-59.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-59.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank500-l.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1224,7 +1271,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank500-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank500M.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-58.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank500-m.png",
   "specs": {
    "ip": "IP20",
    "watts": 7.5,
@@ -1235,8 +1282,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-58.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-58.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank500-m.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1271,7 +1320,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank700-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank700L.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-64.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank700-l.png",
   "specs": {
    "ip": "IP20",
    "watts": 29.2,
@@ -1282,8 +1331,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-64.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-64.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank700-l.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1318,7 +1369,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank700-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank700M.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-65.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank700-m.png",
   "specs": {
    "ip": "IP20",
    "watts": 16.8,
@@ -1329,8 +1380,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-65.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-65.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank700-m.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1365,7 +1418,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank700-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank700S.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-66.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank700-s.png",
   "specs": {
    "ip": "IP20",
    "watts": 10.5,
@@ -1376,8 +1429,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-66.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-66.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank700-s.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1412,7 +1467,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerbank700-xl/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerbank700XL.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-63.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerbank700-xl.png",
   "specs": {
    "ip": "IP20",
    "watts": 49,
@@ -1423,8 +1478,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-63.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-63.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerbank700-xl.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1459,7 +1516,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerhub-100/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerhub100.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-68.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerhub-100.png",
   "specs": {
    "ip": "IP42",
    "watts": 100,
@@ -1470,8 +1527,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-68.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-68.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerhub-100.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1506,7 +1565,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerhub-150/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Powerhub150.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-69.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerhub-150.png",
   "specs": {
    "ip": "IP42",
    "watts": 150,
@@ -1517,8 +1576,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-69.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-69.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerhub-150.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1553,7 +1614,7 @@
   "product_url": "https://www.lightingoflondon.co/product/powerhub-60/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/PowerHub60.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-67.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-powerhub-60.png",
   "specs": {
    "ip": "IP42",
    "watts": 60,
@@ -1564,8 +1625,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-67.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-67.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-powerhub-60.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1599,7 +1662,7 @@
   "product_url": "https://www.ultraleds.co.uk/0-1-10v-led-dimming-driver-controller-24v-led-driver-100w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/ff98cdb6/6640b18d4d66a3001872aebb/DATA%20SHEET%20-%20PSCONN-110VPUSHDIM.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3437/28376/B-010VCVTR-TAG24V100W-S__69800__10590.1771947569.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-010v-driver-controller-24v-100w.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 100,
@@ -1610,8 +1673,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3437/28376/B-010VCVTR-TAG24V100W-S__69800__10590.1771947569.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3437/28376/B-010VCVTR-TAG24V100W-S__69800__10590.1771947569.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-010v-driver-controller-24v-100w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1646,7 +1711,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-24v-triac-dimmable-constant-voltage-led-driver-100w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/5cbfec7f/66759a207fb8de0012364d82/2/DATA%20SHEET%20-%20TAGTRIAC24V100W.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2560/32292/TAGTRIAC24V100W_2__10710.1778682071.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-triac-24v-100w.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 100,
@@ -1658,8 +1723,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2560/32292/TAGTRIAC24V100W_2__10710.1778682071.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2560/32292/TAGTRIAC24V100W_2__10710.1778682071.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-triac-24v-100w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1691,7 +1758,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-24v-constant-voltage-led-driver-150w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/54918fe1/667599ed7fb8de0012362c5f/41089022/DATA%20SHEET%20-%20TAG24V150W-S.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2623/28971/TAG24V150W-S__67003__04589.1772120576.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-nondim-24v-150w.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 150,
@@ -1703,8 +1770,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2623/28971/TAG24V150W-S__67003__04589.1772120576.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2623/28971/TAG24V150W-S__67003__04589.1772120576.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-nondim-24v-150w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1739,7 +1808,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-24v-200w-constant-voltage-triac-dimmable-led-driver-ip20",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/e5d614cf/6a63380afa3fe1b9aae2e4e1/TAGTRIAC24V200W%20-%20Datasheet.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4285/32476/TAGTRIAC24V200W_MAIN__43903.1785410532.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-triac-24v-200w.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 200,
@@ -1751,8 +1820,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4285/32476/TAGTRIAC24V200W_MAIN__43903.1785410532.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4285/32476/TAGTRIAC24V200W_MAIN__43903.1785410532.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-triac-24v-200w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1787,7 +1858,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-24v-triac-dimmable-constant-voltage-led-driver-30w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/4cf7bb72/66759a227fb8de0012364ea1/DATA%20SHEET%20-%20TAGTRIAC24V30W-V2.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2558/28394/TAGTRIAC24V30W-V2_LED_Driver_1__58969__31668.1771947573.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-triac-24v-30w.png",
   "specs": {
    "ip": "IP20",
    "watts": 30,
@@ -1799,8 +1870,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2558/28394/TAGTRIAC24V30W-V2_LED_Driver_1__58969__31668.1771947573.png"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2558/28394/TAGTRIAC24V30W-V2_LED_Driver_1__58969__31668.1771947573.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-triac-24v-30w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1832,7 +1905,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-24v-constant-voltage-led-driver-60w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/9f17f13d/672b684f588adc3b27000054/c615ee72/DATA%20SHEET%20-%20TAG24V60WB.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2611/21756/TAG24V60WB__22330.1763555507.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-nondim-24v-60w.jpg",
   "specs": {
    "ip": "IP20",
    "watts": 60,
@@ -1844,8 +1917,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2611/21756/TAG24V60WB__22330.1763555507.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2611/21756/TAG24V60WB__22330.1763555507.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-nondim-24v-60w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1880,7 +1955,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-24v-triac-dimmable-constant-voltage-led-driver-75w",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/98e4a548/667599f97fb8de0012363473/DATA%20SHEET%20-%20TAGTRIAC24V75W.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2604/28362/TAGTRIAC24V75W_LED_Driver_2__89162__03730.1771947567.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-triac-24v-75w.png",
   "specs": {
    "ip": "IP20",
    "watts": 75,
@@ -1892,8 +1967,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2604/28362/TAGTRIAC24V75W_LED_Driver_2__89162__03730.1771947567.png"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2604/28362/TAGTRIAC24V75W_LED_Driver_2__89162__03730.1771947567.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-triac-24v-75w.pdf"
   },
   "enabled": true,
   "sort_order": 60,
@@ -1939,7 +2016,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/Alabaster-Luna-57-Downlight-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AL.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/A-03-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster.png",
   "specs": {
    "ip": "IP65 front",
    "cri": 98,
@@ -1958,8 +2035,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/A-03-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/A-03-1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2010,7 +2089,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-curve/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/AFL57-C.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Curve-Trimless-Adjustable-3.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-curve.png",
   "specs": {
    "ip": "IP44 or IP65 front depending on model",
    "cri": 98,
@@ -2035,8 +2114,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Curve-Trimless-Adjustable-3.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Curve-Trimless-Adjustable-3.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-curve.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2088,7 +2169,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-fixed/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/MFL68.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/MFL68.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/MFL68-TL.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-fixed.png",
   "specs": {
    "ip": "IP20 (36mm) / IP65 front (others)",
    "cri": 98,
@@ -2112,8 +2193,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/MFL68-TL.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/MFL68-TL.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-fixed.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2164,7 +2247,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-pinhole/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/AFL57-P.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/57-O-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Pinhole-Trimless-Adjustable.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-pinhole.png",
   "specs": {
    "ip": "IP44 front (50mm) / IP65 front (57/68mm)",
    "cri": 98,
@@ -2180,8 +2263,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Pinhole-Trimless-Adjustable.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Pinhole-Trimless-Adjustable.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-pinhole.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2230,7 +2315,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-semi/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/AFL50-M.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL50-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Semi-Trimless-Adjustable-3.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-semi.png",
   "specs": {
    "ip": "IP44 (50/78mm) / IP65 (57/68mm)",
    "cri": 98,
@@ -2246,8 +2331,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Semi-Trimless-Adjustable-3.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Semi-Trimless-Adjustable-3.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-semi.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2298,7 +2385,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-snoot/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/01/78-Short-Snoot-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/01/AFL7810W-SS.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Bella-Zoom-Trimless-Long-Snoot.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-snoot.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 98,
@@ -2323,8 +2410,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Bella-Zoom-Trimless-Long-Snoot.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Bella-Zoom-Trimless-Long-Snoot.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/12/Short-Snoot-Downligh-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/12/Short-Snoot-Downligh-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-snoot.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2374,7 +2463,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-straight/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/AFL57.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-Straight-Trimless-Adjustable.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-straight.png",
   "specs": {
    "ip": "IP44 front (50mm) / IP65 front (57/68/78mm)",
    "cri": 98,
@@ -2390,8 +2479,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-Straight-Trimless-Adjustable.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-Straight-Trimless-Adjustable.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-straight.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2435,7 +2526,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-wall-washer/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/MFL68-WS.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_MFL68.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Wall-Washer-Trimless.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-wall-washer.png",
   "specs": {
    "ip": "IP65 front",
    "cri": 98,
@@ -2453,8 +2544,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Wall-Washer-Trimless.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/Wall-Washer-Trimless.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/ACME-Downlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-wall-washer.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2498,7 +2591,7 @@
   "product_url": "https://www.lightingoflondon.co/product/aim-70/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Aim70_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/11/AIM.70.24%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/A70-2-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-aim-70.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -2517,8 +2610,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/A70-2-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/A70-2-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-aim-70.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2561,7 +2656,7 @@
   "product_url": "https://www.lightingoflondon.co/product/bloc-p/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BlocP_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/Bloc.P-4x1.5W-3000K-Ra90-35%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocP-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-bloc-p.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -2581,8 +2676,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocP-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/BlocP.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocP-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-bloc-p.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2625,7 +2722,7 @@
   "product_url": "https://www.lightingoflondon.co/product/blocr/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BlocR_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/Bloc.R-4x1.5W-3000K-Ra90-35%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocR-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-blocr.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -2645,8 +2742,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocR-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/BlocR.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocR-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-blocr.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2688,7 +2787,7 @@
   "product_url": "https://www.lightingoflondon.co/product/bloc-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Bloc.S_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/Bloc.S-4x1.5W-3000K-Ra90-35%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocS-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-bloc-s.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -2708,8 +2807,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocS-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-9.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BlocS-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-bloc-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2756,7 +2857,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/evoline/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/ESQ09-SPEC.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/3-Spots-Trimless-Line.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-evoline.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 92,
@@ -2772,8 +2873,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/3-Spots-Trimless-Line.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/3-Spots-Trimless-Line.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-evoline.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2816,7 +2919,7 @@
   "product_url": "https://www.lightingoflondon.co/product/follow-me-p/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/FMP_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/follow-me-p-8W-XHP35-3090-LDK-24D-KG500.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMP-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-follow-me-p.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -2835,8 +2938,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMP-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMP-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-follow-me-p.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2879,7 +2984,7 @@
   "product_url": "https://www.lightingoflondon.co/product/follow-me-r/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/FMR_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/follow-me-r-8W-XHP35-3090-LDK-24D-KG500%E8%9C%82%E5%B7%A2.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMR-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-follow-me-r.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -2898,8 +3003,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMR-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMR-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-follow-me-r.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -2952,7 +3059,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/mood-round/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/AFL75.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/AFL75-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/06/AFL75.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-mood-round.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 98,
@@ -2969,8 +3076,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/06/AFL75.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/06/AFL75.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/MOOD-Downlight-Instruction-1.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/MOOD-Downlight-Instruction-1.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-mood-round.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3010,7 +3119,7 @@
   "product_url": "https://www.lightingoflondon.co/product/orb-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/OrbM_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/Orb.M-15W-3000K-Ra90-35%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbM-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-orb-m.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3029,8 +3138,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbM-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/OrbM.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbM-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-orb-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3071,7 +3182,7 @@
   "product_url": "https://www.lightingoflondon.co/product/orb-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/OrbS_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/12/Orb.S-8W-3000K-Ra90-35%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbS-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-orb-s.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3089,8 +3200,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbS-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/OrbS-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-orb-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3133,7 +3246,7 @@
   "product_url": "https://www.lightingoflondon.co/product/peep/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Peep_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Peep-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-peep.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3153,8 +3266,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Peep-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Peep.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Peep-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/05/Peep.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/05/Peep.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-peep.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3197,7 +3312,7 @@
   "product_url": "https://www.lightingoflondon.co/product/profile-40/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Profile40_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/11/PRO.40.25%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P40-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-profile-40.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3216,8 +3331,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P40-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P40-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-profile-40.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3259,7 +3376,7 @@
   "product_url": "https://www.lightingoflondon.co/product/profile-60/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Profile60_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/PRO.60.20%C2%B0.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P60-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-profile-60.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3278,8 +3395,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P60-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/P60-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-profile-60.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3322,7 +3441,7 @@
   "product_url": "https://www.lightingoflondon.co/product/snug/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Snug_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Snug-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-snug.png",
   "specs": {
    "ip": "IP54",
    "cri": 95,
@@ -3342,8 +3461,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Snug-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Snug.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Snug-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/05/Snug.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/05/Snug.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-snug.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3387,7 +3508,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-globe/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/OGB602.5W-AG.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-03.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-globe.png",
   "specs": {
    "ip": "IP65",
    "cri": 92,
@@ -3405,8 +3526,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-03.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-03.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/Alabaster-Globe-Outdoor-Garden-Spike.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/Alabaster-Globe-Outdoor-Garden-Spike.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-globe.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3450,7 +3573,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-luna/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/OGB542.5W-AL.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-luna.png",
   "specs": {
    "ip": "IP65",
    "cri": 92,
@@ -3468,8 +3591,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/OGB80003W-01.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/Alabaster-LUNA-Outdoor-Garden-Spike.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/Alabaster-LUNA-Outdoor-Garden-Spike.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-luna.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3505,7 +3630,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/dome/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/01/SP1704-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/SP1704-3000K-24-4W.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/DOME.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-dome.png",
   "specs": {
    "ip": "IP65",
    "cri": 92,
@@ -3520,8 +3645,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/DOME.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/DOME.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-dome.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3567,7 +3694,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/edge/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/EG22.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/02/IES_EG2203W.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-edge.png",
   "specs": {
    "ip": "IP65",
    "cri": 92,
@@ -3582,8 +3709,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/EDGE-Outdoor-Garden-Spike.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/EDGE-Outdoor-Garden-Spike.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-edge.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3632,7 +3761,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/focus/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Outdoor-Uplights.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_UL32.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/FOCUS.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-focus.png",
   "specs": {
    "ip": "IP67",
    "cri": 92,
@@ -3650,8 +3779,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/FOCUS.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/FOCUS.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/UL32.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/UL32.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-focus.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3688,7 +3819,7 @@
   "product_url": "https://www.lightingoflondon.co/product/lunar/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Lunar_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2024/02/Lunar-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-lunar.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -3707,8 +3838,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2024/02/Lunar-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2024/02/Lunar-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-lunar.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3747,7 +3880,7 @@
   "product_url": "https://www.lightingoflondon.co/product/mark/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Mark_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/MARK.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Mark-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-mark.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -3765,8 +3898,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Mark-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Mark-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-mark.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3806,7 +3941,7 @@
   "product_url": "https://www.lightingoflondon.co/product/moon/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Moon_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/MOON.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2020/12/Moon-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-moon.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -3825,8 +3960,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2020/12/Moon-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Moon.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2020/12/Moon-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-moon.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3867,7 +4004,7 @@
   "product_url": "https://www.lightingoflondon.co/product/sqube-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/SqubeM_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2024/10/SqubeM-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-sqube-m.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -3886,8 +4023,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2024/10/SqubeM-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/SqubeM.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2024/10/SqubeM-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-sqube-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3928,7 +4067,7 @@
   "product_url": "https://www.lightingoflondon.co/product/sqube-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/SqubeS_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SqubeS-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-sqube-s.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -3946,8 +4085,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SqubeS-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SqubeS-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-sqube-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -3988,7 +4129,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/stick/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/SBG1653-02-SPEC.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/STICK.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-stick.png",
   "specs": {
    "ip": "IP65",
    "cri": 92,
@@ -4003,8 +4144,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/STICK.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/STICK.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-stick.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4040,7 +4183,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-col/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Col-Floor-Light-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/3-01.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-col.jpg",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -4055,8 +4198,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/3-01.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/3-01.jpg",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-col.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4092,7 +4237,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/aura-col/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Col-Table-Light-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-aura-col.jpg",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -4107,8 +4252,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01.jpg",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-aura-col.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4144,7 +4291,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-orb-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Orb-Floor-Light-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/4-1.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-orb-2.jpg",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -4159,8 +4306,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/4-1.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/4-1.jpg",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-orb-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4196,7 +4345,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-orb/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Orb-Table-Light-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/2-01.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-orb.jpg",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -4211,8 +4360,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/2-01.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/2-01.jpg",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-orb.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4252,7 +4403,7 @@
   "product_url": "https://www.lightingoflondon.co/product/blade/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Blade_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BLADE.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Blade-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-blade.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -4270,8 +4421,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Blade-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Blade-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-blade.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4311,7 +4464,7 @@
   "product_url": "https://www.lightingoflondon.co/product/hide/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Hide_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/05/HIDE.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Hide-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-hide.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -4332,8 +4485,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Hide-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Hide-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-hide.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4372,7 +4527,7 @@
   "product_url": "https://www.lightingoflondon.co/product/niche-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/NicheL_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NL-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-niche-l.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -4390,8 +4545,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NL-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NL-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-niche-l.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4430,7 +4587,7 @@
   "product_url": "https://www.lightingoflondon.co/product/niche-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/NicheM_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NM-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-niche-m.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -4448,8 +4605,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NM-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NM-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-niche-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4488,7 +4647,7 @@
   "product_url": "https://www.lightingoflondon.co/product/niche-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/NicheS_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NS-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-niche-s.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -4507,8 +4666,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NS-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/NicheS.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/NS-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-niche-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4548,7 +4709,7 @@
   "product_url": "https://www.lightingoflondon.co/product/pin/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Pin_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/PIN.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Pin-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-pin.png",
   "specs": {
    "ip": "IP65",
    "cri": 95,
@@ -4566,8 +4727,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Pin-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Pin-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-pin.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4601,7 +4764,7 @@
   "product_url": "https://www.lightingoflondon.co/product/seek/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Seek_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/05/SEEK.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Seek-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-seek.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -4621,8 +4784,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Seek-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Seek-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-seek.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4658,7 +4823,7 @@
   "product_url": "https://www.lightingoflondon.co/product/uno/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Uno_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/05/UNO.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Uno-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-uno.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -4678,8 +4843,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Uno-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Uno-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-uno.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4727,7 +4894,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-57/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/57-RECESSED-SPOTLIGHT-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/57-01-2.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-57.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -4743,8 +4910,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/57-01-2.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/57-01-2.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-57.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4795,7 +4964,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-spy/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/50-SPEC-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/11/IES_50-IO.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-In-out-Trimless-Spotlights.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-spy.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 98,
@@ -4810,8 +4979,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-In-out-Trimless-Spotlights.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/05/50-In-out-Trimless-Spotlights.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/09/ACME-In-out-Spotlights-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/09/ACME-In-out-Spotlights-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-spy.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4858,7 +5029,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/artfocus/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/ARTFOCUS-RECESSED-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_36.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/36-Spotlight-01-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-artfocus.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -4878,8 +5049,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/36-Spotlight-01-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/36-Spotlight-01-1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-artfocus.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4926,7 +5099,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/artfocus-36-trimless-spotlight/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/ARTFOCUS-RECESSED-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_36.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/36-Trimless-Spotlight.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-artfocus-36-trimless-spotlight.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -4946,8 +5119,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/36-Trimless-Spotlight.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/36-Trimless-Spotlight.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-artfocus-36-trimless-spotlight.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -4995,7 +5170,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/bella-pro/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/BELLA-PRO-Semi-Recessed-Spotlight-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/IES_RT4106W.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41-PRO.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-bella-pro.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5011,8 +5186,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41-PRO.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41-PRO.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-bella-pro.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5055,7 +5232,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/bella/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/BELLA-Semi-Recessed-Zoomable-Spotlight.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/01/IES_41.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41zoom.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-bella.png",
   "specs": {
    "ip": "IP20",
    "cri": 92,
@@ -5072,8 +5249,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41zoom.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/41zoom.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-bella.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5116,7 +5295,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/contour/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/45-Recessed-Contour-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/07/IES_MARC45.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/Orbit-Framing-03.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-contour.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5136,8 +5315,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/Orbit-Framing-03.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/Orbit-Framing-03.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-contour.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5185,7 +5366,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/divino/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/DIVINO-RECESSED.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_MAR35L.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/35-L-01-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-divino.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5201,8 +5382,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/35-L-01-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/35-L-01-1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/11/RECESSED-SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/11/RECESSED-SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-divino.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5246,7 +5429,7 @@
   "product_url": "https://www.lightingoflondon.co/product/follow-me-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/FMS_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/follow-mes-8W-CITIZEN-1202-3090-HK44-24D-KG-200.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMS-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-follow-me-s.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -5264,8 +5447,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMS-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/FMS-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-follow-me-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5315,7 +5500,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/glamo-pro/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/GLAMO-PRO-RECESSED-Semi-Recessed-Spotlight.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/68spot-ies.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-glamo-pro.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5331,8 +5516,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-01.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-glamo-pro.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5376,7 +5563,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/glamo-zoomable/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/GLAMO-ZOOM-RECESSED-Spotlight-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_68-2.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-02.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-glamo-zoomable.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5396,8 +5583,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-02.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/68-spotlight-02.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-glamo-zoomable.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5451,7 +5640,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/orbit/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/45-ORBIT-Semi-Recessed-Spotlight.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_MAR45.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/55.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-orbit.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5470,8 +5659,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/55.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/07/55.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/11/MOOD-RECESSED-SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/11/MOOD-RECESSED-SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-orbit.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5503,7 +5694,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/orbit-contour/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/ORBIT-CONTOUR-1024x1024.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-orbit-contour.png",
   "specs": {
    "beam_zoom": "framing (adjustable fins)"
   },
@@ -5512,6 +5703,7 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/ORBIT-CONTOUR-1024x1024.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/ORBIT-CONTOUR-1024x1024.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -5555,7 +5747,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/SpotM_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/SPOT.M.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotM-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-m.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -5574,8 +5766,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotM-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotM.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotM-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-spot-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5617,7 +5811,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/SpotS_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/SPOT.S.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotS-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-s.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -5636,8 +5830,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotS-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotS.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotS-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-spot-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5677,7 +5873,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-z/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/SpotZ_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/SPOT.Z-10-Degrees.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotZ-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-z.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -5695,8 +5891,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotZ-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/SpotZ-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-spot-z.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5740,7 +5938,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-globe-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/ALP6003W-AG.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-03.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-globe-2.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5759,8 +5957,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-03.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-03.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-globe-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5804,7 +6004,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-luna-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/ALP5403W-AL.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-luna-2.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -5823,8 +6023,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/Alabaster-Globe-Path-Light-01.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-luna-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5868,7 +6070,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-globe/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-AG-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AG.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-02.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-globe.png",
   "specs": {
    "ip": "IP44 (optional IP65)",
    "cri": 98,
@@ -5886,8 +6088,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-02.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-02.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-globe.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5931,7 +6135,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-AL-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AL.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-2.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -5949,8 +6153,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57-01-01.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -5999,7 +6205,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE57.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-98.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE68.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-2.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -6015,8 +6221,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE68.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/SFE68.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6065,7 +6273,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/artfocus-micro-surface-fixed/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/01/SA36-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_SF36.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/ARTFOCUS-Micro-Surface-Fixed-Spotlight.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-artfocus-micro-surface-fixed.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 92,
@@ -6081,8 +6289,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/ARTFOCUS-Micro-Surface-Fixed-Spotlight.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/04/ARTFOCUS-Micro-Surface-Fixed-Spotlight.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/SURFACE-LIGHT-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-artfocus-micro-surface-fixed.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6126,7 +6336,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/evoline-3/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/ESQ09-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_ESQ09.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/EVOLINE-2.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-evoline-3.png",
   "specs": {
    "ip": "IP20 / IP44 options",
    "cri": 92,
@@ -6141,8 +6351,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/EVOLINE-2.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/EVOLINE-2.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/EVOLINE-Surface-Square-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/10/EVOLINE-Surface-Square-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-evoline-3.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6193,7 +6405,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/glamo-fixed/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/STF68-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/IES_STF68.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SF681.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-glamo-fixed.png",
   "specs": {
    "ip": "IP20 (IP44 option on PRO)",
    "cri": 98,
@@ -6213,8 +6425,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SF681.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SF681.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/08/SPOTLIGHT-installation.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-glamo-fixed.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6246,13 +6460,14 @@
   "product_url": "https://duragreenlighting.co.uk/product/orbit-adjustable/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/ORBIT-ADJUSTABLE.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-orbit-adjustable.png",
   "specs": {},
   "metadata": {
    "notes": "Legacy page - no specs printed; downloads gated behind form. Current ORBIT family specs live on /product/orbit/ (surface variants: 35/45/55/65, DC 36V, 110 lm/W, CRI typ.98).",
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/ORBIT-ADJUSTABLE.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/ORBIT-ADJUSTABLE.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -6305,7 +6520,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-110-3/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/LCP600-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/110.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/LCP600-02-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-110-3.png",
   "specs": {
    "ip": "IP44",
    "cri": 92,
@@ -6321,8 +6536,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/LCP600-02-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/LCP600-02-01.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-110-3.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6366,7 +6583,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-globe-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-AG-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AG.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-02.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-globe-2.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -6384,8 +6601,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-02.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-02.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-globe-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6429,7 +6648,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-luna/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-AL-2.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AL.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-luna.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -6447,8 +6666,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/RTPE57-01-01.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-luna.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6492,7 +6713,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-globe-linear/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL1200-AG.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-02.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-globe-linear.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -6510,8 +6731,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-02.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-02.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-globe-linear.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6555,7 +6778,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/alabaster-luna-linear/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL1200-AL.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-alabaster-luna-linear.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -6573,8 +6796,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/05/STPL-08-01.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-alabaster-luna-linear.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6612,7 +6837,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-col-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Col-Pendant-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-col-2.png",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -6627,8 +6852,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-01-1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-col-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6664,7 +6891,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-orb-3/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Orb-Pendant-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-02-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-orb-3.png",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -6679,8 +6906,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-02-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-02-1.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AURA-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-orb-3.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6735,7 +6964,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/220-240v-tracks/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/MATL45.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_MATL4510W.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/6-04.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-220-240v-tracks.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -6750,8 +6979,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/6-04.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/6-04.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/220V-240V-Track-Lights.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/220V-240V-Track-Lights.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-220-240v-tracks.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6800,7 +7031,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/48v-tracks/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/M2245-SPEC.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/05/IES_M2245-1.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/48V-Tracks.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-48v-tracks.png",
   "specs": {
    "ip": "IP20",
    "cri": 98,
@@ -6821,8 +7052,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/48V-Tracks.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2024/04/48V-Tracks.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/48V-Track-Installation-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2024/08/48V-Track-Installation-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-48v-tracks.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6854,7 +7087,7 @@
   "product_url": "https://www.lightingoflondon.co/product/connectors/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-43.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-connectors.png",
   "specs": {
    "finishes": [
     "Black",
@@ -6867,6 +7100,7 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-43.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-43.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -6910,7 +7144,7 @@
   "product_url": "https://www.lightingoflondon.co/product/dot06/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Dot06_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/DOt06-S-3000K-Ra90-6w-20D_IESNA95.ies.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot6-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-dot06.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -6929,8 +7163,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot6-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Dot6.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot6-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-dot06.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -6973,7 +7209,7 @@
   "product_url": "https://www.lightingoflondon.co/product/dot-12/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Dot12_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/DOt12-S-3000K-Ra90-12w-20D_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot12-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-dot-12.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -6991,8 +7227,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot12-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot12-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-dot-12.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7035,7 +7273,7 @@
   "product_url": "https://www.lightingoflondon.co/product/dot-24/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Dot24_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/DOt24-S-3000K-Ra90-24w-20D_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot24-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-dot-24.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7054,8 +7292,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot24-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot24.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Dot24-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-dot-24.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7098,7 +7338,7 @@
   "product_url": "https://www.lightingoflondon.co/product/focus35/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Focus35_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Pendant35-R-S-3000k-RA90-30D.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Focus35-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-focus35.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7117,8 +7357,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Focus35-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Focus35.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Focus35-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-focus35.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7160,7 +7402,7 @@
   "product_url": "https://www.lightingoflondon.co/product/fold-06/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Fold6_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Fold06-s-3000k-Ra90-20D-8w.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold6-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-fold-06.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7178,8 +7420,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold6-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold6-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-fold-06.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7222,7 +7466,7 @@
   "product_url": "https://www.lightingoflondon.co/product/fold-12/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Fold12_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Fold12-s-3000k-Ra90-20D-16w.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold12-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-fold-12.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7241,8 +7485,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold12-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Fold12.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Fold12-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-fold-12.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7283,7 +7529,7 @@
   "product_url": "https://www.lightingoflondon.co/product/line-20/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Line20_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Linear20-S-3000k-90RA-8w.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line20-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-line-20.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7301,8 +7547,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line20-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line20-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-line-20.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7343,7 +7591,7 @@
   "product_url": "https://www.lightingoflondon.co/product/line-40/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Line40_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/linear40-S-15w-3000k-90_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line40-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-line-40.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7362,8 +7610,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line40-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Line40.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line40-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-line-40.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7404,7 +7654,7 @@
   "product_url": "https://www.lightingoflondon.co/product/line-80/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Line80_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/linear80-S-30w-3000k-90_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line80-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-line-80.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7422,8 +7672,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line80-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line80-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-line-80.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7455,7 +7707,7 @@
   "product_url": "https://www.lightingoflondon.co/product/power-plate/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2022/07/Cover-1-e1771342372947-700x467.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-power-plate.jpg",
   "specs": {
    "finishes": [
     "Black",
@@ -7468,6 +7720,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2022/07/Cover-1-e1771342372947-700x467.jpg",
     "https://www.lightingoflondon.co/wp-content/uploads/2022/07/2-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2022/07/Cover-1-e1771342372947-700x467.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -7504,7 +7757,7 @@
   "product_url": "https://www.lightingoflondon.co/product/magtrak-profiles/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/magtrak-Profiles.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-42.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-magtrak-profiles.png",
   "specs": {
    "finishes": [
     "Black",
@@ -7518,8 +7771,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-42.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/MagProfiles.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-42.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-magtrak-profiles.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7554,7 +7809,7 @@
   "product_url": "https://www.lightingoflondon.co/product/pendant-kit/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2022/03/1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-pendant-kit.png",
   "specs": {
    "finishes": [
     "Black",
@@ -7568,6 +7823,7 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2022/03/1.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2022/03/1.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -7612,7 +7868,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-35/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Spot35_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Spot35-s-3000k-Ra90-20D-5W.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-35.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7631,8 +7887,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/Spot35.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
+   "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-spot-35.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -7675,7 +7933,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-35-t/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Spot35T_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Spot35-s-3000k-Ra90-20D-5W.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35T-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-35-t.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7694,6 +7952,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35T-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35T.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot35T-1-scaled.png",
    "scraped": "2026-08-20",
    "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
   },
@@ -7738,7 +7997,7 @@
   "product_url": "https://www.lightingoflondon.co/product/spot-50/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/05/Spot50_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Spot50-s-3000K-RA90-10W-18D.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot50-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-spot-50.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7757,6 +8016,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot50-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot50.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Spot50-1-scaled.png",
    "scraped": "2026-08-20",
    "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
   },
@@ -7790,7 +8050,7 @@
   "product_url": "https://www.lightingoflondon.co/product/magtrak-surface-kit/",
   "datasheet_url": null,
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-44.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-magtrak-surface-kit.png",
   "specs": {},
   "metadata": {
    "notes": "Magtrak accessory; site categories: Accessories, Magtrak Accessories",
@@ -7799,6 +8059,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/2-44.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2025/12/3-44.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2025/12/1-44.png",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -7841,7 +8102,7 @@
   "product_url": "https://www.lightingoflondon.co/product/wave20/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Wave20_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Wallsher20-s-3000k-90RA-12W-Diffuse_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave20-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-wave20.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7860,6 +8121,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave20-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave20.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave20-1-scaled.png",
    "scraped": "2026-08-20",
    "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
   },
@@ -7902,7 +8164,7 @@
   "product_url": "https://www.lightingoflondon.co/product/wave30/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Wave30_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Wallsher30-s-3000k-90RA-18W-Diffuse_IESNA95.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave30-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-wave30.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7921,6 +8183,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave30-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave30.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Wave30-1-scaled.png",
    "scraped": "2026-08-20",
    "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
   },
@@ -7964,7 +8227,7 @@
   "product_url": "https://www.lightingoflondon.co/product/zoom-55/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Zoom55_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2023/02/Zoom55-s-3000k-Ra90-20D.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Zoom55-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-zoom-55.png",
   "specs": {
    "ip": "IP21",
    "cri": 95,
@@ -7983,6 +8246,7 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Zoom55-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Zoom55.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Zoom55-1-scaled.png",
    "scraped": "2026-08-20",
    "install_url": "https://www.lightingoflondon.co/wp-content/uploads/2024/03/Magtrak-Install-Guide.pdf"
   },
@@ -8026,7 +8290,7 @@
   "product_url": "https://www.lightingoflondon.co/product/beam-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/04/BeamL_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BEAM.L.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2020/12/BeamL-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-beam-l.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8045,8 +8309,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2020/12/BeamL-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/06/BeamL.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2020/12/BeamL-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-beam-l.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8088,7 +8354,7 @@
   "product_url": "https://www.lightingoflondon.co/product/beam-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BeamM_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BEAM.M.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamM-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-beam-m.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8106,8 +8372,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamM-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamM-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-beam-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8149,7 +8417,7 @@
   "product_url": "https://www.lightingoflondon.co/product/beam-s/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BeamS_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BEAM.S.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamS-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-beam-s.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8167,8 +8435,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamS-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamS-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-beam-s.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8210,7 +8480,7 @@
   "product_url": "https://www.lightingoflondon.co/product/beam-s-q/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BeamSQ_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BEAM.S.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamSQ-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-beam-s-q.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8228,8 +8498,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamSQ-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamSQ-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-beam-s-q.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8270,7 +8542,7 @@
   "product_url": "https://www.lightingoflondon.co/product/beam-z/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/BeamZ_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/BEAM.Z-15-Degrees.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamZ-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-beam-z.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8288,8 +8560,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamZ-1-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/BeamZ-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-beam-z.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8329,7 +8603,7 @@
   "product_url": "https://www.lightingoflondon.co/product/tilt-l/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/TiltL_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/TILT.L.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltL-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-tilt-l.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8347,8 +8621,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltL-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltL-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-tilt-l.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8386,7 +8662,7 @@
   "product_url": "https://www.lightingoflondon.co/product/tilt-m/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/TiltM_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/TILT.M.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltM-1-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-tilt-m.png",
   "specs": {
    "ip": "IP67",
    "cri": 95,
@@ -8405,8 +8681,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltM-1-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TILTM-2.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/TiltM-1-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-tilt-m.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8450,7 +8728,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-globe-3/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57X2-AG-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AG.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-globe-3.png",
   "specs": {
    "ip": "IP44 front (optional IP65)",
    "cri": 98,
@@ -8468,8 +8746,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-01.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-globe-3.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8513,7 +8793,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/acme-alabaster-luna-2/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57X2-AL-1.pdf",
   "ies_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/AFL57-AG.zip",
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-02.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-acme-alabaster-luna-2.png",
   "specs": {
    "ip": "Front IP44, optional IP65",
    "cri": 98,
@@ -8531,8 +8811,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-02.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/WE57-01-02.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-acme-alabaster-luna-2.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8568,7 +8850,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-col-3/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Col-Wall-Light.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/6-01-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-col-3.png",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -8584,8 +8866,10 @@
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/6-01-1.png",
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/aura-wall-scaled.jpg"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/03/6-01-1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-col-3.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8621,7 +8905,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/duradecor-aura-orb-4/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/Aura-Orb-Wall-Light-1.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-03-1.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-duradecor-aura-orb-4.png",
   "specs": {
    "cri": 98,
    "watts": 6,
@@ -8636,8 +8920,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-03-1.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/04/1-03-1.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-duradecor-aura-orb-4.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8678,7 +8964,7 @@
   "product_url": "https://duragreenlighting.co.uk/product/radiance/",
   "datasheet_url": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/162-154-Wall-Sconce.pdf",
   "ies_url": null,
-  "img": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/W16225W-01.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/dg-radiance.png",
   "specs": {
    "ip": "IP20",
    "cri": 92,
@@ -8693,8 +8979,10 @@
    "images": [
     "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/W16225W-01.png"
    ],
+   "img_src": "https://duragreenlighting.co.uk/wp-content/uploads/2026/08/W16225W-01.png",
    "scraped": "2026-08-20",
-   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/07/Wall-Sconce-Instruction.pdf"
+   "install_url": "https://duragreenlighting.co.uk/wp-content/uploads/2025/07/Wall-Sconce-Instruction.pdf",
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/dg-radiance.pdf"
   },
   "enabled": true,
   "sort_order": 10,
@@ -8726,7 +9014,7 @@
   "product_url": "https://www.ultraleds.co.uk/plaster-in-standard-recessed-led-aluminium-channel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/71a1df0d/6666f90186b966001247fe1c/1/DATA%20SHEET%20-%206114.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3085/25738/6114__32594.1764337367.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pis24-plaster-in-profile.jpg",
   "specs": {
    "mounting": "plaster-in",
    "width_mm": 23.6,
@@ -8737,8 +9025,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3085/25738/6114__32594.1764337367.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3085/25738/6114__32594.1764337367.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-pis24-plaster-in-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8770,7 +9060,7 @@
   "product_url": "https://www.ultraleds.co.uk/plaster-in-slim-recessed-led-aluminium-channel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/0fcc2fb9/6666f90186b966001247fe13/DATA%20SHEET%20-%205213.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3084/27777/5213-SC-SIL__40274__07650__34135.1771942058.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pism13-plaster-in-slim-profile.png",
   "specs": {
    "mounting": "plaster-in",
    "width_mm": 13,
@@ -8781,8 +9071,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3084/27777/5213-SC-SIL__40274__07650__34135.1771942058.png"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3084/27777/5213-SC-SIL__40274__07650__34135.1771942058.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-pism13-plaster-in-slim-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8814,7 +9106,7 @@
   "product_url": "https://www.ultraleds.co.uk/plaster-in-wall-washer-led-aluminium-profile-18-5mm-x-96-5mm",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/27f6a346/6666f91486b966001247ff0c/DATA%20SHEET%20-%201896SCD.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3245/27730/W-1896-1__68776__85310__87070.1771942047.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-piw19-plaster-in-wall-washer-profile.png",
   "specs": {
    "mounting": "plaster-in",
    "width_mm": 18.5,
@@ -8825,8 +9117,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3245/27730/W-1896-1__68776__85310__87070.1771942047.png"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3245/27730/W-1896-1__68776__85310__87070.1771942047.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-piw19-plaster-in-wall-washer-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8858,7 +9152,7 @@
   "product_url": "https://www.ultraleds.co.uk/standard-v2-with-trim-channel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/3b3c91a2/6666f8ef86b966001247fd36/DATA%20SHEET%20-%202193.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2198/30601/2193-COLOURS__46633.1772531270.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-rs21-recessed-profile.png",
   "specs": {
    "mounting": "recessed",
    "width_mm": 21,
@@ -8869,8 +9163,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2198/30601/2193-COLOURS__46633.1772531270.png"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/2198/30601/2193-COLOURS__46633.1772531270.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-rs21-recessed-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8902,7 +9198,7 @@
   "product_url": "https://www.ultraleds.co.uk/surface-mounted-led-aluminium-channel-20mm-x-16mm",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/4c2b7011/6666f91986b966001247ff74/1/DATA%20SHEET%20-%202016.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3253/30793/Domed_Profile__81404__98213__55740.1772533489.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-sl20-large-surface-profile.jpg",
   "specs": {
    "mounting": "surface",
    "width_mm": 19.5,
@@ -8913,8 +9209,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3253/30793/Domed_Profile__81404__98213__55740.1772533489.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3253/30793/Domed_Profile__81404__98213__55740.1772533489.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-sl20-large-surface-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8946,7 +9244,7 @@
   "product_url": "https://www.ultraleds.co.uk/standard-aluminium-channel-17mm-x-8mm",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/71a1df0d/6666f90586b966001247fe49/1/DATA%20SHEET%20-%20CHAN-178.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3090/23823/178__14564__98225.1755156525.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-ss17-surface-profile.jpg",
   "specs": {
    "mounting": "surface",
    "width_mm": 17,
@@ -8957,8 +9255,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3090/23823/178__14564__98225.1755156525.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3090/23823/178__14564__98225.1755156525.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-ss17-surface-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -8990,7 +9290,7 @@
   "product_url": "https://www.ultraleds.co.uk/small-corner-aluminium-channel-16mm-x-16mm",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/71a1df0d/6666f90386b966001247fe37/1/DATA%20SHEET%20-%20CHAN-1616.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3088/17504/1616__38583__75353.1755156617.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-ssc16-corner-profile.jpg",
   "specs": {
    "mounting": "corner",
    "width_mm": 16,
@@ -9001,8 +9301,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3088/17504/1616__38583__75353.1755156617.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3088/17504/1616__38583__75353.1755156617.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-ssc16-corner-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -9034,7 +9336,7 @@
   "product_url": "https://www.ultraleds.co.uk/extra-deep-aluminium-channel-17-1mm-x-14-5mm",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/9e7453f6/6666f90486b966001247fe40/DATA%20SHEET%20-%20CHAN-171145.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3089/18238/171145__53354__20004.1755156549.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-ssd17-deep-surface-profile.jpg",
   "specs": {
    "mounting": "surface",
    "width_mm": 17.1,
@@ -9045,8 +9347,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3089/18238/171145__53354__20004.1755156549.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3089/18238/171145__53354__20004.1755156549.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-ssd17-deep-surface-profile.pdf"
   },
   "enabled": true,
   "sort_order": 50,
@@ -9083,7 +9387,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-economy-cob-led-strip-light-480-leds-p-m-24v-ip20-10-5wp-m-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/0233991f/694119ba9ba32cc16a04e1a6/EC24-B%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4125/26760/EC24-StripLight-OFF__62818.1782292951.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-economy-ecob-480-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9102,6 +9406,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4125/26760/EC24-StripLight-OFF__62818.1782292951.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4125/26762/EC24-StripLight-ON__94280.1782292951.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4125/26760/EC24-StripLight-OFF__62818.1782292951.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9140,7 +9445,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-economy-cob-led-strip-light-480-leds-p-m-24v-ip65-10-5wp-m-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/ea394155/69411b7d9ba32cc16a04e1c0/EC24-65B%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4126/26768/EC24-IP-StripLight-OFF__47461.1782292952.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-economy-ecob-480-24v-ip65.jpg",
   "specs": {
    "ip": "IP65",
    "cri": 90,
@@ -9159,6 +9464,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4126/26768/EC24-IP-StripLight-OFF__47461.1782292952.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4126/26770/EC24-IP-StripLight-ON__39362.1782292953.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4126/26768/EC24-IP-StripLight-OFF__47461.1782292952.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9197,7 +9503,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-economy-plus-cob-led-strip-light-e-cob-mini-cut-480-leds-p-m-24v-ip20-12w-m-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/6b24d8b4/69e888c4c0dad9d86a063c6e/EC24-MINI%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4274/32195/EC24-MINI-StripLight-OFF__01867.1782293020.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-economy-plus-ecob-mini-cut-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9216,6 +9522,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4274/32195/EC24-MINI-StripLight-OFF__01867.1782293020.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4274/32197/EC24-MINI-StripLight-ON__98421.1782293020.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4274/32195/EC24-MINI-StripLight-OFF__01867.1782293020.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9249,7 +9556,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-cob-led-strip-light-576-leds-p-m-24v-ip20-19-8wp-m-2700k-6500k-5-50m-reel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/8a8565ca/6904735a1316e40d821dce94/TP24-276KCOB%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4039/31419/TP24-2765K-COB-StripLight-OFF__97686.1773839137.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-cob-cct-576-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9269,6 +9576,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4039/31419/TP24-2765K-COB-StripLight-OFF__97686.1773839137.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4039/31423/TP24-2765K-COB-StripLight-ON__75103.1773839137.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4039/31419/TP24-2765K-COB-StripLight-OFF__97686.1773839137.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9302,7 +9610,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-pro-cob-led-strip-light-576-leds-p-m-24v-ip67-19-8wp-m-cct-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/87d1ab87/6967b3252e23007bb2e00b72/TP24-2765KCOB-67%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4096/31408/TP24-2765K-COB-IP-StripLight-OFF__81455.1782292963.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-cob-cct-576-24v-ip67.jpg",
   "specs": {
    "ip": "IP67",
    "cri": 90,
@@ -9322,6 +9630,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4096/31408/TP24-2765K-COB-IP-StripLight-OFF__81455.1782292963.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4096/31410/TP24-2765K-COB-IP-StripLight-4K__96296.1782292963.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4096/31408/TP24-2765K-COB-IP-StripLight-OFF__81455.1782292963.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9360,7 +9669,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-cob-led-strip-light-840-leds-p-m-24v-ip20-18-5wp-m-rgb-w-5-50m-reel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/38deec60/6904a28d1316e40d821dcf57/PC24-RGBW%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4024/27435/PC24-RGBW-StripLight-OFF__50701.1783600497.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-cob-rgbw-840-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9379,6 +9688,66 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4024/27435/PC24-RGBW-StripLight-OFF__50701.1783600497.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4024/27437/PC24-RGBW-StripLight-3K__38414.1783600497.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4024/27435/PC24-RGBW-StripLight-OFF__50701.1783600497.jpg",
+   "scraped": "2026-08-20",
+   "install_url": null
+  },
+  "enabled": true,
+  "sort_order": 40,
+  "wq_sku": null,
+  "wq_cost": null,
+  "wq_sell": null,
+  "wq_labour_mins": null
+ },
+ {
+  "id": "ul-tagra-pro-cob-cut-anywhere-24v-ip67",
+  "category": "cob-strip",
+  "grp": "strip",
+  "name": "Tagra Pro COB LED Strip Light · Cut Anywhere · 320 LEDs/m · 24V · I…",
+  "manufacturer": "UltraLEDs",
+  "supplier": "ultraleds",
+  "range": null,
+  "description": "IP67 waterproof version of the Pro cut-anywhere COB strip for indoor and outdoor installations. Continuous phosphor coating, dot-free output.",
+  "watts": null,
+  "lumens": null,
+  "cct": [
+   2100,
+   2300,
+   3000,
+   4000,
+   6000
+  ],
+  "cri": 90,
+  "beam": [],
+  "ip": "IP67",
+  "dimming": [],
+  "voltage": "24",
+  "price_gbp": 93.6,
+  "price_gbp_max": null,
+  "price_note": "retail inc VAT, from (5m reel; 50m reels available)",
+  "product_url": "https://www.ultraleds.co.uk/tagra-pro-cob-led-strip-light-cut-anywhere-320-leds-p-m-24v-ip67-11-2w-p-m-5-50m-reels",
+  "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/25a210ab/696659402e23007bb2e004aa/PC24-FC-67%20-%20PDS.zip",
+  "ies_url": null,
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-cob-cut-anywhere-24v-ip67.jpg",
+  "specs": {
+   "ip": "IP67",
+   "cri": 90,
+   "reel_m": 5,
+   "voltage": 24,
+   "w_per_m": 11.2,
+   "lm_per_m": 1026,
+   "width_mm": 10,
+   "max_run_m": 5,
+   "leds_per_m": 320,
+   "cut_interval_mm": 3.12
+  },
+  "metadata": {
+   "notes": "Exterior/bathroom-rated counterpart of the IP20 cut-anywhere COB.",
+   "images": [
+    "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27376/PC24-FC-IP-StripLight-OFF__40661.1782292915.jpg",
+    "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27387/PC24-FC-IP-StripLight-ON__79839.1782292915.jpg"
+   ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27376/PC24-FC-IP-StripLight-OFF__40661.1782292915.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9419,7 +9788,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-ip20-24v-professional-cob-cut-anywhere-led-strip-light-11-2w-p-m-5-metres-50-metres",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/b49ac810/69665663bb214090af96143f/PC24-FC%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3606/27337/PC24-FC-StripLight-OFF__80334.1773839195.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-cob-cut-anywhere-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9438,64 +9807,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3606/27337/PC24-FC-StripLight-OFF__80334.1773839195.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3606/27343/PC24-FC-StripLight-ON__33580.1773839196.jpg"
    ],
-   "scraped": "2026-08-20",
-   "install_url": null
-  },
-  "enabled": true,
-  "sort_order": 40,
-  "wq_sku": null,
-  "wq_cost": null,
-  "wq_sell": null,
-  "wq_labour_mins": null
- },
- {
-  "id": "ul-tagra-pro-cob-cut-anywhere-24v-ip67",
-  "category": "cob-strip",
-  "grp": "strip",
-  "name": "Tagra Pro COB LED Strip Light · Cut Anywhere · 320 LEDs/m · 24V · I…",
-  "manufacturer": "UltraLEDs",
-  "supplier": "ultraleds",
-  "range": null,
-  "description": "IP67 waterproof version of the Pro cut-anywhere COB strip for indoor and outdoor installations. Continuous phosphor coating, dot-free output.",
-  "watts": null,
-  "lumens": null,
-  "cct": [
-   2100,
-   2300,
-   3000,
-   4000,
-   6000
-  ],
-  "cri": 90,
-  "beam": [],
-  "ip": "IP67",
-  "dimming": [],
-  "voltage": "24",
-  "price_gbp": 93.6,
-  "price_gbp_max": null,
-  "price_note": "retail inc VAT, from (5m reel; 50m reels available)",
-  "product_url": "https://www.ultraleds.co.uk/tagra-pro-cob-led-strip-light-cut-anywhere-320-leds-p-m-24v-ip67-11-2w-p-m-5-50m-reels",
-  "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/25a210ab/696659402e23007bb2e004aa/PC24-FC-67%20-%20PDS.zip",
-  "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27376/PC24-FC-IP-StripLight-OFF__40661.1782292915.jpg",
-  "specs": {
-   "ip": "IP67",
-   "cri": 90,
-   "reel_m": 5,
-   "voltage": 24,
-   "w_per_m": 11.2,
-   "lm_per_m": 1026,
-   "width_mm": 10,
-   "max_run_m": 5,
-   "leds_per_m": 320,
-   "cut_interval_mm": 3.12
-  },
-  "metadata": {
-   "notes": "Exterior/bathroom-rated counterpart of the IP20 cut-anywhere COB.",
-   "images": [
-    "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27376/PC24-FC-IP-StripLight-OFF__40661.1782292915.jpg",
-    "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4120/27387/PC24-FC-IP-StripLight-ON__79839.1782292915.jpg"
-   ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3606/27337/PC24-FC-StripLight-OFF__80334.1773839195.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -9534,7 +9846,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-ip20-24v-professional-long-run-cob-led-strip-light-8w-m-15-metres",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/45180ff9/675acb123a7fc44808000056/1/DATA%20SHEET%20-%20PC24-LR.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3675/27238/PC24-LR-StripLight-OFF__78181.1773839202.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-long-run-cob-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9553,8 +9865,10 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3675/27238/PC24-LR-StripLight-OFF__78181.1773839202.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3675/27241/PC24-LR-StripLight-ON__65699.1773839203.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3675/27238/PC24-LR-StripLight-OFF__78181.1773839202.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-pro-long-run-cob-24v-ip20.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9591,7 +9905,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-professional-cob-led-strip-light-544-leds-p-m-24v-ip20-11-2wp-m-5-50m-reel",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/2d3499e5/6862558813c6927301000105/1/DATA%20SHEET%20-%20PC24.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3852/27575/PC24-StripLight-OFF__58628.1771935438.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-professional-cob-544-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 90,
@@ -9610,8 +9924,10 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3852/27575/PC24-StripLight-OFF__58628.1771935438.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3852/27578/PC24-StripLight-ON__01744.1771935439.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3852/27575/PC24-StripLight-OFF__58628.1771935438.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-professional-cob-544-24v-ip20.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9643,7 +9959,7 @@
   "product_url": "https://www.lightingoflondon.co/product/cove/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Cove_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Cove-700x560.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-cove.png",
   "specs": {
    "finishes": [
     "Aluminium",
@@ -9658,8 +9974,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Cove-700x560.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Cove-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Cove-700x560.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-cove.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9691,7 +10009,7 @@
   "product_url": "https://www.lightingoflondon.co/product/flush/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Flush_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Flush-700x560.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-flush.png",
   "specs": {
    "finishes": [
     "Aluminium",
@@ -9705,8 +10023,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Flush-700x560.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/flush-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Flush-700x560.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-flush.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9738,7 +10058,7 @@
   "product_url": "https://www.lightingoflondon.co/product/lean/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Lean_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lean-700x560.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-lean.png",
   "specs": {
    "finishes": [
     "Aluminium",
@@ -9752,8 +10072,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lean-700x560.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/lean-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lean-700x560.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-lean.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9785,7 +10107,7 @@
   "product_url": "https://www.lightingoflondon.co/product/line/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Line_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line-700x560.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-line.png",
   "specs": {
    "finishes": [
     "Aluminium",
@@ -9800,8 +10122,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line-700x560.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Line-700x560.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-line.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9838,7 +10162,7 @@
   "product_url": "https://www.lightingoflondon.co/product/linear-240/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/L240_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/Linear.240.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin240-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-linear-240.png",
   "specs": {
    "ip": "IP20 / IP66 Nano",
    "cri": 90,
@@ -9852,8 +10176,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin240-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin240-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-linear-240.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9890,7 +10216,7 @@
   "product_url": "https://www.lightingoflondon.co/product/linear-350/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/L350_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/Linear.350.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin350-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-linear-350.png",
   "specs": {
    "ip": "IP20 / IP66 Nano",
    "cri": 90,
@@ -9905,8 +10231,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin350-scaled.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin350-1024x819.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Lin350-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-linear-350.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9943,7 +10271,7 @@
   "product_url": "https://www.lightingoflondon.co/product/linear-rgbw/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/LRGBW_DS.pdf",
   "ies_url": "https://www.lightingoflondon.co/wp-content/uploads/2021/03/Linear.RGBW_.IES.zip",
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/RGBW-scaled.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-linear-rgbw.png",
   "specs": {
    "ip": "IP20 / IP66 Nano",
    "cri": 90,
@@ -9957,8 +10285,10 @@
    "images": [
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/RGBW-scaled.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/RGBW-scaled.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-linear-rgbw.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -9990,7 +10320,7 @@
   "product_url": "https://www.lightingoflondon.co/product/plaster/",
   "datasheet_url": "https://www.lightingoflondon.co/wp-content/uploads/2026/03/Plaster_DS.pdf",
   "ies_url": null,
-  "img": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Plaster-700x560.png",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/lol-plaster.png",
   "specs": {
    "finishes": [
     "Aluminium",
@@ -10004,8 +10334,10 @@
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Plaster-700x560.png",
     "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Plaster-1-700x560.png"
    ],
+   "img_src": "https://www.lightingoflondon.co/wp-content/uploads/2026/01/Plaster-700x560.png",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/lol-plaster.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -10041,7 +10373,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-ip54-24v-professional-cut-anywhere-horizontal-bend-led-neon-flex-3x6mm-9-0w-p-m-5-metre-kit",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/dca47308/69fca60ff08e2fd69a2a5c1d/NEONTOP306-5MKIT%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3765/28425/NEONTOP306-Z-D-4000K__95024.1771950212.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-joinery-neon-flex-micro-3-5m-kit.jpg",
   "specs": {
    "ip": "IP54",
    "cri": 90,
@@ -10059,6 +10391,7 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3765/28425/NEONTOP306-Z-D-4000K__95024.1771950212.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3765/28425/NEONTOP306-Z-D-4000K__95024.1771950212.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -10098,7 +10431,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-pro-led-neon-flex-horizontal-12-12x17mm-24v-ip67-11wp-m-10m-kit",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/16621464/6887673613c69234670003b5/16746a97/DATA%20SHEET%20-%20NEON1217-10MKIT.pdf",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3914/28858/NEON1217-W-MAIN__42456.1772107273.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-neon-flex-horizontal-12-10m-kit.jpg",
   "specs": {
    "ip": "IP67",
    "cri": 90,
@@ -10116,8 +10449,10 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3914/28858/NEON1217-W-MAIN__42456.1772107273.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3914/28858/NEON1217-W-MAIN__42456.1772107273.jpg",
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-pro-neon-flex-horizontal-12-10m-kit.pdf"
   },
   "enabled": true,
   "sort_order": 40,
@@ -10153,7 +10488,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-pro-led-neon-flex-horizontal-12-12x17mm-rgb-w-24v-ip67-13-2wp-m-10m-kit",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/19032822/69b9187ed09e9e6e4ff5197d/NEON1217-10MKIT-RGBW%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3909/28848/NEON1217-RGBW-MAIN__20334.1772106894.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-pro-neon-flex-horizontal-12-rgbw-10m-kit.jpg",
   "specs": {
    "ip": "IP67",
    "cri": 90,
@@ -10171,6 +10506,7 @@
    "images": [
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3909/28848/NEON1217-RGBW-MAIN__20334.1772106894.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/3909/28848/NEON1217-RGBW-MAIN__20334.1772106894.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -10209,7 +10545,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-precision-pro-series-led-strip-light-240-leds-p-m-24v-ip20-20wp-m-rgb-w-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/95962d7a/69047119fc0fcb37aa190e9e/PP24-RGBW%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4028/27479/PP24-RGBW240-StripLight-OFF__04972.1782292944.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-precision-rgbw-240-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 95,
@@ -10228,6 +10564,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4028/27479/PP24-RGBW240-StripLight-OFF__04972.1782292944.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4028/27482/PP24-RGBW240-StripLight-27K__04282.1782292944.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4028/27479/PP24-RGBW240-StripLight-OFF__04972.1782292944.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -10261,7 +10598,7 @@
   "product_url": "https://www.ultraleds.co.uk/tagra-precision-pro-series-led-strip-light-240-leds-p-m-24v-ip20-24wp-m-2300-6000k-5-50m-reels",
   "datasheet_url": "https://s3-eu-west-1.amazonaws.com/cdn.production.aws.eu-w1.pimberly.com/public/asset/raw/65afde541ba1ead29ea83c67/3c33a7e4/69022b1346d0230ffced51a0/PP24-CCT%20-%20PDS.zip",
   "ies_url": null,
-  "img": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4025/27445/PP24-236K240-StripLight-OFF__60553.1782292934.jpg",
+  "img": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/img/ul-tagra-precision-cct-240-24v-ip20.jpg",
   "specs": {
    "ip": "IP20",
    "cri": 95,
@@ -10281,6 +10618,7 @@
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4025/27445/PP24-236K240-StripLight-OFF__60553.1782292934.jpg",
     "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4025/27451/PP24-236K240-StripLight-27K__50085.1782292934.jpg"
    ],
+   "img_src": "https://cdn11.bigcommerce.com/s-6pzworitz8/images/stencil/384x384/products/4025/27445/PP24-236K240-StripLight-OFF__60553.1782292934.jpg",
    "scraped": "2026-08-20",
    "install_url": null
   },
@@ -10336,7 +10674,8 @@
    "notes": "CRI 80+ only - spec for hidden coves, not visible or colour-critical work.",
    "images": [],
    "scraped": "2026-08-20",
-   "install_url": null
+   "install_url": null,
+   "datasheet_mirror": "https://ysmvklstkzodlocttspy.supabase.co/storage/v1/object/public/lighting-assets/ds/ul-tagra-professional-rgbw-60-24v-ip20.pdf"
   },
   "enabled": true,
   "sort_order": 40,

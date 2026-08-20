@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.1.0)
+# Lighting Design — Claude Code Context (v0.2.0)
 
 > **Spine version: 1.2** (SONOR-APP-SPINE.md)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
@@ -115,6 +115,37 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   lighting_configs saves + `lighting_spec` publish, luxury proposal PDF
   (Intro · Approach · Room-by-room · Fixture spec w/ per-line product/datasheet/
   IES links · Linear LED · Circuits · Scenes · Indicative budget · Detail).
+
+- v0.2.0 (2026-08-20) — **LUXURY PACK REBUILD** (Bryn: "more work on table formatting
+  and including datasheets inline plus product pics... find out more about fancy
+  lighting proposals and make it absolutely brilliant"). Research pass: John Cullen /
+  LDI / Roxburghe-spec luxury lighting documentation conventions.
+  (1) **lighting-assets bucket** (public, ACAO:*): 182 product images + 155
+  manufacturer datasheet PDFs mirrored from the three suppliers (286MB;
+  13 UltraLEDs .zip datasheets skipped, 6 fetch fails). `lighting_items.img`
+  repointed to the bucket (originals in `metadata.img_src`);
+  `metadata.datasheet_mirror` carries the mirrored PDF. Seed regenerated.
+  (2) **PDF v2**: fixture CUT SHEETS one page per type (product photo, spec grid,
+  GENERATED polar intensity curve from beam data, beam-cone diagram, finish
+  options, USED-IN room strip, links); luminaire key on the intro (ref roundels
+  D/S/P/W/PL/LP/C/LV/E/ST); layers-of-light vector diagram on the approach page;
+  room-by-room rebuilt to the researched table law (grouped floor headers with
+  room/fitting/W summaries, ref-code fixture summaries, level bars vs target,
+  fixed collision-proof columns); circuits table rebuilt (column headers, room
+  shown once per group, short load types, orphan control, singular/plural);
+  scenes gain dim-level bars parsed from the seed notes; **manufacturer data
+  sheets appended inline** at the back (≤3 pages each, dark APPENDIX stamp bar
+  + pagination on every appended page).
+  (3) App: whole-layer lux estimates (all counted fittings, published or
+  typical outputs — no more downlight-only pessimism), product thumbnail in the
+  fixture picker, richer pdfModel (refs, usedIn, imgs, dsMirror), expanded
+  ff-ligature dictionary (baffle→louvre, diffused→softened, offer→provide,
+  effect→look…). (4) **Yellow tinge** (Bryn): amber radials strengthened across
+  the .sc canvas + hero (mirrors Cinema Aesthetic's purple), active pills amber,
+  NEW yellow favicons (house mark on dark / dark on service-04 yellow).
+  Headless-verified end-to-end: 32-page pack rendered + eyeballed (photos,
+  polar plots, appendix stamps); sandbox Chromium needed a curl route shim for
+  supabase fetches — production browsers unaffected.
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).
