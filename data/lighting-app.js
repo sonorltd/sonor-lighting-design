@@ -549,13 +549,30 @@
     });
     return out;
   }
-  // ── v0.3.0 — keypad specification per room (finish · buttons · engravings) ──
-  function finishOf(id) { return (CFG.keypadFinishes || []).find(function (f) { return f.id === id; }) || (CFG.keypadFinishes || [])[0] || { id: 'matt-white', label: 'Matt White', hex: '#f2f0ec', txt: '#5a544a' }; }
+  // ── v0.3.0/v0.4.0 — keypad specification per room, range-aware per control
+  //    system (Control4 → the official Lux by Control4 finish palette) ──
+  function activeKpRange() {
+    var r = (CFG.keypadRanges || {})[cfg.control.system];
+    if (r && r.finishes && r.finishes.length) return r;
+    return { label: null, note: null, finishes: CFG.keypadFinishes || [], buttons: CFG.keypadButtons || [2, 4, 6, 8] };
+  }
+  function finishOf(id) {
+    var rng = activeKpRange();
+    return rng.finishes.find(function (f) { return f.id === id; }) ||
+      (CFG.keypadFinishes || []).find(function (f) { return f.id === id; }) ||   // saved design from another system
+      rng.finishes[0] || { id: 'matt-white', label: 'Matt White', hex: '#f2f0ec', txt: '#5a544a' };
+  }
+  function validFinish(id) {
+    var rng = activeKpRange();
+    return rng.finishes.some(function (f) { return f.id === id; }) ? id : (rng.finishes[0] || {}).id;
+  }
   function kpDefaults(room) {
+    var rng = activeKpRange();
     var seeds = ((CFG.sceneSeeds || {})[room.type] || (CFG.sceneSeeds || {})._default || []);
+    var maxB = rng.buttons[rng.buttons.length - 1] || 8;
     return {
-      finish: (cfg.keypads && cfg.keypads.finishDefault) || 'matt-white',
-      buttons: Math.min(Math.max(seeds.length, 2), 8),
+      finish: validFinish((cfg.keypads && cfg.keypads.finishDefault) || (rng.finishes[0] || {}).id),
+      buttons: Math.min(Math.max(seeds.length, 2), maxB),
       engravings: seeds.map(function (s) { return s.label; }),
       location: ''
     };
@@ -563,10 +580,12 @@
   function kpFor(room) {
     var d = kpDefaults(room);
     var o = ((cfg.keypads || {}).rooms || {})[room.id] || {};
+    var rng = activeKpRange();
+    var maxB = rng.buttons[rng.buttons.length - 1] || 8;
     return {
-      finish: o.finish || d.finish,
-      buttons: o.buttons || d.buttons,
-      engravings: (o.engravings && o.engravings.length ? o.engravings : d.engravings).slice(0, o.buttons || d.buttons),
+      finish: o.finish ? validFinish(o.finish) : d.finish,
+      buttons: Math.min(o.buttons || d.buttons, maxB),
+      engravings: (o.engravings && o.engravings.length ? o.engravings : d.engravings).slice(0, Math.min(o.buttons || d.buttons, maxB)),
       location: o.location || d.location
     };
   }
@@ -586,13 +605,19 @@
   function keypadRooms() { return cfg.rooms.filter(function (r) { return (r.keypads || 0) > 0; }); }
   function keypadEditorHtml() {
     var rooms = keypadRooms();
-    var h = '<div class="panel"><div class="ptt">Keypads by room <span class="opt-tag">· finish, buttons + engravings — drawn on the proposal</span></div>';
-    h += '<div class="lbl">House finish</div><div class="opts">';
-    (CFG.keypadFinishes || []).forEach(function (f) {
-      var on = (cfg.keypads.finishDefault || 'matt-white') === f.id;
-      h += '<button class="opt' + (on ? ' on' : '') + '" style="display:inline-flex;align-items:center;gap:7px" onclick="LightingApp.setKpDefault(\'' + f.id + '\')"><span style="width:13px;height:13px;border-radius:4px;background:' + f.hex + ';border:1px solid rgba(255,255,255,.25);display:inline-block"></span>' + esc(f.label) + '</button>';
+    var rng = activeKpRange();
+    var h = '<div class="panel"><div class="ptt">Keypads by room' + (rng.label ? ' · ' + esc(rng.label) : '') + ' <span class="opt-tag">· finish, buttons + engravings — drawn on the proposal</span></div>';
+    if (rng.note) h += '<div class="hint" style="margin:0 0 4px">' + esc(rng.note) + '</div>';
+    var groups = [];
+    rng.finishes.forEach(function (f) { if (groups.indexOf(f.group || '') < 0) groups.push(f.group || ''); });
+    groups.forEach(function (g) {
+      h += '<div class="lbl">' + (g ? esc(g) + ' · house finish' : 'House finish') + '</div><div class="opts">';
+      rng.finishes.filter(function (f) { return (f.group || '') === g; }).forEach(function (f) {
+        var on = validFinish(cfg.keypads.finishDefault || '') === f.id;
+        h += '<button class="opt' + (on ? ' on' : '') + '" style="display:inline-flex;align-items:center;gap:7px" title="' + esc(f.label + (f.code ? ' (' + f.code + ')' : '')) + '" onclick="LightingApp.setKpDefault(\'' + f.id + '\')"><span style="width:13px;height:13px;border-radius:4px;background:' + f.hex + ';border:1px solid rgba(255,255,255,.25);display:inline-block"></span>' + esc(f.label) + '</button>';
+      });
+      h += '</div>';
     });
-    h += '</div>';
     if (!rooms.length) return h + '<div class="hint" style="margin-top:10px">No keypads on the plan yet — keypad symbols on the Takeoffs lighting layer land here.</div></div>';
     rooms.forEach(function (r) {
       var kp = kpFor(r);
@@ -602,9 +627,15 @@
         '<span class="fin-n" style="min-width:150px">' + esc(r.floorCode + ' · ' + r.name) + '</span>' +
         '<span class="hint" style="margin:0">' + r.keypads + '× keypad' + (r.keypads > 1 ? 's' : '') + '</span>' +
         '<select onchange="LightingApp.setKp(\'' + r.id + '\',\'finish\',this.value)">';
-      (CFG.keypadFinishes || []).forEach(function (f) { h += '<option value="' + f.id + '"' + (kp.finish === f.id ? ' selected' : '') + '>' + esc(f.label) + '</option>'; });
+      var rng2 = activeKpRange();
+      var lastG = null;
+      rng2.finishes.forEach(function (f) {
+        if ((f.group || '') !== lastG) { if (lastG !== null) h += '</optgroup>'; if (f.group) h += '<optgroup label="' + esc(f.group) + '">'; lastG = f.group || ''; }
+        h += '<option value="' + f.id + '"' + (kp.finish === f.id ? ' selected' : '') + '>' + esc(f.label + (f.code ? ' (' + f.code + ')' : '')) + '</option>';
+      });
+      if (lastG) h += '</optgroup>';
       h += '</select><select onchange="LightingApp.setKp(\'' + r.id + '\',\'buttons\',this.value)">';
-      (CFG.keypadButtons || [2, 4, 6, 8]).forEach(function (b) { h += '<option value="' + b + '"' + (kp.buttons === b ? ' selected' : '') + '>' + b + ' button</option>'; });
+      (rng2.buttons || [2, 4, 6, 8]).forEach(function (b) { h += '<option value="' + b + '"' + (kp.buttons === b ? ' selected' : '') + '>' + b + ' button</option>'; });
       h += '</select>' +
         '<input style="flex:1;min-width:180px" placeholder="Location note — e.g. door side, bedside left" value="' + esc(kp.location) + '" onchange="LightingApp.setKp(\'' + r.id + '\',\'location\',this.value)">' +
         '</div>' +
@@ -861,9 +892,11 @@
         cct: cfg.cct, dim_to_warm: cfg.dimToWarm,
         scope: cfg.scope || 'full',
         control: cfg.control.system,
+        keypad_range: (activeKpRange() || {}).label || null,
         keypads: keypadRooms().map(function (r) {
           var kp = kpFor(r);
-          return { floor: r.floorCode, room: r.name, qty: r.keypads, finish: kp.finish, buttons: kp.buttons, engravings: kp.engravings, location: kp.location || null };
+          var fin = finishOf(kp.finish);
+          return { floor: r.floorCode, room: r.name, qty: r.keypads, finish: kp.finish, finish_label: fin.label, finish_code: fin.code || null, buttons: kp.buttons, engravings: kp.engravings, location: kp.location || null };
         }),
         totals: { rooms: cfg.rooms.length, fixtures: t.fixtures, led_m: t.ledM, keypads: t.keypads, circuits: deriveCircuits().length },
         picks: Object.keys(cfg.picks).reduce(function (o, k) { o[k] = resolve(cfg.picks[k]); return o; }, {}),
@@ -994,10 +1027,11 @@
             var rows = circuits.filter(function (c) { return c.floorCode === (r.floorCode || 'GF') && c.room === r.name; });
             var kp = (r.keypads || 0) > 0 ? kpFor(r) : null;
             var fin = kp ? finishOf(kp.finish) : null;
+            var rng3 = activeKpRange();
             return {
               name: r.name,
               circuits: rows,
-              keypads: kp ? { qty: r.keypads, buttons: kp.buttons, engravings: kp.engravings.slice(0, kp.buttons), location: kp.location || null, finishLabel: fin.label, finishHex: fin.hex, finishTxtHex: fin.txt } : null
+              keypads: kp ? { qty: r.keypads, buttons: kp.buttons, engravings: kp.engravings.slice(0, kp.buttons), location: kp.location || null, finishLabel: fin.label, finishCode: fin.code || null, finishHex: fin.hex, finishTxtHex: fin.txt, rangeLabel: rng3.label || null } : null
             };
           }).filter(function (r) { return r.circuits.length || r.keypads; })
         };

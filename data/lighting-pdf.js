@@ -491,7 +491,7 @@
           var y0 = y;
           // room header
           P.text(trunc(F.b, r.name, 11, cw - 150), M, y - 9, 11, F.b, COL.INK);
-          if (hasKp) P.trackedRight((r.keypads.qty + '× KEYPAD · ' + String(r.keypads.finishLabel || '').toUpperCase()), A4.w - M, y - 7, 6.5, F.r, COL.GDEEP, 1.2);
+          if (hasKp) P.trackedRight((r.keypads.qty + '× KEYPAD · ' + String(r.keypads.finishLabel || '').toUpperCase() + (r.keypads.finishCode ? ' (' + r.keypads.finishCode + ')' : '')), A4.w - M, y - 7, 6.5, F.r, COL.GDEEP, 1.2);
           P.hline(M, M + cw - 16, y + 5, COL.LINE, 0.6, 0.8);
           y += 20;
           // circuit lines — label | type+control (merged, truncated) | qty | W
@@ -506,7 +506,7 @@
           // keypad spec line under the circuits
           if (hasKp) {
             var engTxt = (r.keypads.engravings || []).join(' · ');
-            P.text(trunc(F.r, 'Keypads: ' + r.keypads.qty + '× ' + r.keypads.buttons + '-button · ' + r.keypads.finishLabel + (r.keypads.location ? ' · ' + r.keypads.location : '') + (engTxt ? '  —  ' + engTxt : ''), 7.5, cw - 20), M, y - 8, 7.5, F.r, COL.GDEEP);
+            P.text(trunc(F.r, 'Keypads: ' + r.keypads.qty + '× ' + r.keypads.buttons + '-button' + (r.keypads.rangeLabel ? ' · ' + r.keypads.rangeLabel : '') + ' · ' + r.keypads.finishLabel + (r.keypads.finishCode ? ' (' + r.keypads.finishCode + ')' : '') + (r.keypads.location ? ' · ' + r.keypads.location : '') + (engTxt ? '  —  ' + engTxt : ''), 7.5, cw - 20), M, y - 8, 7.5, F.r, COL.GDEEP);
             y += 16;
           }
           // mockup in the right column, aligned to the block top

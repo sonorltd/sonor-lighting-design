@@ -13,7 +13,7 @@
 */
 (function () {
   window.__LIGHTING_CONFIG__ = {
-    version: '0.3.0',
+    version: '0.4.0',
     buildDate: '2026-08-20',
     steps: ['Plan', 'Fixtures', 'LED & Drivers', 'Circuits & Scenes', 'Summary'],
 
@@ -125,8 +125,8 @@
       { id: 'others', label: 'Fittings by others', note: 'Fittings supplied + installed by others — Sonor delivers the circuit design, control system, keypads and scenes.' }
     ],
 
-    // ── Keypad finishes (v0.3.0) — architectural plate ladder, drawn on the
-    //    PDF mockups (hex = plate, txt = engraving/button contrast) ──
+    // ── Keypad finishes (v0.3.0) — generic architectural ladder, used when the
+    //    control system has no dedicated range below (hex = plate, txt = engraving) ──
     keypadFinishes: [
       { id: 'matt-white',    label: 'Matt White',      hex: '#f2f0ec', txt: '#5a544a' },
       { id: 'matt-black',    label: 'Matt Black',      hex: '#2b2a28', txt: '#d8d4cc' },
@@ -138,6 +138,42 @@
     ],
     keypadButtons: [2, 4, 6, 8, 10],
     engravingMaxChars: 10,   // typical per-button engraving limit (Rako/Lutron class)
+
+    // ── v0.4.0 — keypad RANGES per control system. Control4 = the official
+    //    Lux by Control4 palette: 19 finishes in three groups (Gloss / Matte /
+    //    Metallic), names + codes verbatim from the Control4 Lux Spec Guide
+    //    (FINISHES & COLORS page); plate hexes sampled from the guide's swatch
+    //    page (matte/gloss) with metallics set editorially against the same
+    //    photography — studio lighting skews raw pixel medians (cinema-palette
+    //    precedent). Laser-engraved backlit buttons; magnetic faceplates. ──
+    keypadRanges: {
+      control4: {
+        label: 'Lux by Control4',
+        note: '19 finishes · laser-engraved backlit buttons · magnetic faceplates',
+        buttons: [1, 2, 3, 4, 5, 6],
+        finishes: [
+          { id: 'c4-wh', code: 'WH', group: 'Gloss',    label: 'White',           hex: '#f4f4f4', txt: '#5a544a' },
+          { id: 'c4-la', code: 'LA', group: 'Gloss',    label: 'Light Almond',    hex: '#e9e2d9', txt: '#5f584c' },
+          { id: 'c4-bl', code: 'BL', group: 'Gloss',    label: 'Black',           hex: '#1d1d1f', txt: '#d8d4cc' },
+          { id: 'c4-sw', code: 'SW', group: 'Matte',    label: 'Snow White',      hex: '#ececec', txt: '#5a544a' },
+          { id: 'c4-bi', code: 'BI', group: 'Matte',    label: 'Biscuit',         hex: '#eae5de', txt: '#5f584c' },
+          { id: 'c4-tp', code: 'TP', group: 'Matte',    label: 'Taupe',           hex: '#d9d0cb', txt: '#54493f' },
+          { id: 'c4-lg', code: 'LG', group: 'Matte',    label: 'Light Gray',      hex: '#dfdee2', txt: '#4d4c50' },
+          { id: 'c4-sg', code: 'SG', group: 'Matte',    label: 'Stone Gray',      hex: '#c6c5ca', txt: '#3f3e44' },
+          { id: 'c4-au', code: 'AU', group: 'Matte',    label: 'Aluminum',        hex: '#cfd0d2', txt: '#3c3d40' },
+          { id: 'c4-cf', code: 'CF', group: 'Matte',    label: 'Coffee',          hex: '#352b29', txt: '#e3d9d0' },
+          { id: 'c4-mb', code: 'MB', group: 'Matte',    label: 'Midnight Black',  hex: '#262526', txt: '#d6d4d0' },
+          { id: 'c4-bs', code: 'BS', group: 'Metallic', label: 'Antique Brass',   hex: '#9b8563', txt: '#2b2113' },
+          { id: 'c4-bz', code: 'BZ', group: 'Metallic', label: 'Antique Bronze',  hex: '#8a6f4d', txt: '#f0e6d4' },
+          { id: 'c4-ag', code: 'AG', group: 'Metallic', label: 'Ash Gray',        hex: '#5c5a58', txt: '#e2e0dc' },
+          { id: 'c4-ch', code: 'CH', group: 'Metallic', label: 'Chrome',          hex: '#c3c7cb', txt: '#33383d' },
+          { id: 'c4-ms', code: 'MS', group: 'Metallic', label: 'Matte Stainless', hex: '#b6b7b5', txt: '#2f302e' },
+          { id: 'c4-sb', code: 'SB', group: 'Metallic', label: 'Satin Bronze',    hex: '#a8875f', txt: '#241a0c' },
+          { id: 'c4-sn', code: 'SN', group: 'Metallic', label: 'Satin Nickel',    hex: '#b5b0a6', txt: '#2f2b24' },
+          { id: 'c4-vb', code: 'VB', group: 'Metallic', label: 'Venetian Bronze', hex: '#3a3230', txt: '#e6ddd2' }
+        ]
+      }
+    },
 
     // ── Control systems ──
     controlSystems: [

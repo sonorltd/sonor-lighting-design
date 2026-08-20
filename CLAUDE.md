@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.3.0)
+# Lighting Design — Claude Code Context (v0.4.0)
 
 > **Spine version: 1.2** (SONOR-APP-SPINE.md)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
@@ -181,6 +181,24 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   circuits table kept as legacy fallback. lighting_spec publishes scope +
   keypads[] (floor/room/qty/finish/buttons/engravings/location). Both scopes
   headless-verified + eyeballed (33pp full / 10pp by-others).
+
+- v0.4.0 (2026-08-20) — **LUX BY CONTROL4 KEYPAD RANGE** (Bryn: "base the control4
+  lighting on lux range of keypads with the proper swatches"). New
+  `config.keypadRanges` (per control system): Control4 = the official **Lux by
+  Control4** palette — all 19 finishes with names + codes VERBATIM from the
+  Control4 Lux Spec Guide (Gloss: White/Light Almond/Black · Matte: Snow White/
+  Biscuit/Taupe/Light Gray/Stone Gray/Aluminum/Coffee/Midnight Black · Metallic:
+  Antique Brass/Antique Bronze/Ash Gray/Chrome/Matte Stainless/Satin Bronze/
+  Satin Nickel/Venetian Bronze). Plate hexes sampled from the guide's swatch
+  page (gloss/matte); metallics set editorially against the same photography
+  (studio lighting skews raw medians — cinema-palette precedent). Buttons 1–6,
+  laser-engraved backlit, magnetic faceplates. Keypad editor becomes range-aware
+  (grouped swatch chips + grouped selects, finish validity on system switch,
+  Rako/Lutron stay on the generic architectural ladder until their ranges are
+  curated); PDF mockups draw the Lux plate colours with finish code in the room
+  chip + 'Lux by Control4' in the keypad spec line; lighting_spec publishes
+  keypad_range + finish_label/finish_code per room. Spec guide source:
+  cdn.prod.website-files.com Control4 Lux Spec Guide PDF (FINISHES & COLORS p10).
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).
