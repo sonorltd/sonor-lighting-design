@@ -167,7 +167,7 @@
       var b2 = lx.specRows(P, F, stats.slice(half), lx.M + colW + 28, y, colW);
       var dy = Math.max(b1, b2) + 22;
       // luminaire key — the pack's index of fixture references
-      P.tracked('LUMINAIRE KEY', lx.M, dy, 6.5, F.r, lx.COL.MUT, 1.5);
+      P.tracked(m.scope === 'others' ? 'LUMINAIRE KEY  ·  FITTINGS SUPPLIED + INSTALLED BY OTHERS' : 'LUMINAIRE KEY', lx.M, dy, 6.5, F.r, lx.COL.MUT, 1.5);
       P.hline(lx.M, lx.A4.w - lx.M, dy + 11, lx.COL.GOLD, 0.8, 0.75);
       var ky = dy + 24;
       (m.fixtures || []).forEach(function (f) {
@@ -420,7 +420,115 @@
     };
   }
 
-  // ── Circuits & control — room shown once, short types, orphan-proof ───────
+  // ── v0.3.0 — keypad faceplate mockup, drawn to the room's finish + engravings ──
+  function rrectFill(P, lx, x, yTop, w, h, r, hexOrRgb, borderRgb) {
+    r = Math.min(r, w / 2, h / 2);
+    var p = 'M ' + r + ',0 H ' + (w - r) + ' A ' + r + ',' + r + ' 0 0 1 ' + w + ',' + r + ' V ' + (h - r) + ' A ' + r + ',' + r + ' 0 0 1 ' + (w - r) + ',' + h + ' H ' + r + ' A ' + r + ',' + r + ' 0 0 1 0,' + (h - r) + ' V ' + r + ' A ' + r + ',' + r + ' 0 0 1 ' + r + ',0 Z';
+    var fill = Array.isArray(hexOrRgb) ? hexOrRgb : lx.hexRgb(hexOrRgb);
+    P.page.drawSvgPath(p, { x: x, y: lx.A4.h - yTop, color: lx.col(fill), borderColor: borderRgb ? lx.col(borderRgb) : undefined, borderWidth: borderRgb ? 0.7 : 0 });
+  }
+  function keypadMockup(P, F, lx, x, yTop, kp) {
+    var COL = lx.COL;
+    var plate = lx.hexRgb(kp.finishHex || '#f2f0ec');
+    var txt = lx.hexRgb(kp.finishTxtHex || '#5a544a');
+    var n = Math.min(Math.max(kp.buttons || (kp.engravings || []).length || 4, (kp.engravings || []).length, 2), 10);
+    var bw = 62, bh = 11.5, gap = 3, pad = 9;
+    var ph = pad * 2 + n * bh + (n - 1) * gap;
+    rrectFill(P, lx, x, yTop, bw, ph, 5, plate, COL.LINE);
+    for (var i = 0; i < n; i++) {
+      var by = yTop + pad + i * (bh + gap);
+      rrectFill(P, lx, x + 6, by, bw - 12, bh, 2.5, plate, txt.map(function (v) { return v; }));
+      // engraving
+      var t = (kp.engravings || [])[i] || '';
+      if (t) P.center(String(t).toUpperCase(), x + bw / 2, by + (bh - 5.2) / 2 - 0.4, 5.2, F.b, txt, 0.6);
+      // LED dot
+      P.dot(x + 9.5, by + bh / 2, 1, txt, null);
+    }
+    return { w: bw, h: ph };
+  }
+
+  // ── v0.3.0 — CONTROL SCHEDULE BY ROOM: circuits + keypad spec + mockups ────
+  function controlPages(m) {
+    var lx = L();
+    var blocks = [];
+    (m.controlByRoom || []).forEach(function (f) {
+      blocks.push({ hdr: f.code });
+      f.rooms.forEach(function (r) { blocks.push({ r: r }); });
+    });
+    if (!blocks.length) return [];
+    var blockH = function (b) {
+      if (b.hdr) return 36;
+      var kpH = b.r.keypads ? Math.max(60, 9 * 2 + Math.min(Math.max(b.r.keypads.buttons, 2), 10) * 14.5 + 26) : 0;
+      var cctH = 24 + b.r.circuits.length * 18 + (b.r.keypads ? 16 : 0) + 14;
+      return Math.max(cctH, kpH + 20);
+    };
+    var pages = [], chunk = [], h = 0;
+    blocks.forEach(function (b) {
+      var need = blockH(b);
+      if (h + need > 545 && chunk.length) { pages.push(chunk); chunk = []; h = 0; }
+      chunk.push(b); h += need;
+    });
+    if (chunk.length) pages.push(chunk);
+    return pages.map(function (pg, pi) {
+      return function (P, F, pageNo, TOTAL) {
+        var M = lx.M, A4 = lx.A4, COL = lx.COL;
+        lx.pageHead(P, F, 'CIRCUITS & CONTROL', pageNo, TOTAL, DOC_LABEL);
+        var y;
+        if (pi === 0) { y = lx.sectionHead(P, F, 'ROOM BY ROOM · CIRCUITS + KEYPADS', 'Circuits & control', blurb(m, 'circuits')); y = Math.max(y, 184); }
+        else { P.tracked('CIRCUITS & CONTROL — CONTINUED', M, 92, 8.5, F.r, COL.GOLD, 2.6); y = 118; }
+        pg.forEach(function (b) {
+          if (b.hdr) {
+            y += 6;
+            P.tracked(String(b.hdr).toUpperCase(), M, y, 8, F.b, COL.GDEEP, 2.2);
+            P.hline(M, A4.w - M, y + 13, COL.GOLD, 0.9, 0.85);
+            y += 28;
+            return;
+          }
+          var r = b.r;
+          var hasKp = !!r.keypads;
+          var kpW = hasKp ? 150 : 0;                 // reserved column for the mockup + caption
+          var cw = A4.w - M * 2 - kpW;
+          var y0 = y;
+          // room header
+          P.text(trunc(F.b, r.name, 11, cw - 150), M, y - 9, 11, F.b, COL.INK);
+          if (hasKp) P.trackedRight((r.keypads.qty + '× KEYPAD · ' + String(r.keypads.finishLabel || '').toUpperCase()), A4.w - M, y - 7, 6.5, F.r, COL.GDEEP, 1.2);
+          P.hline(M, M + cw - 16, y + 5, COL.LINE, 0.6, 0.8);
+          y += 20;
+          // circuit lines — label | type+control (merged, truncated) | qty | W
+          r.circuits.forEach(function (c) {
+            P.text(trunc(F.r, c.label, 9, 148), M, y - 9, 9, F.r, COL.INK2);
+            P.text(trunc(F.r, c.loadType + ' · ' + c.control, 7.5, cw - 240), M + 156, y - 8, 7.5, F.r, COL.MUT);
+            P.right(c.qty + ' ×', M + cw - 56, y - 9, 8.5, F.r, COL.INK2);
+            P.right(c.watts + ' W', M + cw - 16, y - 9, 8.5, F.b, COL.INK);
+            y += 18;
+          });
+          if (!r.circuits.length) { P.text('No lighting circuits — keypad / control point only.', M, y - 9, 8.5, F.r, COL.MUT); y += 18; }
+          // keypad spec line under the circuits
+          if (hasKp) {
+            var engTxt = (r.keypads.engravings || []).join(' · ');
+            P.text(trunc(F.r, 'Keypads: ' + r.keypads.qty + '× ' + r.keypads.buttons + '-button · ' + r.keypads.finishLabel + (r.keypads.location ? ' · ' + r.keypads.location : '') + (engTxt ? '  —  ' + engTxt : ''), 7.5, cw - 20), M, y - 8, 7.5, F.r, COL.GDEEP);
+            y += 16;
+          }
+          // mockup in the right column, aligned to the block top
+          if (hasKp) {
+            var mk2 = keypadMockup(P, F, lx, A4.w - M - 78, y0 + 8, r.keypads);
+            P.tracked('ENGRAVED AS SHOWN', A4.w - M - 78 - 2, y0 + 8 + mk2.h + 6, 5, F.r, COL.MUT, 1);
+            y = Math.max(y, y0 + 8 + mk2.h + 22);
+          }
+          y += 12;
+        });
+        if (pi === pages.length - 1 && m.circuitTotalW) {
+          y += 4;
+          P.hline(M, A4.w - M, y - 2, COL.GOLD, 0.9, 0.9);
+          P.text('Connected lighting load', M, y + 6, 9.5, F.r, COL.INK2);
+          P.right('~' + (Math.round(m.circuitTotalW / 100) / 10) + ' kW', A4.w - M, y + 6, 11, F.b, COL.INK);
+        }
+        lx.pageFoot(P, F);
+      };
+    });
+  }
+
+  // ── legacy fallback — flat circuits table (models without controlByRoom) ───
   function circuitPages(m) {
     var lx = L();
     var rows = [];
@@ -626,8 +734,10 @@
     try { cedia = await lx.loadImage(doc, BASE + 'cedia-member-stacked.png'); } catch (e) {}
     try { var fd = lx.fadePngDataUrl(); if (fd) fadeImg = await doc.embedPng(await lx.fetchBytes(fd)); } catch (e) {}
 
+    // v0.3.0 — fittings by others: circuits/control/scenes document only
+    var byOthers = m.scope === 'others';
     // product photos (mirrored to the lighting-assets bucket — CORS-open)
-    var cutItems = (m.fixtures || []).filter(function (f) { return f.qty || f.name; });
+    var cutItems = byOthers ? [] : (m.fixtures || []).filter(function (f) { return f.qty || f.name; });
     var cutImgs = [];
     for (var ci = 0; ci < cutItems.length; ci++) {
       var im = null;
@@ -635,7 +745,7 @@
       cutImgs.push(im);
     }
     var stripImg = null;
-    if (m.led && m.led.strip && m.led.strip.img) { try { stripImg = await lx.loadImage(doc, m.led.strip.img); } catch (e) {} }
+    if (!byOthers && m.led && m.led.strip && m.led.strip.img) { try { stripImg = await lx.loadImage(doc, m.led.strip.img); } catch (e) {} }
 
     // manufacturer data sheets — fetched from the mirror, appended after the pack
     var DS_PAGE_CAP = 3;
@@ -656,9 +766,11 @@
     var sections = [{ label: 'Introduction', draw: secIntro(m) },
                     { label: 'Design approach', draw: secApproach(m) }];
     roomPages(m).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Room by room' : null, draw: d }); });
-    cutSheetPages(m, cutImgs).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Fixture cut sheets' : null, draw: d }); });
-    var led = secLed(m, stripImg); if (led) sections.push({ label: 'Linear LED', draw: led });
-    circuitPages(m).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Circuits & control' : null, draw: d }); });
+    if (!byOthers) cutSheetPages(m, cutImgs).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Fixture cut sheets' : null, draw: d }); });
+    if (!byOthers) { var led = secLed(m, stripImg); if (led) sections.push({ label: 'Linear LED', draw: led }); }
+    var ctlPages = controlPages(m);
+    if (ctlPages.length) ctlPages.forEach(function (d, i) { sections.push({ label: i === 0 ? 'Circuits & control' : null, draw: d }); });
+    else circuitPages(m).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Circuits & control' : null, draw: d }); });
     var sc = secScenes(m); if (sc) sections.push({ label: 'Scenes', draw: sc });
     var bu = secBudget(m); if (bu) sections.push({ label: 'Indicative budget', draw: bu });
     sections.push({ label: 'The detail', draw: secDetail(m) });

@@ -13,7 +13,7 @@
 */
 (function () {
   window.__LIGHTING_CONFIG__ = {
-    version: '0.2.1',
+    version: '0.3.0',
     buildDate: '2026-08-20',
     steps: ['Plan', 'Fixtures', 'LED & Drivers', 'Circuits & Scenes', 'Summary'],
 
@@ -118,6 +118,26 @@
       { label: 'Path',      note: 'Low-level circulation 10–20% — bedroom to kitchen without glare' },
       { label: 'Goodnight', note: 'Everything out · exterior to security levels · one press' }
     ],
+
+    // ── Scope (v0.3.0) — who supplies + installs the light fittings ──
+    scopeModes: [
+      { id: 'full',   label: 'Fittings by Sonor',  note: 'Full package — fittings specified, supplied and installed by Sonor with the control system.' },
+      { id: 'others', label: 'Fittings by others', note: 'Fittings supplied + installed by others — Sonor delivers the circuit design, control system, keypads and scenes.' }
+    ],
+
+    // ── Keypad finishes (v0.3.0) — architectural plate ladder, drawn on the
+    //    PDF mockups (hex = plate, txt = engraving/button contrast) ──
+    keypadFinishes: [
+      { id: 'matt-white',    label: 'Matt White',      hex: '#f2f0ec', txt: '#5a544a' },
+      { id: 'matt-black',    label: 'Matt Black',      hex: '#2b2a28', txt: '#d8d4cc' },
+      { id: 'brushed-brass', label: 'Brushed Brass',   hex: '#a8894f', txt: '#241f0e' },
+      { id: 'antique-bronze',label: 'Antique Bronze',  hex: '#6b5138', txt: '#e8e0d2' },
+      { id: 'brushed-nickel',label: 'Brushed Nickel',  hex: '#b9b6ae', txt: '#33312c' },
+      { id: 'polished-chrome',label: 'Polished Chrome', hex: '#c9cdd1', txt: '#3a3d40' },
+      { id: 'custom-ral',    label: 'Custom RAL',      hex: '#8f8574', txt: '#f4f1ec' }
+    ],
+    keypadButtons: [2, 4, 6, 8, 10],
+    engravingMaxChars: 10,   // typical per-button engraving limit (Rako/Lutron class)
 
     // ── Control systems ──
     controlSystems: [

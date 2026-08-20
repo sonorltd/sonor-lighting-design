@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.2.1)
+# Lighting Design — Claude Code Context (v0.3.0)
 
 > **Spine version: 1.2** (SONOR-APP-SPINE.md)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
@@ -160,6 +160,27 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   render as 'at quotation' rows instead of vanishing; LED driver count (from
   the run schedule) and the control system (keypad count) ride as allowance
   rows; total relabelled 'priced lines only'; RRP lines note trade terms.
+
+- v0.3.0 (2026-08-20) — **SCOPE + KEYPAD SPECIFICATION** (Bryn: "option overall for
+  if fittings are supplied and installed by others… can it specify keypad finishes
+  etc for each room and potential engravings, perhaps the schedule should be by room").
+  (1) **Scope switch** on the Plan step: 'Fittings by Sonor' (full pack) vs
+  'Fittings by others' — by-others drops cut sheets, data-sheet appendix, Linear
+  LED section and fixture pricing; the pack becomes room targets + circuit
+  schedule + keypad specification + scenes (~10pp vs ~33pp); budget carries the
+  control package only; extra terms line states the split; luminaire key keeps
+  the traced counts captioned 'FITTINGS SUPPLIED + INSTALLED BY OTHERS'.
+  (2) **Keypad specification per room** (Circuits & Scenes step): house finish
+  ladder (Matt White/Black · Brushed Brass · Antique Bronze · Nickel · Chrome ·
+  Custom RAL, config keypadFinishes with plate+engraving hexes), per-room finish/
+  button-count/engraving-lines/location overrides, engravings prefilled from the
+  room type's scene seeds (10-char engraving cap). (3) **Circuits & control
+  rebuilt BY ROOM**: per-room blocks (circuit lines with merged type·control
+  column, qty, W) + drawn KEYPAD FACEPLATE MOCKUPS in the room's finish with
+  engraved scene names ('ENGRAVED AS SHOWN') + per-room keypad caption; flat
+  circuits table kept as legacy fallback. lighting_spec publishes scope +
+  keypads[] (floor/room/qty/finish/buttons/engravings/location). Both scopes
+  headless-verified + eyeballed (33pp full / 10pp by-others).
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).

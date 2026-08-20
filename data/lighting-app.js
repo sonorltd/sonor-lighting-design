@@ -22,8 +22,10 @@
     picks: {},                       // fixtureKindId -> lighting_items id
     cct: 2700,                       // house CCT lead
     dimToWarm: false,
+    scope: 'full',                   // v0.3.0 — 'full' (fittings by Sonor) | 'others' (fittings by others; circuits + control by Sonor)
     led: { stripId: null, profileId: null },
     control: { system: 'rako', notes: '' },
+    keypads: { finishDefault: 'matt-white', rooms: {} },   // v0.3.0 — roomId -> {finish,buttons,engravings[],location}
     sceneNotes: {},                  // roomTypeId -> free text override note
     client: { name: '', project: '' },
     projectId: null,
@@ -228,6 +230,13 @@
   function renderPlan() {
     var t = totalsAcross();
     var h = '<div class="lead"><h2>The fixture plan.</h2><p>Pulled straight from the Takeoffs lighting layer for the active project — counts per room, LED runs and circuit estimates. Adjust anything; add rooms the plan does not cover yet. Takeoffs stays the owner of the drawing.</p></div>';
+    // v0.3.0 — overall scope: who supplies + installs the fittings
+    h += '<div class="panel" style="margin-bottom:14px"><div class="ptt">Scope <span class="opt-tag">· who supplies + installs the light fittings</span></div><div class="mat-grid">';
+    (CFG.scopeModes || []).forEach(function (s) {
+      var on = cfg.scope === s.id;
+      h += '<button class="mcard' + (on ? ' on' : '') + '" onclick="LightingApp.setScope(\'' + s.id + '\')"><div class="mc-name">' + esc(s.label) + '</div><div class="mc-price" style="font-size:10.5px;line-height:1.45">' + esc(s.note) + '</div></button>';
+    });
+    h += '</div>' + (cfg.scope === 'others' ? '<div class="hint" style="margin-top:8px">Fittings-by-others: the proposal drops cut sheets, data sheets and fixture pricing — it delivers the room targets, circuit schedule, keypad specification and scenes.</div>' : '') + '</div>';
     h += '<div class="panel" style="margin-bottom:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">' +
       '<button class="btn ghost" style="padding:10px 20px" onclick="LightingApp.pullPlan()">⟳ Pull from Takeoffs</button>' +
       '<span class="hint" style="margin:0">' + (cfg._planPulledAt
@@ -540,6 +549,70 @@
     });
     return out;
   }
+  // ── v0.3.0 — keypad specification per room (finish · buttons · engravings) ──
+  function finishOf(id) { return (CFG.keypadFinishes || []).find(function (f) { return f.id === id; }) || (CFG.keypadFinishes || [])[0] || { id: 'matt-white', label: 'Matt White', hex: '#f2f0ec', txt: '#5a544a' }; }
+  function kpDefaults(room) {
+    var seeds = ((CFG.sceneSeeds || {})[room.type] || (CFG.sceneSeeds || {})._default || []);
+    return {
+      finish: (cfg.keypads && cfg.keypads.finishDefault) || 'matt-white',
+      buttons: Math.min(Math.max(seeds.length, 2), 8),
+      engravings: seeds.map(function (s) { return s.label; }),
+      location: ''
+    };
+  }
+  function kpFor(room) {
+    var d = kpDefaults(room);
+    var o = ((cfg.keypads || {}).rooms || {})[room.id] || {};
+    return {
+      finish: o.finish || d.finish,
+      buttons: o.buttons || d.buttons,
+      engravings: (o.engravings && o.engravings.length ? o.engravings : d.engravings).slice(0, o.buttons || d.buttons),
+      location: o.location || d.location
+    };
+  }
+  function setKpDefault(id) { cfg.keypads.finishDefault = id; renderStep(); }
+  function setKp(roomId, key, val) {
+    cfg.keypads.rooms = cfg.keypads.rooms || {};
+    var o = cfg.keypads.rooms[roomId] = cfg.keypads.rooms[roomId] || {};
+    o[key] = (key === 'buttons') ? Number(val) : val;
+    if (key === 'finish' || key === 'buttons') renderStep();
+  }
+  function setKpEngr(roomId, csv) {
+    cfg.keypads.rooms = cfg.keypads.rooms || {};
+    var o = cfg.keypads.rooms[roomId] = cfg.keypads.rooms[roomId] || {};
+    var mx = CFG.engravingMaxChars || 10;
+    o.engravings = String(csv || '').split(/[,\n]/).map(function (s) { return s.trim().slice(0, mx); }).filter(Boolean);
+  }
+  function keypadRooms() { return cfg.rooms.filter(function (r) { return (r.keypads || 0) > 0; }); }
+  function keypadEditorHtml() {
+    var rooms = keypadRooms();
+    var h = '<div class="panel"><div class="ptt">Keypads by room <span class="opt-tag">· finish, buttons + engravings — drawn on the proposal</span></div>';
+    h += '<div class="lbl">House finish</div><div class="opts">';
+    (CFG.keypadFinishes || []).forEach(function (f) {
+      var on = (cfg.keypads.finishDefault || 'matt-white') === f.id;
+      h += '<button class="opt' + (on ? ' on' : '') + '" style="display:inline-flex;align-items:center;gap:7px" onclick="LightingApp.setKpDefault(\'' + f.id + '\')"><span style="width:13px;height:13px;border-radius:4px;background:' + f.hex + ';border:1px solid rgba(255,255,255,.25);display:inline-block"></span>' + esc(f.label) + '</button>';
+    });
+    h += '</div>';
+    if (!rooms.length) return h + '<div class="hint" style="margin-top:10px">No keypads on the plan yet — keypad symbols on the Takeoffs lighting layer land here.</div></div>';
+    rooms.forEach(function (r) {
+      var kp = kpFor(r);
+      var fin = finishOf(kp.finish);
+      h += '<div style="border-top:1px solid var(--brd2);padding:12px 0 4px;margin-top:12px">' +
+        '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
+        '<span class="fin-n" style="min-width:150px">' + esc(r.floorCode + ' · ' + r.name) + '</span>' +
+        '<span class="hint" style="margin:0">' + r.keypads + '× keypad' + (r.keypads > 1 ? 's' : '') + '</span>' +
+        '<select onchange="LightingApp.setKp(\'' + r.id + '\',\'finish\',this.value)">';
+      (CFG.keypadFinishes || []).forEach(function (f) { h += '<option value="' + f.id + '"' + (kp.finish === f.id ? ' selected' : '') + '>' + esc(f.label) + '</option>'; });
+      h += '</select><select onchange="LightingApp.setKp(\'' + r.id + '\',\'buttons\',this.value)">';
+      (CFG.keypadButtons || [2, 4, 6, 8]).forEach(function (b) { h += '<option value="' + b + '"' + (kp.buttons === b ? ' selected' : '') + '>' + b + ' button</option>'; });
+      h += '</select>' +
+        '<input style="flex:1;min-width:180px" placeholder="Location note — e.g. door side, bedside left" value="' + esc(kp.location) + '" onchange="LightingApp.setKp(\'' + r.id + '\',\'location\',this.value)">' +
+        '</div>' +
+        '<input style="width:100%;margin-top:8px" placeholder="Engravings, comma-separated (max ' + (CFG.engravingMaxChars || 10) + ' chars each)" value="' + esc(kp.engravings.join(', ')) + '" onchange="LightingApp.setKpEngr(\'' + r.id + '\',this.value)">' +
+        '</div>';
+    });
+    return h + '</div>';
+  }
   function sceneTypesInUse() {
     var seen = {};
     cfg.rooms.forEach(function (r) { seen[r.type] = 1; });
@@ -556,6 +629,7 @@
       h += '<button class="mcard' + (on ? ' on' : '') + '" onclick="LightingApp.setControl(\'' + cs.id + '\')"><div class="mc-name">' + esc(cs.label) + '</div><div class="mc-price" style="font-size:10.5px;line-height:1.45">' + esc(cs.note) + '</div></button>';
     });
     h += '</div><div class="hint" style="margin-top:8px">' + totalsAcross().keypads + ' keypads on the plan · every circuit dimmable unless flagged switched.</div></div>';
+    h += keypadEditorHtml();   // v0.3.0 — finish/buttons/engravings per room
     // circuits per floor
     C.sortFloors(circuits.map(function (c) { return c.floorCode; }).filter(function (v, i, a) { return a.indexOf(v) === i; })).forEach(function (fc) {
       var rows = circuits.filter(function (c) { return c.floorCode === fc; });
@@ -590,6 +664,12 @@
   function budget() {
     var t = totalsAcross();
     var lines = [], total = 0, poa = 0;
+    // v0.3.0 — fittings by others: the budget carries the control package only
+    if (cfg.scope === 'others') {
+      var sys0 = (CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; });
+      if (sys0) { poa++; lines.push({ label: 'Lighting control · ' + sys0.label + ' — dimming, keypads + processing', qty: t.keypads || 1, unit: null, total: null, poa: true, note: (t.keypads || 0) + ' keypads on the plan · light fittings supplied + installed by others' }); }
+      return { lines: lines, total: 0, poa: poa };
+    }
     (CFG.fixtureKinds || []).forEach(function (k) {
       var n = t.byKind[k.id] || 0;
       if (!n) return;
@@ -779,7 +859,12 @@
         source: 'lighting-design', app_version: CFG.version,
         config_id: cfg._savedId || null, updated_at: new Date().toISOString(),
         cct: cfg.cct, dim_to_warm: cfg.dimToWarm,
+        scope: cfg.scope || 'full',
         control: cfg.control.system,
+        keypads: keypadRooms().map(function (r) {
+          var kp = kpFor(r);
+          return { floor: r.floorCode, room: r.name, qty: r.keypads, finish: kp.finish, buttons: kp.buttons, engravings: kp.engravings, location: kp.location || null };
+        }),
         totals: { rooms: cfg.rooms.length, fixtures: t.fixtures, led_m: t.ledM, keypads: t.keypads, circuits: deriveCircuits().length },
         picks: Object.keys(cfg.picks).reduce(function (o, k) { o[k] = resolve(cfg.picks[k]); return o; }, {}),
         strip: strip ? { id: strip.id, name: strip.name, w_per_m: (strip.specs || {}).w_per_m || null } : null,
@@ -810,7 +895,7 @@
       var res = await db.from('lighting_configs').select('id,label,config').eq('id', id).single();
       if (res.data && res.data.config) {
         var c = res.data.config;
-        ['rooms', 'picks', 'cct', 'dimToWarm', 'led', 'control', 'sceneNotes', 'client', '_planPulledAt'].forEach(function (k) { if (c[k] != null) cfg[k] = c[k]; });
+        ['rooms', 'picks', 'cct', 'dimToWarm', 'scope', 'led', 'control', 'keypads', 'sceneNotes', 'client', '_planPulledAt'].forEach(function (k) { if (c[k] != null) cfg[k] = c[k]; });
         cfg._savedId = res.data.id;
         cfg._savedLabel = res.data.label || null;
         cfg.step = STEPS.length; renderStep();
@@ -890,14 +975,33 @@
       quoteRef: cfg._lastRef,
       heroImage: CFG.heroImage || null,
       introText: 'A whole-home lighting design, engineered as one system — layered light, warm colour, considered circuits and scene control. This proposal sets out the fixture specification, the light levels behind it and the control intent; commercials follow on the formal quotation.',
+      scope: cfg.scope || 'full',
+      scopeLabel: ((CFG.scopeModes || []).find(function (s) { return s.id === cfg.scope; }) || {}).label || null,
       stats: [
         ['Rooms', String(cfg.rooms.length)],
-        ['Fittings', String(t.fixtures)],
+        ['Fittings', String(t.fixtures) + (cfg.scope === 'others' ? ' (by others)' : '')],
         t.ledM ? ['Linear LED', t.ledM + ' m'] : null,
         ['Circuits', String(circuits.length)],
         ['Colour', cfg.cct + 'K' + (cfg.dimToWarm ? ' · dim-to-warm' : '')],
-        ['Control', ((CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; }) || {}).label || cfg.control.system]
+        ['Control', ((CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; }) || {}).label || cfg.control.system],
+        ['Keypads', String(t.keypads)]
       ].filter(Boolean),
+      // v0.3.0 — per-room control schedule (keypads + circuits, PDF-drawn mockups)
+      controlByRoom: floors.map(function (fc) {
+        return {
+          code: fc,
+          rooms: roomsOfFloor(fc).map(function (r) {
+            var rows = circuits.filter(function (c) { return c.floorCode === (r.floorCode || 'GF') && c.room === r.name; });
+            var kp = (r.keypads || 0) > 0 ? kpFor(r) : null;
+            var fin = kp ? finishOf(kp.finish) : null;
+            return {
+              name: r.name,
+              circuits: rows,
+              keypads: kp ? { qty: r.keypads, buttons: kp.buttons, engravings: kp.engravings.slice(0, kp.buttons), location: kp.location || null, finishLabel: fin.label, finishHex: fin.hex, finishTxtHex: fin.txt } : null
+            };
+          }).filter(function (r) { return r.circuits.length || r.keypads; })
+        };
+      }).filter(function (f) { return f.rooms.length; }),
       blurbs: CFG.sectionBlurbs || {},
       layers: CFG.layers || [],
       luxEstimated: true,
@@ -998,7 +1102,9 @@
       }),
       houseScenes: CFG.houseScenes || [],
       budget: b.lines.length ? b : null,
-      termsLines: CFG.termsLines || [],
+      termsLines: (cfg.scope === 'others'
+        ? ['Light fittings are supplied and installed by others — this document delivers the room design targets, circuit schedule, control specification, keypad engraving schedule and scenes.']
+        : []).concat(CFG.termsLines || []),
       dateText: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
     };
     deepSafe(m);
@@ -1019,7 +1125,8 @@
     pullPlan: pullPlan, setRoom: setRoom, setCount: setCount, setMix: setMix, setLed: setLed,
     removeRoom: removeRoom, addRoom: addRoom, addFromArea: addFromArea,
     pick: pick, setCct: setCct, setDtw: setDtw, setStrip: setStrip, setProfile: setProfile,
-    setControl: setControl, setClient: setClient,
+    setControl: setControl, setClient: setClient, setScope: function (id) { cfg.scope = id; renderStep(); },
+    setKpDefault: setKpDefault, setKp: setKp, setKpEngr: setKpEngr,
     saveConfig: saveConfig, openSaved: openSaved, savePdf: savePdf,
     openFromOverview: openFromOverview,
     _renderOverview: renderOverview,   // harness hook (headless overview render)
