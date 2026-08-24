@@ -136,10 +136,34 @@
   }
 
   // ── Dark-sky lint (exterior fixtures) ────────────────────────────────────
+  // v0.5.0 — two tiers: hard warn above 3000K, wildlife advisory above 2700K
+  // (amber tuning research: warmer wavelengths are kinder to birds, pollinators
+  // and nocturnal mammals — the 2026 exterior-design consensus).
   function darkSkyLint(cctK) {
     if (!cctK) return null;
     if (cctK > 3000) return { level: 'warn', msg: 'Exterior at ' + cctK + 'K — keep exterior at 3000K or below (2700K or warmer preferred, dark-sky principles)' };
+    var amber = CFG().extAmberMaxK || 2700;
+    if (cctK > amber) return { level: 'info', msg: 'Exterior at ' + cctK + 'K — ' + amber + 'K or warmer amber is kinder to wildlife and the night sky (dark-sky guidance)' };
     return null;
+  }
+
+  // ── v0.5.0 — Part L (dwellings) fixed-lighting check ─────────────────────
+  // Approved Document L: fixed lighting ≥75 luminaire-lumens per circuit-watt.
+  // entries: [{label, qty, lumens, watts}] — entries missing data are skipped
+  // and reported as uncovered; average is total lumens / total circuit watts.
+  function partLCheck(entries) {
+    var min = CFG().partLMinLmw || 75;
+    var totLm = 0, totW = 0, covered = 0, skipped = 0, low = [];
+    (entries || []).forEach(function (e) {
+      if (!e || !e.lumens || !e.watts) { if (e && e.qty) skipped++; return; }
+      var q = e.qty || 1;
+      totLm += e.lumens * q; totW += e.watts * q; covered++;
+      var lmw = e.lumens / e.watts;
+      if (lmw < min) low.push({ label: e.label || 'Fitting', lmw: Math.round(lmw) });
+    });
+    if (!covered) return null;
+    var avg = totLm / totW;
+    return { avgLmw: Math.round(avg), min: min, pass: avg >= min, low: low, covered: covered, skipped: skipped };
   }
 
   // ── Canonical floor sort (GF → 1F → 2F… → BA → EXT) ─────────────────────
@@ -165,7 +189,8 @@
   }
 
   global.SonorLightingCalc = {
-    __version: '0.1.0',
+    __version: '0.5.0',
+    partLCheck: partLCheck,
     achievedLux: achievedLux,
     fittingsNeeded: fittingsNeeded,
     spacing: spacing,

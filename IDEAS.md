@@ -35,3 +35,20 @@
 - **Takeoffs:** stable room/area ids; a `lighting_spec` chip on the lighting
   take-off PDF ("specified: DuraGreen BELLA · 2700K") once published.
 - **Master Hub:** card added at birth (done).
+
+## Feature research 2026-08-20 (Apify sweep)
+Full report: `reports/LIGHTING-FEATURE-RESEARCH_2026-08-20.md`. Prioritised:
+- **Quick (v0.5.x):** Part L 75 lm/circuit-watt efficacy check (data already in
+  library) + one-line compliance statement in PDF; state MF 0.8/UF 0.5 to CIBSE
+  guidance in the PDF; amber ≤2700K wildlife lint for exterior picks; warm-dim
+  range headline on the LED page.
+- **Medium (v0.6):** exterior/garden layer (in-grade, under-cap, moonlight,
+  path, pergola-puck kinds + garden zones + dark-sky statement page); circadian
+  evening-schedule diagram (scene CCT over time); false-colour room level bars
+  vs lux target; shade/climate actions on house scenes.
+- **Larger:** EN 1838 emergency lighting layer; scheduled Apify
+  website-content-crawler refresh of the 3 supplier catalogues diffed against
+  `lighting_items`; Google-Maps underlay for exterior (after garden layer).
+- Research confirms existing asks: IES viewer (IES/LDT is the interchange
+  format), Lutron Palladiom/Alisse/Aviena + Rako keypad ranges (finishes +
+  engraving are the selling surface).

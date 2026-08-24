@@ -1,4 +1,10 @@
-/* Sonor Lighting Design — LIGHTING DESIGN PROPOSAL (v0.2.0)
+/* Sonor Lighting Design — LIGHTING DESIGN PROPOSAL (v0.5.0)
+   v0.5.0 (2026-08-20 Apify feature research): Part L (dwellings) compliance
+   line + CIBSE calculation basis on the approach page · false-colour room
+   level bars (green on target / gold approaching / rust low) · dim-to-warm
+   feature block on the LED page · EXTERIOR & GARDEN page (dark-sky principles
+   + zones) when the plan carries exterior fittings · circadian evening-colour
+   diagram + beyond-lighting scene actions on the scenes page.
    LightingPdf.generate(model) — the client-facing lighting design document,
    built ENTIRELY on the shared SonorPdfLuxury chrome (data/sonor-pdf-luxury.js,
    root master). v0.2.0 rebuilds the pack to luxury lighting-studio standard
@@ -51,10 +57,18 @@
     P.center(String(ref), x + d / 2, yTop + (d - 7) / 2 - 0.5, 7, F.b, [255, 255, 255], 0.5);
     return d;
   }
-  // horizontal level bar (scene levels + room lux) — track + proportional fill
-  function levelBar(P, lx, x, yTop, w, h, pct) {
+  // horizontal level bar (scene levels + room lux) — track + proportional fill.
+  // v0.5.0 — optional fill colour so room bars can grade false-colour style.
+  function levelBar(P, lx, x, yTop, w, h, pct, col) {
     P.rect(x, yTop, w, h, [232, 226, 214], 1);
-    if (pct > 0) P.rect(x, yTop, Math.max(2, w * Math.min(1, pct)), h, lx.COL.GOLD, 1);
+    if (pct > 0) P.rect(x, yTop, Math.max(2, w * Math.min(1, pct)), h, col || lx.COL.GOLD, 1);
+  }
+  // false-colour grade against the room target (muted, luxury palette)
+  var GRADE_GOOD = [122, 140, 98], GRADE_LOW = [176, 108, 60];
+  function gradeCol(lx, pct) {
+    if (pct >= 0.75) return GRADE_GOOD;      // on target
+    if (pct >= 0.5) return lx.COL.GOLD;      // approaching
+    return GRADE_LOW;                        // low — review the layer
   }
   // generated polar intensity curve from beam angle(s) — cos^m lobe model,
   // nadir-down convention, rings at 25/50/75/100%
@@ -226,7 +240,12 @@
         ['Control system', statMap['Control'] || null],
         ['Dimming', 'Every circuit dims — trailing-edge or ELV as the load demands; scenes replace switch banks'],
         ['Exterior', 'Warm, shielded and aimed down — dark-sky principles, timers on a curfew'],
-        ['Colour quality', 'CRI 90 minimum in living spaces — skin, timber and art rendered true']
+        ['Colour quality', 'CRI 90 minimum in living spaces — skin, timber and art rendered true'],
+        // v0.5.0 — calculation basis + Part L compliance, stated like the calc packages do
+        ['Calculation basis', m.calcBasis || null],
+        ['Part L (dwellings)', m.partL
+          ? 'Average ' + m.partL.avg + ' lm per circuit-watt across the specified fittings — minimum ' + m.partL.min + ' for fixed lighting' + (m.partL.pass ? '' : ' · currently below the line, picks under review')
+          : null]
       ];
       lx.specRows(P, F, rows, M, y, A4.w - M * 2 - 40);
       lx.pageFoot(P, F);
@@ -252,6 +271,15 @@
       chunk.push(row); budgetH += need;
     });
     if (chunk.length) pages.push(chunk);
+    // v0.5.0 — orphan control: a continued page never carries fewer than 4
+    // rows (same rule as the circuit schedule) — pull the tail of the previous
+    // page across, floor headers travelling with their rooms
+    if (pages.length > 1) {
+      var last = pages[pages.length - 1], prev = pages[pages.length - 2];
+      while (last.length < 4 && prev.length > 6) last.unshift(prev.pop());
+      // a floor header never dangles at the foot of the previous page
+      if (prev.length && prev[prev.length - 1].hdr) last.unshift(prev.pop());
+    }
     return pages.map(function (pg, pi) {
       return function (P, F, pageNo, TOTAL) {
         var M = lx.M, A4 = lx.A4, COL = lx.COL;
@@ -283,8 +311,8 @@
             P.right(r.target + ' lx target', A4.w - M, y - 8.5, 7.5, F.r, COL.MUT);
             if (r.achieved != null) {
               var pct = r.achieved / r.target;
-              levelBar(P, lx, xTgt, y + 3, 86, 4.5, pct);
-              P.right('~' + r.achieved + ' lx', A4.w - M, y + 1.5, 7.5, F.b, pct >= 0.6 ? COL.GDEEP : [176, 108, 60]);
+              levelBar(P, lx, xTgt, y + 3, 86, 4.5, pct, gradeCol(lx, pct));
+              P.right('~' + r.achieved + ' lx', A4.w - M, y + 1.5, 7.5, F.b, pct >= 0.6 ? COL.GDEEP : GRADE_LOW);
             }
           } else if (r.achieved != null) {
             P.right('~' + r.achieved + ' lx', A4.w - M, y - 8, 7.5, F.b, COL.GDEEP);
@@ -292,7 +320,7 @@
           P.hline(M, A4.w - M, y + 13, COL.LINE, 0.35, 0.55);
           y += 30;
         });
-        P.text('Estimates: lumen method across all counted fittings (published or typical outputs) — linear LED adds on top. Final levels set at commissioning.', M, lx.A4.h - 98, 7.5, F.r, COL.MUT, { maxWidth: lx.A4.w - M * 2, lineHeight: 10 });
+        P.text('Estimates: lumen method to CIBSE guidance (UF 0.5 · MF 0.8) across all counted fittings — linear LED adds on top. Bars grade against the room target: green on target, gold approaching, rust low. Final levels set at commissioning.', M, lx.A4.h - 98, 7.5, F.r, COL.MUT, { maxWidth: lx.A4.w - M * 2, lineHeight: 10 });
         lx.pageFoot(P, F);
       };
     });
@@ -301,7 +329,7 @@
   // ── CUT SHEETS — one page per specified fixture ───────────────────────────
   function cutSheetPages(m, imgs) {
     var lx = L();
-    var items = (m.fixtures || []).filter(function (f) { return f.qty || f.name; });
+    var items = (m.fixtures || []).filter(function (f) { return (f.qty || f.name) && !f.gardenTbc; });
     return items.map(function (f, fi) {
       return function (P, F, pageNo, TOTAL) {
         var M = lx.M, A4 = lx.A4, COL = lx.COL;
@@ -401,6 +429,14 @@
         }
         y += 10;
       }
+      // v0.5.0 — dim-to-warm as a headline, the way the premium control brands sell it
+      if (m.dimToWarm) {
+        P.rect(M, y, A4.w - M * 2, 44, [246, 241, 230], 1);
+        P.rectB(M, y, A4.w - M * 2, 44, COL.GOLD, 0.6);
+        P.tracked('DIM TO WARM', M + 14, y + 15, 7.5, F.b, COL.GDEEP, 2.2);
+        P.text('The light warms towards candlelight as it dims — ' + (m.cct || 2700) + 'K settling to 1800K at low level, flicker-free through the range. One behaviour across downlights and linear, so the whole room moves together.', M + 100, y + 13, 8.5, F.r, COL.INK2, { maxWidth: A4.w - M * 2 - 116, lineHeight: 11.5 });
+        y += 58;
+      }
       P.tracked('RUNS + DRIVERS', M, y, 6.5, F.r, COL.MUT, 1.5);
       P.trackedRight('DRIVERS SIZED WITH 20% HEADROOM', A4.w - M, y, 6.5, F.r, COL.MUT, 1.2);
       P.hline(M, A4.w - M, y + 11, COL.GOLD, 0.8, 0.75);
@@ -416,6 +452,50 @@
       });
       y += 12;
       P.text('Total ' + m.led.totalM + ' m · 24V constant-voltage · aluminium profile throughout · drivers in accessible positions.', M, y - 4, 9, F.r, COL.MUT);
+      lx.pageFoot(P, F);
+    };
+  }
+
+  // ── v0.5.0 — EXTERIOR & GARDEN: dark-sky principles + zones ──────────────
+  function secExterior(m) {
+    if (!m.exterior || !m.exterior.zones || !m.exterior.zones.length) return null;
+    var lx = L();
+    return function (P, F, pageNo, TOTAL) {
+      var M = lx.M, A4 = lx.A4, COL = lx.COL;
+      lx.pageHead(P, F, 'EXTERIOR & GARDEN', pageNo, TOTAL, DOC_LABEL);
+      var y = lx.sectionHead(P, F, 'OUTSIDE, AFTER DARK', 'Exterior & garden', blurb(m, 'exterior'));
+      y = Math.max(y, 188);
+      P.tracked('DESIGN PRINCIPLES', M, y, 6.5, F.r, COL.MUT, 1.5);
+      P.hline(M, A4.w - M, y + 11, COL.GOLD, 0.8, 0.75);
+      y += 27;
+      var prin = [
+        ['Shielded + aimed down', 'Fully shielded fittings — the light lands on the path and the planting, never the sky.'],
+        ['Warm amber', (m.exterior.cct && m.exterior.cct !== 2700 ? m.exterior.cct + 'K specified — ' : '') + '2700K or warmer outside is kinder to wildlife and keeps the night sky dark.'],
+        ['Moonlight, not floodlight', 'Fittings set high in the trees cast soft shadow patterns down — the glow of a full moon, not a security beam.'],
+        ['Grown into the structure', 'Linear light under wall caps and in steps; small uplights recessed into planting — the light is seen, the fitting is not.'],
+        ['On a curfew', 'Timers step the garden down late at night; only path and security levels run past midnight.']
+      ];
+      prin.forEach(function (p, i, arr) {
+        P.text(p[0], M, y - 9, 10, F.b, COL.INK);
+        var lines = lx.wrap(p[1], F.r, 9, A4.w - M * 2 - 170);
+        lines.forEach(function (ln, li) { P.text(ln, M + 162, y - 8.5 + li * 12.5, 9, F.r, COL.INK2); });
+        var rh = Math.max(1, lines.length) * 12.5 + 9;
+        if (i < arr.length - 1) P.hline(M, A4.w - M, y + rh - 8, COL.LINE, 0.35, 0.5);
+        y += rh + 7;
+      });
+      y += 16;
+      P.tracked('GARDEN ZONES', M, y, 6.5, F.r, COL.MUT, 1.5);
+      P.trackedRight('LIT AS ZONES, NEVER AS A WHOLE', A4.w - M, y, 6.5, F.r, COL.MUT, 1.2);
+      P.hline(M, A4.w - M, y + 11, COL.GOLD, 0.8, 0.75);
+      y += 27;
+      (m.exterior.zones || []).slice(0, 12).forEach(function (z, i, arr) {
+        P.text(trunc(F.b, z.name, 10, 150), M, y - 9, 10, F.b, COL.INK);
+        var zl = lx.wrap(z.summary || '', F.r, 8.5, A4.w - M * 2 - 172).slice(0, 2);
+        zl.forEach(function (ln, li) { P.text(ln, M + 162, y - 8.5 + li * 11.5, 8.5, F.r, COL.INK2); });
+        var zh = Math.max(1, zl.length) * 11.5 + 10;
+        if (i < arr.length - 1) P.hline(M, A4.w - M, y + zh - 9, COL.LINE, 0.35, 0.5);
+        y += zh + 6;
+      });
       lx.pageFoot(P, F);
     };
   }
@@ -610,6 +690,48 @@
     if (/bright|clean|100/.test(lbl)) return 1;
     return null;
   }
+  // v0.5.0 — circadian evening-colour diagram: CCT walked down through the
+  // evening (daylight → house lead → candlelight when dim-to-warm is on)
+  function circadianStrip(P, F, lx, x, yTop, w, m) {
+    var COL = lx.COL, A4h = lx.A4.h;
+    P.tracked('THE EVENING, IN COLOUR', x, yTop, 6.5, F.r, COL.MUT, 1.5);
+    P.hline(x, x + w, yTop + 11, COL.GOLD, 0.8, 0.75);
+    var top = yTop + 24, h = 44;
+    var kTop = 4000, kBot = 1800;
+    var yOf = function (K) { return top + 3 + (kTop - K) / (kTop - kBot) * (h - 6); };
+    [4000, 2700, 1800].forEach(function (K) { P.hline(x, x + w, yOf(K), COL.LINE, 0.35, 0.5); });
+    P.right('4000K', x + w - 2, yOf(4000) - 8.5, 5.5, F.r, COL.MUT);
+    P.text('2700K', x + 2, yOf(2700) - 8.5, 5.5, F.r, COL.MUT);
+    P.text('1800K', x + 2, yOf(1800) - 8.5, 5.5, F.r, COL.MUT);
+    var cct = m.cct || 2700;
+    var endK = m.dimToWarm ? 1800 : cct;
+    var anchors = [
+      [0, Math.min(4000, Math.max(cct + 900, 3400))],
+      [0.38, cct],
+      [0.72, m.dimToWarm ? Math.round((cct + endK) / 2) : cct],
+      [1, endK]
+    ];
+    var path = '';
+    for (var i = 0; i < anchors.length - 1; i++) {
+      var a = anchors[i], b = anchors[i + 1];
+      for (var s = 0; s <= 12; s++) {
+        var t = s / 12, tt = (1 - Math.cos(t * Math.PI)) / 2;
+        var px = (a[0] + (b[0] - a[0]) * t) * w;
+        var pk = a[1] + (b[1] - a[1]) * tt;
+        path += (path ? 'L ' : 'M ') + px.toFixed(1) + ',' + (yOf(pk) - top).toFixed(1) + ' ';
+      }
+    }
+    P.page.drawSvgPath(path, { x: x, y: A4h - top, borderColor: lx.col(COL.GDEEP), borderWidth: 1.2, borderOpacity: 0.9 });
+    anchors.forEach(function (ax) { P.dot(x + ax[0] * w, yOf(ax[1]), 2, COL.GOLD); });
+    // labels live on the time axis — the chart itself stays clean
+    var ty = top + h + 10;
+    P.tracked('4 PM · DAYLIGHT', x, ty - 6, 5.5, F.r, COL.MUT, 0.8);
+    P.center('7 PM · EVENING SCENES', x + 0.38 * w, ty - 6, 5.5, F.r, COL.MUT, 0.8);
+    P.center('10 PM', x + 0.72 * w, ty - 6, 5.5, F.r, COL.MUT, 0.8);
+    P.trackedRight('MIDNIGHT · ' + (m.dimToWarm ? 'CANDLELIGHT' : 'GOODNIGHT'), x + w, ty - 6, 5.5, F.r, COL.MUT, 0.8);
+    P.text('Scenes walk the home down from daylight to ' + (m.dimToWarm ? 'candlelight' : 'warm white') + ' — colour and level drop together as the evening runs.', x, ty + 8, 7.5, F.r, COL.MUT, { maxWidth: w });
+    return (ty + 20) - yTop;
+  }
   function secScenes(m) {
     if ((!m.scenes || !m.scenes.length) && (!m.houseScenes || !m.houseScenes.length)) return null;
     var lx = L();
@@ -619,8 +741,10 @@
       var y = lx.sectionHead(P, F, 'ONE PRESS, THE RIGHT LIGHT', 'Scenes', blurb(m, 'scenes'));
       y = Math.max(y, 186);
       var colW = (A4.w - M * 2 - 28) / 2;
-      var houseH = ((m.houseScenes || []).length * 17 + 46);
-      var y0 = y, maxY = A4.h - 96 - houseH;
+      var houseExtra = (m.houseScenes || []).filter(function (s2) { return s2.actions; }).length * 11;
+      var circH = 108;   // v0.5.0 — reserved for the circadian strip
+      var houseH = ((m.houseScenes || []).length * 17 + 46 + houseExtra);
+      var y0 = y, maxY = A4.h - 96 - houseH - circH;
       var colY = [y0, y0];
       (m.scenes || []).slice(0, 8).forEach(function (grp) {
         var need = 25 + grp.seeds.length * 17 + 12;
@@ -648,7 +772,14 @@
         P.text(sc.label, M, hy - 9, 9.5, F.b, COL.GDEEP);
         P.text(trunc(F.r, sc.note || '', 8.5, A4.w - M * 2 - 110), M + 105, hy - 8, 8.5, F.r, COL.INK2);
         hy += 17;
+        // v0.5.0 — scenes reach beyond lighting: shades, climate, locks
+        if (sc.actions) {
+          P.text(trunc(F.r, 'Beyond lighting:  ' + sc.actions, 7.5, A4.w - M * 2 - 110), M + 105, hy - 10.5, 7.5, F.r, COL.GDEEP);
+          hy += 11;
+        }
       });
+      // v0.5.0 — circadian evening-colour strip
+      circadianStrip(P, F, lx, M, hy + 10, A4.w - M * 2, m);
       lx.pageFoot(P, F);
     };
   }
@@ -737,7 +868,7 @@
     // v0.3.0 — fittings by others: circuits/control/scenes document only
     var byOthers = m.scope === 'others';
     // product photos (mirrored to the lighting-assets bucket — CORS-open)
-    var cutItems = byOthers ? [] : (m.fixtures || []).filter(function (f) { return f.qty || f.name; });
+    var cutItems = byOthers ? [] : (m.fixtures || []).filter(function (f) { return (f.qty || f.name) && !f.gardenTbc; });   // MUST match cutSheetPages' filter — image indices align by position
     var cutImgs = [];
     for (var ci = 0; ci < cutItems.length; ci++) {
       var im = null;
@@ -768,6 +899,8 @@
     roomPages(m).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Room by room' : null, draw: d }); });
     if (!byOthers) cutSheetPages(m, cutImgs).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Fixture cut sheets' : null, draw: d }); });
     if (!byOthers) { var led = secLed(m, stripImg); if (led) sections.push({ label: 'Linear LED', draw: led }); }
+    // v0.5.0 — exterior & garden principles page (design intent — both scopes)
+    var ext = secExterior(m); if (ext) sections.push({ label: 'Exterior & garden', draw: ext });
     var ctlPages = controlPages(m);
     if (ctlPages.length) ctlPages.forEach(function (d, i) { sections.push({ label: i === 0 ? 'Circuits & control' : null, draw: d }); });
     else circuitPages(m).forEach(function (d, i) { sections.push({ label: i === 0 ? 'Circuits & control' : null, draw: d }); });

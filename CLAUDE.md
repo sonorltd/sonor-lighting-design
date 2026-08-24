@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.4.0)
+# Lighting Design — Claude Code Context (v0.5.0)
 
 > **Spine version: 1.2** (SONOR-APP-SPINE.md)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
@@ -199,6 +199,30 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   chip + 'Lux by Control4' in the keypad spec line; lighting_spec publishes
   keypad_range + finish_label/finish_code per room. Spec guide source:
   cdn.prod.website-files.com Control4 Lux Spec Guide PDF (FINISHES & COLORS p10).
+- v0.5.0 (2026-08-20) — **FEATURE RESEARCH BUILD** (Apify sweep → Bryn: "go for
+  it, dont need emergency lighting"; report:
+  reports/LIGHTING-FEATURE-RESEARCH_2026-08-20.md). Quick wins: **Part L
+  (dwellings) check** — `SonorLightingCalc.partLCheck` (75 luminaire-lm per
+  circuit-watt, lamp5a excluded as plug-in, LED strip included via lm_per_m/
+  w_per_m), status line in the fixtures helpers, lint on failure, compliance
+  row on the PDF approach page (full scope only); **CIBSE calculation-basis
+  row** stated DIALux-style; **amber wildlife tier** on darkSkyLint (info
+  >2700K, warn >3000K); **dim-to-warm feature block** on the LED page (Lutron
+  Lumaris-style sell). Garden layer: 3 new fixture kinds `path`/`ingrade`/
+  `moonlight` (noSeed — surface only when counted; unpicked garden kinds skip
+  the TBC cut-sheet page, the generate() cutItems filter MUST stay identical
+  to cutSheetPages' filter — image indices align by position); **EXTERIOR &
+  GARDEN PDF page** (dark-sky principles + zones, both scopes). Scenes:
+  **circadian evening-colour strip** (CCT curve 4 PM→midnight, labels on the
+  time axis, chart kept clean), **beyond-lighting scene actions** per house
+  scene (cfg.control.sceneActions — shades/climate/locks; app input per scene,
+  gold line in the PDF, published as scene_actions). Room schedule: **false-
+  colour level bars** (green ≥75% of target / gold ≥50% / rust below, muted
+  palette) + orphan control on roomPages (last page ≥4 rows, floor headers
+  never dangle). Harness: jsdelivr added to the curl route shim (sandbox
+  Chromium proxy resets now hit the CDN too — pdf-lib failing to load makes
+  LightingPdf.available() false and savePdf falls back to window.print, which
+  looks like a silent download timeout).
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).

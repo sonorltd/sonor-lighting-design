@@ -13,7 +13,7 @@
 */
 (function () {
   window.__LIGHTING_CONFIG__ = {
-    version: '0.4.0',
+    version: '0.5.0',
     buildDate: '2026-08-20',
     steps: ['Plan', 'Fixtures', 'LED & Drivers', 'Circuits & Scenes', 'Summary'],
 
@@ -69,7 +69,15 @@
       { id: 'lowlevel',  label: 'Low-level / Step',  cats: ['low-level', 'step'],         layer: 'accent',  wDefault: 3,
         blockCodes: [], blockMatch: /STEP|NICHE|LOWLEVEL/i },
       { id: 'exterior',  label: 'Exterior Fittings', cats: ['exterior'],                  layer: 'accent',  wDefault: 8,
-        blockCodes: [], blockMatch: /EXT|EXTERIOR|GARDEN/i }
+        blockCodes: [], blockMatch: /EXT|EXTERIOR|GARDEN/i },
+      // v0.5.0 — garden layer (2026 exterior research: invisible integration,
+      // moonlighting, dark-sky). noSeed: only surface once counted on the plan.
+      { id: 'path',      label: 'Path / Bollard',    cats: ['exterior'],                  layer: 'ambient', wDefault: 4, noSeed: true,
+        blockCodes: [], blockMatch: /PATH|BOLLARD/i },
+      { id: 'ingrade',   label: 'In-grade Uplights', cats: ['exterior'],                  layer: 'accent',  wDefault: 6, noSeed: true,
+        blockCodes: [], blockMatch: /INGRADE|IN-?GROUND|BURIED|DRIVE-?OVER/i },
+      { id: 'moonlight', label: 'Tree / Moonlight',  cats: ['exterior'],                  layer: 'accent',  wDefault: 9, noSeed: true,
+        blockCodes: [], blockMatch: /MOONLIGHT|TREE/i }
     ],
     // keypads counted for context (control system sizing) — not a light load
     keypadBlocks: { codes: ['CL-SON-04-LKP-WIRED', 'CL-C4-04-KP-LUXB'], match: /LKP|KEYPAD|KP-/i },
@@ -192,7 +200,10 @@
       spacingRatio: [0.5, 1.0],// downlight spacing = ceiling height × 0.5–1.0
       wallOffsetM: 0.5,        // general downlights off the wall
       ceilingDefaultM: 2.4,
-      cctMixWarnK: 300         // flag rooms mixing CCTs further apart than this
+      cctMixWarnK: 300,        // flag rooms mixing CCTs further apart than this
+      // v0.5.0 — compliance + exterior guidance thresholds
+      partLMinLmw: 75,         // Approved Document L (dwellings): fixed lighting ≥75 luminaire-lm per circuit-watt
+      extAmberMaxK: 2700       // exterior advisory ceiling — warmer is kinder to wildlife (dark-sky)
     },
 
     // ── Section blurbs (PDF-rendered — every word must be ff/ffl-ligature safe) ──
@@ -203,6 +214,7 @@
       led: 'Concealed linear LED provides the glow that gives a home its depth. Every run is engineered: output per metre, feed plan and driver sizing with headroom.',
       circuits: 'Circuits are grouped by room and layer, never mixing load types on one dimmer. Each circuit lists its load and control method for the electrician and the programmer.',
       scenes: 'Keypads carry scene names, not circuit names. These are the starting levels — every scene is tuned in the room, at night, at handover.',
+      exterior: 'Outside, the design lights the garden as a set of zones — terrace, path, planting and trees — never as a floodlit whole. Fittings are shielded and aimed down, warm amber leads, and timers bring a curfew so the garden goes properly dark late at night.',
       budget: 'Indicative supply budget from the Sonor library, ex VAT. A formal quotation follows the agreed specification.'
     },
 

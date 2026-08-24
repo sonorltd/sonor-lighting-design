@@ -68,6 +68,7 @@
   }
   function seedDefaults() {
     (CFG.fixtureKinds || []).forEach(function (k) {
+      if (k.noSeed) return;   // v0.5.0 — garden kinds surface only once counted on the plan
       if (!cfg.picks[k.id] && k.cats && k.cats.length) {
         var it = firstOf(k.cats, k.id === 'downlight' ? 'duragreen' : null);
         if (it) cfg.picks[k.id] = it.id;
@@ -226,7 +227,7 @@
   }
   function roomsOfFloor(fc) { return cfg.rooms.filter(function (r) { return (r.floorCode || 'GF') === fc; }); }
 
-  var PLAN_KINDS = ['downlight', 'pendant', 'wall', 'spot', 'picture', 'lamp5a', 'cabinet', 'lowlevel', 'exterior'];
+  var PLAN_KINDS = ['downlight', 'pendant', 'wall', 'spot', 'picture', 'lamp5a', 'cabinet', 'lowlevel', 'exterior', 'path', 'ingrade', 'moonlight'];
   function renderPlan() {
     var t = totalsAcross();
     var h = '<div class="lead"><h2>The fixture plan.</h2><p>Pulled straight from the Takeoffs lighting layer for the active project — counts per room, LED runs and circuit estimates. Adjust anything; add rooms the plan does not cover yet. Takeoffs stays the owner of the drawing.</p></div>';
@@ -355,10 +356,10 @@
   }
   var ASSUMED_DL_LM = 450;   // conservative quality-downlight assumption when the library row has no output data yet
   // v0.2.0 — reference tags per fixture kind (schedule ↔ cut sheet ↔ key)
-  var KIND_REFS = { downlight: 'D', spot: 'S', pendant: 'P', wall: 'W', picture: 'PL', lamp5a: 'LP', cabinet: 'C', lowlevel: 'LV', exterior: 'E' };
+  var KIND_REFS = { downlight: 'D', spot: 'S', pendant: 'P', wall: 'W', picture: 'PL', lamp5a: 'LP', cabinet: 'C', lowlevel: 'LV', exterior: 'E', path: 'PA', ingrade: 'IG', moonlight: 'ML' };
   // v0.2.0 — assumed delivered lumens per kind for the whole-layer ambient
   // estimate (used only when the library row carries no output data)
-  var KIND_ASSUMED_LM = { downlight: 450, pendant: 800, wall: 300, spot: 350, picture: 120, lamp5a: 800, cabinet: 400, lowlevel: 100, exterior: 300 };
+  var KIND_ASSUMED_LM = { downlight: 450, pendant: 800, wall: 300, spot: 350, picture: 120, lamp5a: 800, cabinet: 400, lowlevel: 100, exterior: 300, path: 150, ingrade: 250, moonlight: 450 };
   function kindLumens(kindId) {
     var it = E.item(cfg.picks[kindId]);
     return itemLumens(it) || KIND_ASSUMED_LM[kindId] || 300;
@@ -374,8 +375,34 @@
     if (!counted || !r.area) return null;
     return C.achievedLux({ area_m2: r.area, lumens: totalLm, count: 1 });
   }
+  // ── v0.5.0 — Part L (dwellings) fixed-lighting check across the picks ────
+  // 5A lamp points are plug-in, not fixed lighting — excluded. LED strip
+  // included when the library row carries lm/m + W/m.
+  function partLEntries() {
+    var t = totalsAcross(), out = [];
+    (CFG.fixtureKinds || []).forEach(function (k) {
+      if (k.id === 'lamp5a') return;
+      var n = t.byKind[k.id] || 0;
+      if (!n) return;
+      var it = E.item(cfg.picks[k.id]);
+      if (!it) { out.push({ label: k.label, qty: n }); return; }
+      out.push({ label: k.label + ' · ' + it.name, qty: n, lumens: itemLumens(it), watts: it.watts });
+    });
+    var strip = E.item(cfg.led.stripId);
+    var ledM = t.ledM;
+    if (ledM && strip) {
+      var sp = strip.specs || {};
+      out.push({ label: 'Linear LED · ' + strip.name, qty: Math.max(1, Math.round(ledM)), lumens: sp.lm_per_m || null, watts: sp.w_per_m || null });
+    }
+    return out;
+  }
+  function partL() { return (C && C.partLCheck) ? C.partLCheck(partLEntries()) : null; }
   function lints() {
     var out = [];
+    // Part L fixed-lighting average (75 lm per circuit-watt, dwellings)
+    var pl = partL();
+    if (pl && !pl.pass) out.push('Part L: average ' + pl.avgLmw + ' lm per circuit-watt across the specified fittings — dwellings need ' + pl.min + ' lm/W for fixed lighting');
+    if (pl && pl.low.length && pl.pass) out.push('Part L: ' + pl.low.map(function (l) { return l.label + ' (' + l.lmw + ' lm/W)'; }).join(', ') + ' below the 75 lm/W line — carried by the average');
     // IP lint per room type in use vs picked items
     cfg.rooms.forEach(function (r) {
       Object.keys(r.counts || {}).forEach(function (k) {
@@ -446,6 +473,11 @@
       '<div class="lbl">Downlight spacing</div><div class="hint" style="margin:0">Grid ' + sp.min + '–' + sp.max + ' m (suggest ' + sp.suggested + ' m) · ' + sp.wallOffset + ' m from walls · half-spacing at edges</div>' +
       (cone ? '<div class="lbl">Beam at working plane</div><div class="hint" style="margin:0">' + esc(dl.name) + ': pool Ø ' + cone.diameter_m + ' m' + (cone.centre_lux ? ' · ~' + cone.centre_lux + ' lx centre beam' : '') + '</div>' : '') +
       '<div class="lbl">Checks</div>' + (warns.length ? warns.map(function (w) { return '<div class="warnline">⚠ ' + esc(w) + '</div>'; }).join('') : '<div class="hint" style="margin:0">No compliance flags on the current picks.</div>') +
+      (function () {   // v0.5.0 — Part L status line (positive confirmation, not just failures)
+        var pl = partL();
+        if (!pl) return '';
+        return '<div class="hint" style="margin:8px 0 0">Part L (dwellings): avg <b style="color:var(--gold)">' + pl.avgLmw + ' lm/W</b> ' + (pl.pass ? '✓' : '✗') + ' · ' + pl.min + ' required' + (pl.skipped ? ' · ' + pl.skipped + ' line' + (pl.skipped > 1 ? 's' : '') + ' without data' : '') + '</div>';
+      })() +
       '</div>';
     h += '</div>';
     return h;
@@ -679,13 +711,21 @@
       h += '<div class="lbl">' + esc(rt.label) + '</div>';
       seeds.forEach(function (sc) { h += '<div style="padding:5px 0;border-bottom:1px solid var(--brd2)"><span class="fin-n" style="color:var(--gold);font-size:12px">' + esc(sc.label) + '</span> <span class="fin-d">' + esc(sc.note) + '</span></div>'; });
     });
-    h += '<div class="lbl">Whole house</div>';
-    (CFG.houseScenes || []).forEach(function (sc) { h += '<div style="padding:5px 0;border-bottom:1px solid var(--brd2)"><span class="fin-n" style="color:var(--gold);font-size:12px">' + esc(sc.label) + '</span> <span class="fin-d">' + esc(sc.note) + '</span></div>'; });
+    h += '<div class="lbl">Whole house <span class="opt-tag">· scenes can reach beyond lighting — shades, climate, locks</span></div>';
+    (CFG.houseScenes || []).forEach(function (sc) {
+      var act = ((cfg.control || {}).sceneActions || {})[sc.label] || '';
+      h += '<div style="padding:5px 0;border-bottom:1px solid var(--brd2)"><span class="fin-n" style="color:var(--gold);font-size:12px">' + esc(sc.label) + '</span> <span class="fin-d">' + esc(sc.note) + '</span>' +
+        '<input style="width:100%;margin-top:4px;font-size:10.5px" placeholder="Beyond lighting — e.g. shades close · heating setback · doors lock" value="' + esc(act) + '" onchange="LightingApp.setSceneAction(\'' + esc(sc.label) + '\',this.value)"></div>';
+    });
     h += '<div class="hint" style="margin-top:8px">' + circuits.length + ' circuits · ~' + (Math.round(totW / 100) / 10) + ' kW connected lighting load</div></div>';
     h += '</div>';
     return h;
   }
   function setControl(id) { cfg.control.system = id; renderStep(); }
+  function setSceneAction(label, v) {
+    cfg.control.sceneActions = cfg.control.sceneActions || {};
+    if (v) cfg.control.sceneActions[label] = v; else delete cfg.control.sceneActions[label];
+  }
 
   // ── SUMMARY ──────────────────────────────────────────────────────────────
   // v0.2.1 — EVERY specified line appears (Bryn: "pricing doesnt include all
@@ -899,6 +939,8 @@
           return { floor: r.floorCode, room: r.name, qty: r.keypads, finish: kp.finish, finish_label: fin.label, finish_code: fin.code || null, buttons: kp.buttons, engravings: kp.engravings, location: kp.location || null };
         }),
         totals: { rooms: cfg.rooms.length, fixtures: t.fixtures, led_m: t.ledM, keypads: t.keypads, circuits: deriveCircuits().length },
+        part_l: (function () { var pl = partL(); return pl ? { avg_lmw: pl.avgLmw, min_lmw: pl.min, pass: pl.pass } : null; })(),
+        scene_actions: (cfg.control || {}).sceneActions || {},
         picks: Object.keys(cfg.picks).reduce(function (o, k) { o[k] = resolve(cfg.picks[k]); return o; }, {}),
         strip: strip ? { id: strip.id, name: strip.name, w_per_m: (strip.specs || {}).w_per_m || null } : null,
         rooms: cfg.rooms.map(function (r) {
@@ -1039,6 +1081,31 @@
       blurbs: CFG.sectionBlurbs || {},
       layers: CFG.layers || [],
       luxEstimated: true,
+      // v0.5.0 — colour story + compliance + garden layer
+      cct: cfg.cct,
+      dimToWarm: !!cfg.dimToWarm,
+      calcBasis: 'Lumen method to CIBSE residential guidance · utilisation 0.5 · maintenance 0.8 — levels quoted are maintained values',
+      partL: (function () {
+        if (cfg.scope === 'others') return null;   // fittings by others — their compliance
+        var pl = partL();
+        return pl ? { avg: pl.avgLmw, min: pl.min, pass: pl.pass, skipped: pl.skipped } : null;
+      })(),
+      exterior: (function () {
+        var rooms = cfg.rooms.filter(function (r) { return r.type === 'exterior' || (r.floorCode || '') === 'EXT'; });
+        var zones = rooms.map(function (r) {
+          var bits = [];
+          (CFG.fixtureKinds || []).forEach(function (k) {
+            var c2 = (r.counts || {})[k.id];
+            if (c2) bits.push(k.label + ' ×' + c2);
+          });
+          var ledM2 = (r.ledRuns || []).reduce(function (s, l) { return s + (Number(l.metres) || 0); }, 0);
+          if (ledM2) bits.push('Linear LED ' + (Math.round(ledM2 * 10) / 10) + ' m');
+          return { name: r.name, summary: bits.join('  ·  ') };
+        }).filter(function (z) { return z.summary; });
+        if (!zones.length) return null;
+        var itx = E.item(cfg.picks.exterior);
+        return { zones: zones, cct: itx && (itx.cct || []).length ? Math.min.apply(null, itx.cct) : null };
+      })(),
       floors: floors.map(function (fc) {
         return {
           code: fc,
@@ -1081,6 +1148,9 @@
         var md = (it && it.metadata) || {};
         return {
           ref: KIND_REFS[k.id] || '?',
+          // v0.5.0 — unpicked garden kinds skip the cut-sheet page (they are
+          // summarised on the Exterior & garden page; a TBC page adds nothing)
+          gardenTbc: !it && !!k.noSeed,
           kind: k.label, layer: k.layer, qty: n,
           name: it ? it.name : 'TBC — chosen at design development',
           manufacturer: it ? (it.manufacturer || '') : '',
@@ -1134,7 +1204,9 @@
         var rt = roomType(tid) || { label: tid };
         return { room: rt.label, seeds: ((CFG.sceneSeeds || {})[tid] || (CFG.sceneSeeds || {})._default || []) };
       }),
-      houseScenes: CFG.houseScenes || [],
+      houseScenes: (CFG.houseScenes || []).map(function (sc) {
+        return { label: sc.label, note: sc.note, actions: ((cfg.control || {}).sceneActions || {})[sc.label] || null };
+      }),
       budget: b.lines.length ? b : null,
       termsLines: (cfg.scope === 'others'
         ? ['Light fittings are supplied and installed by others — this document delivers the room design targets, circuit schedule, control specification, keypad engraving schedule and scenes.']
@@ -1159,7 +1231,7 @@
     pullPlan: pullPlan, setRoom: setRoom, setCount: setCount, setMix: setMix, setLed: setLed,
     removeRoom: removeRoom, addRoom: addRoom, addFromArea: addFromArea,
     pick: pick, setCct: setCct, setDtw: setDtw, setStrip: setStrip, setProfile: setProfile,
-    setControl: setControl, setClient: setClient, setScope: function (id) { cfg.scope = id; renderStep(); },
+    setControl: setControl, setSceneAction: setSceneAction, setClient: setClient, setScope: function (id) { cfg.scope = id; renderStep(); },
     setKpDefault: setKpDefault, setKp: setKp, setKpEngr: setKpEngr,
     saveConfig: saveConfig, openSaved: openSaved, savePdf: savePdf,
     openFromOverview: openFromOverview,
