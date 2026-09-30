@@ -1,6 +1,8 @@
 # Lighting Design — Claude Code Context (v0.5.0)
 
-> **Spine version: 1.2** (SONOR-APP-SPINE.md)
+> **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
+
+> **Spine version: 1.3** (SONOR-APP-SPINE.md — SonorShell-mounted like Seating; declaration reconciled 2026-09-30)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
 > Brand source: `../Branding - CORE/brand-core.xml`
 > Repo: `sonor-lighting-design` · Pages: https://sonorltd.github.io/sonor-lighting-design/
