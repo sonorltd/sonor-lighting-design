@@ -13,8 +13,8 @@
 */
 (function () {
   window.__LIGHTING_CONFIG__ = {
-    version: '0.5.0',
-    buildDate: '2026-08-20',
+    version: '0.5.1',
+    buildDate: '2026-10-07',
     steps: ['Plan', 'Fixtures', 'LED & Drivers', 'Circuits & Scenes', 'Summary'],
 
     // ── Room types — lux targets + CCT guidance (per-room design method) ──
@@ -68,15 +68,15 @@
         blockCodes: ['CL-SON-04-6-CABSPUR'], blockMatch: /CABSPUR|CABINET/i },
       { id: 'lowlevel',  label: 'Low-level / Step',  cats: ['low-level', 'step'],         layer: 'accent',  wDefault: 3,
         blockCodes: [], blockMatch: /STEP|NICHE|LOWLEVEL/i },
-      { id: 'exterior',  label: 'Exterior Fittings', cats: ['exterior'],                  layer: 'accent',  wDefault: 8,
+      { id: 'exterior',  label: 'Exterior Fittings', cats: ['exterior', 'ext-wall', 'ext-flood'],                  layer: 'accent',  wDefault: 8,
         blockCodes: [], blockMatch: /EXT|EXTERIOR|GARDEN/i },
       // v0.5.0 — garden layer (2026 exterior research: invisible integration,
       // moonlighting, dark-sky). noSeed: only surface once counted on the plan.
-      { id: 'path',      label: 'Path / Bollard',    cats: ['exterior'],                  layer: 'ambient', wDefault: 4, noSeed: true,
+      { id: 'path',      label: 'Path / Bollard',    cats: ['ext-bollard', 'ext-ground', 'ext-step', 'exterior'],                  layer: 'ambient', wDefault: 4, noSeed: true,
         blockCodes: [], blockMatch: /PATH|BOLLARD/i },
-      { id: 'ingrade',   label: 'In-grade Uplights', cats: ['exterior'],                  layer: 'accent',  wDefault: 6, noSeed: true,
+      { id: 'ingrade',   label: 'In-grade Uplights', cats: ['ext-ground', 'exterior'],                  layer: 'accent',  wDefault: 6, noSeed: true,
         blockCodes: [], blockMatch: /INGRADE|IN-?GROUND|BURIED|DRIVE-?OVER/i },
-      { id: 'moonlight', label: 'Tree / Moonlight',  cats: ['exterior'],                  layer: 'accent',  wDefault: 9, noSeed: true,
+      { id: 'moonlight', label: 'Tree / Moonlight',  cats: ['ext-spike', 'ext-uplight', 'exterior'],                  layer: 'accent',  wDefault: 9, noSeed: true,
         blockCodes: [], blockMatch: /MOONLIGHT|TREE/i }
     ],
     // keypads counted for context (control system sizing) — not a light load

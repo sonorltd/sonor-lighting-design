@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.5.0)
+# Lighting Design — Claude Code Context (v0.5.1)
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
 
@@ -225,6 +225,12 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
   Chromium proxy resets now hit the CDN too — pdf-lib failing to load makes
   LightingPdf.available() false and savePdf falls back to window.print, which
   looks like a silent download timeout).
+
+- v0.5.1 (2026-10-07) — **Collingwood on the garden kinds** (Garden Lighting birth /
+  B-520): `exterior` / `path` / `ingrade` / `moonlight` kinds now also read the new
+  `ext-*` Library categories (ext-wall/flood · ext-bollard/ground/step · ext-ground ·
+  ext-spike/uplight) from the 104-row Collingwood outdoor intake, so the garden layer
+  of a whole-home design can specify Collingwood. Config-only; no PDF change.
 
 ## Open asks (IDEAS.md carries the full list)
 - Engineering: consume `lighting_spec` circuits into `lighting_panels`/`lighting_circuits` (2-way).
