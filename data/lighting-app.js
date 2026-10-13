@@ -152,7 +152,7 @@
     var db = dbc();
     if (!db || !cfg.projectId) { renderStep(); return; }
     try {
-      var res = await db.from('takeoffs_floors').select('floor_id,code,name,content').eq('project_id', cfg.projectId).order('seq');
+      var res = await db.from('takeoffs_floors').select('floor_id,code,name,content').eq('project_id', cfg.projectId).is('deleted_at', null).order('seq');
       var floors = res.data || [];
       ctx.floors = floors.map(function (f) { return { code: f.code, name: f.name }; });
       var byKey = {};
