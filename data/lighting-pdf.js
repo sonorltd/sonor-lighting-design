@@ -448,9 +448,10 @@
         if (r.strip) P.text(trunc(F.r, r.strip, 7, 150), M, y + 1, 7, F.r, COL.MUT);
         P.right(r.metres + ' m', M + 205, y - 9, 9.5, F.b, COL.INK);
         if (r.load != null) P.right(r.load + ' W', M + 255, y - 9, 9, F.r, COL.INK2);
-        P.text(trunc(F.r, r.feeds + (r.feeds === 1 ? ' feed' : ' feeds') + (r.feedsAt ? ' @ ' + r.feedsAt : ''), 8, 130), M + 268, y - 9, 8, F.r, COL.INK2);
-        if (r.driver) P.text(r.driver + ' · ' + (r.loaded || ''), M + 400, y - 9, 9, F.r, COL.INK2);
-        P.right(r.flags ? r.flags : (r.cable || ''), A4.w - M, y - 8.5, 7.5, F.r, r.flags ? [232, 163, 23] : COL.MUT);
+        P.text(trunc(F.r, r.feeds + (r.feeds === 1 ? ' feed' : ' feeds') + (r.feedsAt ? ' @ ' + r.feedsAt : ''), 8, 125), M + 268, y - 9, 8, F.r, COL.INK2);
+        if (r.driver) P.right(r.driver + ' · ' + (r.loaded || ''), A4.w - M, y - 9, 9, F.r, COL.INK2);
+        // second line, right: feed cable (or the flag in amber) — "mm²" is a Gilroy glyph trap, so it reads "mm cable"
+        P.right(r.flags ? r.flags : (r.cable ? String(r.cable).replace(' mm² · ', ' mm cable · ').replace('%', ' % drop') : ''), A4.w - M, y + 1, 7, F.r, r.flags ? [232, 163, 23] : COL.MUT);
         if (i < arr.length - 1) P.hline(M, A4.w - M, y + 8, COL.LINE, 0.35, 0.5);
         y += 23;
       });
