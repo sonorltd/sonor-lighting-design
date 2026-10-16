@@ -19,9 +19,11 @@
   <script src="../data/sonor-header.js"></script>
   <script src="../data/sonor-palette.js"></script>
   <script src="../data/sonor-shell.js"></script>
-  <script src="../data/sonor-pdf-luxury.js"></script>
+  <script src="../data/sonor-pdf-theme.js"></script>   <!-- 2026-10-16 — ONE PDF theme (black/gold chrome, neutral greys) — load before every PDF pipeline, §41 -->
+<script src="../data/sonor-pdf-luxury.js"></script>
   <script src="../data/lighting-config.js"></script>
   <script src="../data/lighting-catalogue.js"></script>
+  <script src="../data/sonor-led-engineering.js"></script>   <!-- v0.6.0 — workspace LED strip / driver / feed-cable engineering (root master) -->
   <script src="../data/lighting-calc.js"></script>
   <script src="../data/lighting-engine.js"></script>
   <script src="../data/lighting-pdf.js"></script>
@@ -351,7 +353,7 @@
   </div>
 
   <script>
-    const APP_VERSION = '0.5.1';
+    const APP_VERSION = '0.6.0';
     document.addEventListener('DOMContentLoaded', function(){ var v = document.getElementById('hdrVer'); if (v) v.textContent = 'v' + APP_VERSION; });
     // one-line swappable hero image (see lighting-config.js → heroImage; null = branded gradient)
     (function(){ var cfg = window.__LIGHTING_CONFIG__ || {}; var el = document.getElementById('heroBg');

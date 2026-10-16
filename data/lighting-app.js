@@ -1,6 +1,8 @@
 /* Sonor Lighting Design — wizard UI (v0.1.0)
    LightingApp — clones the Cinema Aesthetic app pattern (AestheticApp):
    Intro → Plan → Fixtures → LED & Drivers → Circuits & Scenes → Summary.
+   v0.6.0 (2026-10-16) — LED & Drivers engineered by the workspace master data/sonor-led-engineering.js (same calc as the
+   Takeoffs LED Schedule): per-run strip type from Takeoffs, feed markers, driver sizing, feed-cable csa + drop, flags.
    The PLAN derives live from Takeoffs (takeoffs_floors.content.symbols,
    service 04 + LED runs) — Takeoffs owns geometry; this app owns the lighting
    SPECIFICATION (products, levels, circuits, scenes) and publishes it as
@@ -152,6 +154,7 @@
     var db = dbc();
     if (!db || !cfg.projectId) { renderStep(); return; }
     try {
+      await loadStripTypes();   // v0.6.0 — pm_led_strip_types (V / W/m / channels) for the engineered runs
       var res = await db.from('takeoffs_floors').select('floor_id,code,name,content').eq('project_id', cfg.projectId).is('deleted_at', null).order('seq');
       var floors = res.data || [];
       ctx.floors = floors.map(function (f) { return { code: f.code, name: f.name }; });
@@ -187,7 +190,8 @@
           if (!m || m.kind !== 'led') return;
           var ai = m.autoId || {};
           var room = addTo(ai.floorCode || f.code || 'GF', ai.roomName || 'Unassigned');
-          room.ledRuns.push({ label: ai.id || m.cableLabel || 'LED run', metres: Math.round((Number(m.metres) || 0) * 10) / 10 });
+          room.ledRuns.push({ label: ai.id || m.cableLabel || 'LED run', metres: Math.round((Number(m.metres) || 0) * 10) / 10,
+            ledId: m.ledId || null, ledLabel: m.ledLabel || null, feeds: Array.isArray(m.manual_feed_distances_m) ? m.manual_feed_distances_m.slice() : null, interval: m.custom_feed_interval_m || null, cableM: m.custom_cable_run_m || null });   // v0.6.0 — engineered by sonor-led-engineering
         };
         (content.lengths || []).forEach(takeLed);
         (content.leds || []).forEach(takeLed);
@@ -490,9 +494,34 @@
   function ledRunsAll() {
     var out = [];
     cfg.rooms.forEach(function (r) {
-      (r.ledRuns || []).forEach(function (l) { out.push({ floorCode: r.floorCode, room: r.name, label: l.label, metres: Number(l.metres) || 0 }); });
+      (r.ledRuns || []).forEach(function (l) { out.push({ floorCode: r.floorCode, room: r.name, label: l.label, metres: Number(l.metres) || 0, ledId: l.ledId || null, ledLabel: l.ledLabel || null, feeds: l.feeds || null, interval: l.interval || null, cableM: l.cableM || null }); });
     });
     return out;
+  }
+
+  // ── v0.6.0 (2026-10-16) — LED ENGINEERING through the workspace master data/sonor-led-engineering.js (the same calc
+  //    Takeoffs' LED Schedule uses): per run strip type (Takeoffs pm_led_strip_types id on the run → V / W/m / channels,
+  //    else the house strip chosen here), feed points (Takeoffs markers win), driver (80 % rule, standard sizes), feed
+  //    cable csa by voltage drop, flags. Bryn: "what do we have for calcing led strips and drivers and cable feed points".
+  var _stripTypes = null;   // pm_led_strip_types by id (loaded once)
+  async function loadStripTypes() {
+    if (_stripTypes) return _stripTypes;
+    _stripTypes = {};
+    try { var db = dbc(); if (db) { var r = await db.from('pm_led_strip_types').select('id,label,watts_per_metre,volts,dmx_channels,kelvin,ip_rating,metadata').eq('active', true); (r.data || []).forEach(function (t) { _stripTypes[t.id] = t; }); } } catch (e) {}
+    return _stripTypes;
+  }
+  function houseStrip() {
+    var strip = E.item(cfg.led.stripId); var sp = (strip && strip.specs) || {};
+    return { id: cfg.led.stripId || 'HOUSE', label: strip ? strip.name : 'Strip TBC', watts_per_metre: sp.w_per_m || 10, volts: (strip && strip.voltage) || 24, dmx_channels: sp.channels || 1, metadata: {} };
+  }
+  function ledEngineering() {
+    var Eng = global.SonorLedEng; if (!Eng) return null;
+    var hs = houseStrip(), types = _stripTypes || {};
+    var runs = ledRunsAll().map(function (r) {
+      return { id: r.label, label: r.label, floor: r.floorCode, room: r.room, metres: r.metres, ledId: (r.ledId && types[r.ledId]) ? r.ledId : hs.id, feeds: r.feeds, custom_feed_interval_m: r.interval, feedCableM: r.cableM || undefined };
+    });
+    var byId = Object.assign({}, types); byId[hs.id] = hs;
+    return Eng.project(runs, byId);
   }
   function renderLed() {
     var strip = E.item(cfg.led.stripId);
@@ -507,19 +536,28 @@
     h += '<div class="panel"><div class="ptt">Runs & drivers <span class="opt-tag">· 80% rule — driver ≥ load ÷ 0.8, next standard size up</span></div>';
     if (!runs.length) h += '<div class="hint">No LED runs on the plan yet — add metres per room on the Plan step.</div>';
     else {
-      h += '<div style="overflow-x:auto"><table class="pln"><thead><tr><th style="text-align:left">Run</th><th>m</th><th>Load</th><th>Driver</th><th>Loaded</th><th style="text-align:left">Feed</th></tr></thead><tbody>';
-      runs.forEach(function (r) {
-        var eng = C.stripRun(r.metres, wpm);
-        h += '<tr><td style="text-align:left">' + esc(r.floorCode + ' · ' + r.room) + '</td><td>' + r.metres + '</td>' +
-          (eng ? '<td>' + eng.load_w + ' W</td><td>' + (eng.drivers > 1 ? eng.drivers + '× ' : '') + eng.driver_w + ' W</td><td>' + eng.loaded_pct + '%</td><td style="text-align:left" class="hint">' + esc(eng.feedNote) + '</td>' : '<td colspan="4">—</td>') + '</tr>';
-      });
-      var tot = C.stripTotals(runs, wpm);
-      h += '</tbody></table></div><div class="hint" style="margin-top:8px">Total ' + tot.total_m + ' m · ' + tot.load_w + ' W strip load · 24V constant-voltage · drivers in accessible positions, never buried.</div>';
+      var eng = ledEngineering();
+      if (!eng) h += '<div class="hint">LED engineering module not loaded.</div>';
+      else {
+        h += '<div style="overflow-x:auto"><table class="pln"><thead><tr><th style="text-align:left">Run</th><th style="text-align:left">Strip</th><th>m</th><th>Load</th><th style="text-align:left">Feeds</th><th>Driver</th><th style="text-align:left">Feed cable</th><th style="text-align:left">Notes</th></tr></thead><tbody>';
+        eng.runs.forEach(function (e) {
+          h += '<tr' + (e.flags.length ? ' style="color:var(--status-amber,#E8A317)"' : '') + '><td style="text-align:left">' + esc(e.floor + ' · ' + e.room) + '<div class="hint">' + esc(e.id) + '</div></td>' +
+            '<td style="text-align:left">' + esc(e.strip.label) + '<div class="hint">' + e.strip.volts + ' V · ' + e.strip.wpm + ' W/m</div></td>' +
+            '<td>' + e.metres + '</td><td>' + e.load_w + ' W</td>' +
+            '<td style="text-align:left">' + e.feeds.length + (e.feedsManual ? ' marked' : '') + ' @ ' + e.feeds.map(function (m) { return m + 'm'; }).join(', ') + '</td>' +
+            '<td>' + (e.driver.drivers > 1 ? e.driver.drivers + '× ' : '') + e.driver.driver_w + ' W<div class="hint">' + e.driver.loaded_pct + '% loaded</div></td>' +
+            '<td style="text-align:left">' + (e.cable ? e.cable.csa + ' mm² · ' + e.cable.length_m + ' m · ' + e.cable.drop_pct + '% drop' : '—') + '</td>' +
+            '<td style="text-align:left" class="hint">' + esc((e.flags.length ? e.flags.join(' · ') + ' — ' : '') + e.notes.join('; ')) + '</td></tr>';
+        });
+        h += '</tbody></table></div>';
+        var t = eng.totals;
+        h += '<div class="hint" style="margin-top:8px">Total ' + t.metres + ' m · ' + t.load_w + ' W · ' + t.drivers + ' driver' + (t.drivers === 1 ? '' : 's') + ' · ' + t.feeds + ' feeds' + (t.flagged ? ' · <b>' + t.flagged + ' run' + (t.flagged === 1 ? '' : 's') + ' flagged</b>' : '') + ' · order ' + eng.byType.map(function (b) { return b.order_m + ' m ' + b.label; }).join(', ') + ' · drivers in accessible positions, never buried.</div>';
+      }
     }
     h += '</div></div>';
     h += '<div class="panel sticky"><div class="ptt">Strip rules of thumb</div>' +
       '<div class="hint" style="margin:0 0 10px">Cove/indirect ambient wants ~1000–1500 lm/m · accent + toe-kick 400–800 lm/m · task under-cabinet 1500 lm/m and up. CRI 90 minimum in living spaces.</div>' +
-      '<div class="hint" style="margin:0 0 10px">Feed both ends past 6 m. 24V everywhere unless a fitting demands otherwise. Set strip 30–45 mm behind the cove lip so the source is never seen.</div>' +
+      '<div class="hint" style="margin:0 0 10px">Feed points by strip type: a 24 V run holds 3 % at the far end for ~10 m at 10 W/m, ~7 m above 10 W/m, ~5 m above 15 W/m; 12 V 5 m; 5 V pixel 3 m — the engine spaces feeds to that reach (Takeoffs markers win). Driver ≥ load ÷ 0.8, next standard size. Feed cable sized for ≤ 3 % drop. Set strip 30–45 mm behind the cove lip so the source is never seen.</div>' +
       '<div class="hint" style="margin:0">Match strip CCT to the room downlights — a 2700K room with 4000K cove reads broken.</div></div>';
     h += '</div>';
     return h;
@@ -571,8 +609,9 @@
         else push(k.label, k.layer === 'ambient' ? 'Dim' : 'Dim · dec', n, n * w, 'Trailing-edge · ' + sys);
       });
       (r.ledRuns || []).forEach(function (l) {
-        var eng = C.stripRun(Number(l.metres) || 0, wpm);
-        if (eng) push('Linear LED — ' + r.name, 'ELV 24V', 1, eng.load_w, 'ELV dim · ' + (eng.drivers > 1 ? eng.drivers + '× ' : '') + eng.driver_w + ' W driver');
+        var Eng = global.SonorLedEng, types = _stripTypes || {}, hs = houseStrip();
+        var e = Eng ? Eng.run({ metres: Number(l.metres) || 0, feeds: l.feeds, custom_feed_interval_m: l.interval }, (l.ledId && types[l.ledId]) || hs) : null;
+        if (e) push('Linear LED — ' + r.name, 'ELV ' + e.strip.volts + 'V', 1, e.load_w, 'ELV dim · ' + (e.driver.drivers > 1 ? e.driver.drivers + '× ' : '') + e.driver.driver_w + ' W driver');
       });
       var extra = Math.max(0, ((r.lcMix || {}).dimmed || 0) - out.filter(function (c) { return c.room === r.name && /dim/i.test(c.loadType); }).length);
       if (extra) push('Dimmed circuit allowance', 'Dim', extra, extra * 50, 'From the Takeoffs LC estimate');
@@ -767,7 +806,7 @@
       // drivers — count from the engineered run schedule
       var wpm = strip ? ((strip.specs || {}).w_per_m || 10) : 10;
       var nDrivers = 0;
-      ledRunsAll().forEach(function (r) { var eng = C.stripRun(r.metres, wpm); if (eng) nDrivers += eng.drivers; });
+      var _le = ledEngineering(); if (_le) nDrivers += _le.totals.drivers;
       if (nDrivers) { poa++; lines.push({ label: 'LED drivers · sized per the run schedule', qty: nDrivers, unit: null, total: null, poa: true }); }
     }
     var sys = (CFG.controlSystems || []).find(function (c) { return c.id === cfg.control.system; });
@@ -1189,12 +1228,12 @@
           ].filter(Boolean).join('  ·  '),
           url: strip.product_url, datasheet: strip.datasheet_url, img: strip.img || null
         } : null,
-        runs: ledRunsAll().map(function (r) {
-          var eng = C.stripRun(r.metres, wpm);
-          return { where: r.floorCode + ' · ' + r.room, metres: r.metres,
-                   load: eng ? eng.load_w : null, driver: eng ? ((eng.drivers > 1 ? eng.drivers + '× ' : '') + eng.driver_w + ' W') : null,
-                   loaded: eng ? eng.loaded_pct + '%' : null, feeds: eng ? eng.feeds : 1 };
-        })
+        runs: (function () { var le = ledEngineering(); return le ? le.runs.map(function (e) {
+          return { where: e.floor + ' · ' + e.room, id: e.id, strip: e.strip.label + ' · ' + e.strip.volts + ' V', metres: e.metres,
+                   load: e.load_w, driver: (e.driver.drivers > 1 ? e.driver.drivers + '× ' : '') + e.driver.driver_w + ' W', loaded: e.driver.loaded_pct + '%',
+                   feeds: e.feeds.length, feedsAt: e.feeds.map(function (m) { return m + 'm'; }).join(', '), cable: e.cable ? e.cable.csa + ' mm² · ' + e.cable.drop_pct + '%' : '', flags: e.flags.join(' · ') };
+        }) : []; })(),
+        engineering: (function () { var le = ledEngineering(); return le ? { totals: le.totals, drivers: le.drivers, byType: le.byType, cable: le.cable, decoders: le.controllers.decoders } : null; })()
       } : null,
       circuits: floors.map(function (fc) {
         return { code: fc, rows: circuits.filter(function (c) { return c.floorCode === fc; }) };

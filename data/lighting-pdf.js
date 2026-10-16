@@ -438,20 +438,25 @@
         y += 58;
       }
       P.tracked('RUNS + DRIVERS', M, y, 6.5, F.r, COL.MUT, 1.5);
-      P.trackedRight('DRIVERS SIZED WITH 20% HEADROOM', A4.w - M, y, 6.5, F.r, COL.MUT, 1.2);
+      P.trackedRight('DRIVERS 20% HEADROOM · FEED CABLE ≤ 3% DROP', A4.w - M, y, 6.5, F.r, COL.MUT, 1.2);
       P.hline(M, A4.w - M, y + 11, COL.GOLD, 0.8, 0.75);
       y += 27;
-      (m.led.runs || []).slice(0, 16).forEach(function (r, i, arr) {
-        P.text(trunc(F.r, r.where, 9.5, 185), M, y - 9, 9.5, F.r, COL.INK2);
-        P.right(r.metres + ' m', M + 245, y - 9, 9.5, F.b, COL.INK);
-        if (r.load != null) P.right(r.load + ' W', M + 305, y - 9, 9, F.r, COL.INK2);
-        if (r.driver) P.text(r.driver + ' driver · ' + (r.loaded || ''), M + 322, y - 9, 9, F.r, COL.INK2);
-        P.right(r.feeds > 1 ? 'feed both ends' : 'single feed', A4.w - M, y - 8.5, 7.5, F.r, COL.MUT);
-        if (i < arr.length - 1) P.hline(M, A4.w - M, y + 6, COL.LINE, 0.35, 0.5);
-        y += 21;
+      // v0.6.0 — engineered rows (sonor-led-engineering): where · strip · m · load · feeds @ · driver · feed cable; flags in amber
+      (m.led.runs || []).slice(0, 14).forEach(function (r, i, arr) {
+        var ink = r.flags ? [232, 163, 23] : COL.INK2;
+        P.text(trunc(F.r, r.where, 9.5, 150), M, y - 9, 9.5, F.r, ink);
+        if (r.strip) P.text(trunc(F.r, r.strip, 7, 150), M, y + 1, 7, F.r, COL.MUT);
+        P.right(r.metres + ' m', M + 205, y - 9, 9.5, F.b, COL.INK);
+        if (r.load != null) P.right(r.load + ' W', M + 255, y - 9, 9, F.r, COL.INK2);
+        P.text(trunc(F.r, r.feeds + (r.feeds === 1 ? ' feed' : ' feeds') + (r.feedsAt ? ' @ ' + r.feedsAt : ''), 8, 130), M + 268, y - 9, 8, F.r, COL.INK2);
+        if (r.driver) P.text(r.driver + ' · ' + (r.loaded || ''), M + 400, y - 9, 9, F.r, COL.INK2);
+        P.right(r.flags ? r.flags : (r.cable || ''), A4.w - M, y - 8.5, 7.5, F.r, r.flags ? [232, 163, 23] : COL.MUT);
+        if (i < arr.length - 1) P.hline(M, A4.w - M, y + 8, COL.LINE, 0.35, 0.5);
+        y += 23;
       });
       y += 12;
-      P.text('Total ' + m.led.totalM + ' m · 24V constant-voltage · aluminium profile throughout · drivers in accessible positions.', M, y - 4, 9, F.r, COL.MUT);
+      var eg = m.led.engineering;
+      P.text('Total ' + m.led.totalM + ' m' + (eg ? ' · ' + eg.totals.load_w + ' W · ' + eg.totals.drivers + ' driver' + (eg.totals.drivers === 1 ? '' : 's') + ' (' + eg.drivers.map(function (d) { return d.qty + '× ' + d.size; }).join(', ') + ')' + (eg.decoders ? ' · ' + eg.decoders + ' decoder' + (eg.decoders === 1 ? '' : 's') : '') : '') + ' · aluminium profile throughout · drivers in accessible positions.', M, y - 4, 9, F.r, COL.MUT, { maxWidth: A4.w - M * 2, lineHeight: 12 });
       lx.pageFoot(P, F);
     };
   }

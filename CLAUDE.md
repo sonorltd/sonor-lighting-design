@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.5.1)
+# Lighting Design — Claude Code Context (v0.6.0)
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
 
@@ -74,7 +74,8 @@ vector-drawn via the shared luxury chrome only.
 dashboard/sonor-lighting-design.html  host: hidden SonorShell + site header + landing + .sc wizard
 data/lighting-config.js               window.__LIGHTING_CONFIG__ — flow rules + room targets + scene seeds + engineering constants
 data/lighting-catalogue.js            window.__LIGHTING_SEED__ — Tier-3 offline snapshot (generated)
-data/lighting-calc.js                 SonorLightingCalc — pure design/engineering helpers (lumen method, beam, strip/driver, IP/CCT lint)
+data/sonor-led-engineering.js         workspace master — LED strip / driver / feed-cable engineering (v0.6.0; stripRun in lighting-calc is legacy)
+data/lighting-calc.js                 SonorLightingCalc — pure design/engineering helpers (lumen method, beam, IP/CCT lint)
 data/lighting-engine.js               SonorLightingLib — SSOT load + item resolution + WQ price resolution
 data/lighting-app.js                  LightingApp — wizard UI + Takeoffs plan pull + circuits derivation + saves + PDF model
 data/lighting-pdf.js                  LightingPdf — luxury proposal (shared SonorPdfLuxury chrome)
