@@ -353,13 +353,14 @@
   </div>
 
   <script>
-    const APP_VERSION = '0.6.0';
+    const APP_VERSION = '0.6.1';
     document.addEventListener('DOMContentLoaded', function(){ var v = document.getElementById('hdrVer'); if (v) v.textContent = 'v' + APP_VERSION; });
     // one-line swappable hero image (see lighting-config.js → heroImage; null = branded gradient)
     (function(){ var cfg = window.__LIGHTING_CONFIG__ || {}; var el = document.getElementById('heroBg');
       if (el && cfg.heroImage) { el.classList.remove('grad'); el.style.backgroundImage = "url('" + cfg.heroImage + "')"; } })();
     SonorShell.mount({ appKey:'lighting-design', appName:'Lighting Design', repo:'sonor-lighting-design', version:APP_VERSION, faviconHref:'../data/favicon.svg', assetBase:'../data/', supabase:false, palette:{ self:'lighting-design' } });
-    LightingApp.boot();
+    // S-4.3 self-report: the shell runs supabase:false here, so the app reports its own version once the catalogue load has made the Supabase client
+    (function (rep) { Promise.resolve(LightingApp.boot()).then(rep, rep); })(function () { var d = window.__LIGHTING_DB__; if (d && d.versions && d.versions.report) d.versions.report('lighting-design', APP_VERSION, 'Lighting Design', 'sonor-lighting-design').catch(function (e) { console.warn('[lighting-design] version report', e && e.message); }); });
   </script>
 </body>
 </html>
