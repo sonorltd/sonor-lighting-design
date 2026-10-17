@@ -2,6 +2,8 @@
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
 
+> **v0.6.1 (2026-10-17) — version self-report.** The shell mounts with `supabase:false`, so nothing wrote `app_versions` on boot; the dashboard now calls `db.versions.report('lighting-design', APP_VERSION, …)` once after `boot()` (the catalogue load makes the SonorDB client). No feature change.
+
 > **Spine version: 1.3** (SONOR-APP-SPINE.md — SonorShell-mounted like Seating; declaration reconciled 2026-09-30)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
 > Brand source: `../Branding - CORE/brand-core.xml`
