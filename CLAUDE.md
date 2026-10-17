@@ -1,4 +1,4 @@
-# Lighting Design — Claude Code Context (v0.6.0)
+# Lighting Design — Claude Code Context (v0.6.1)
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
 
