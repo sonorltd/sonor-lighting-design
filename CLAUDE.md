@@ -1,6 +1,8 @@
-# Lighting Design — Claude Code Context (v0.6.1)
+# Lighting Design — Claude Code Context (v0.6.2)
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
+
+> **v0.6.2 (2026-10-17) — consistency batch.** Theme boot `data/sonor-theme.js` first in `<head>` (data-theme-lock kept — no ◐ toggle, no ladder), served kit with `data/kit` mirror fallback, supabase-js pinned to 2.45.4 + SRI, shared masters synced (project-bar 1.14.0, kit 0.7.4 mirror, wq-sync 1.7.3, takeoffs-supabase RPC-first, wq-push 1.1.0). No feature change.
 
 > **v0.6.1 (2026-10-17) — version self-report.** The shell mounts with `supabase:false`, so nothing wrote `app_versions` on boot; the dashboard now calls `db.versions.report('lighting-design', APP_VERSION, …)` once after `boot()` (the catalogue load makes the SonorDB client). No feature change.
 
