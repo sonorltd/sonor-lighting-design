@@ -868,6 +868,7 @@
     // cover assets
     var hero = null, cedia = null, fadeImg = null;
     if (m.heroImage) { try { hero = await lx.loadImage(doc, m.heroImage); } catch (e) {} }
+    if (!hero) { try { hero = await lx.loadImage(doc, BASE + 'lighting-cover.jpg'); } catch (e) {} } // B-567: permanent cover (Branding - CORE/PDF-COVERS/lighting.jpg via sync-pdf-covers) when the project has no hero
     try { cedia = await lx.loadImage(doc, BASE + 'cedia-member-stacked.png'); } catch (e) {}
     try { var fd = lx.fadePngDataUrl(); if (fd) fadeImg = await doc.embedPng(await lx.fetchBytes(fd)); } catch (e) {}
 
