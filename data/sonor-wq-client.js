@@ -117,12 +117,21 @@
   async function findCustomer(term) { return arr(await get('/customer/find', { search: term })); }
   async function getProject(id) { return one(await get('/project/get_project', { id: id })); }        // WQ internal id → {id, project_no, description, customer_name, status}
   async function getCustomer(id) { return one(await get('/customer/get', { id: id })); }
+  // 1.3.0 (2026-10-17) — the WeQuote customer's PEOPLE (WeQuote is the client CRM SSOT): find_contact with only customer_id lists them
+  async function findContacts(customerId, q, force) { q = q || {}; var p = { customer_id: customerId }; if (q.email) p.contact_email = q.email; if (q.first_name) p.contact_first_name = q.first_name; if (q.surname) p.contact_surname = q.surname; return arr(await get('/customer/find_contact', p, { force: !!force })); }
+  async function getContact(id) { return one(await get('/customer/get_contact', { id: id })); }
   // Full own-catalogue map (~900 rows, cached 5 min) — quote lines only carry product_id, so this is how they get names.
   async function productMap(force) { var rows = arr(await get('/quote/list_product', {}, { force: !!force })); var m = {}; rows.forEach(function (p) { m[p.id] = p; }); return m; }
   async function quoteLinesResolved(quoteId, force) { var lines = await quoteLines(quoteId, force); var pm = await productMap(); return lines.map(function (l) { var p = pm[l.product_id] || {}; return Object.assign({}, l, { sku: p.sku || '', short_description: p.short_description || '', long_description: p.long_description || '', model: p.model || '', manufacturer_name: p.manufacturer_name || '', category_description: p.category_description || '', sell_price: l.unit_price != null && Number(l.unit_price) ? l.unit_price : p.sell_price, cost_price: l.unit_cost != null && Number(l.unit_cost) ? l.unit_cost : p.cost_price }); }); }
 
+  // 1.3.1 — the ONE WeQuote-linked mark (class .wq-pill in data/sonor-components.css): small "WQ" pill in WeQuote red
+  function pill(o) { o = o || {}; var e = function (v) { return String(v == null ? '' : v).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var cls = 'wq-pill' + (o.off ? ' wq-off' : ''), t = o.title ? ' title="' + e(o.title) + '"' : '';
+    return o.href ? '<a class="' + cls + '" href="' + e(o.href) + '" target="_blank" rel="noopener"' + t + '>WQ</a>' : '<span class="' + cls + '"' + t + '>WQ</span>'; }
+  var WQ_WEB = 'https://app.wequote.cloud/sonor-ltd';
+  function webUrl(kind, id) { return id ? WQ_WEB + '/' + ({ quote: 'quotes', project: 'projects', customer: 'customers' }[kind] || kind) + '/' + encodeURIComponent(id) : WQ_WEB; }
   root.SonorWQClient = {
-    VERSION: '1.2.1', init: init, configure: configure, status: status, setTransport: setTransport, setSource: setSource, source: sourceName,
+    VERSION: '1.3.1', pill: pill, webUrl: webUrl, findContacts: findContacts, getContact: getContact, init: init, configure: configure, status: status, setTransport: setTransport, setSource: setSource, source: sourceName,
     get: get, arr: arr, one: one, clearCache: clearCache,
     searchProducts: searchProducts, getProduct: getProduct, listQuotes: listQuotes, getQuote: getQuote,
     quoteLines: quoteLines, quoteLinesResolved: quoteLinesResolved, productMap: productMap, listProjects: listProjects, findCustomer: findCustomer, getProject: getProject, getCustomer: getCustomer
