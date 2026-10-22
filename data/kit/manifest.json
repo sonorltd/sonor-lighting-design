@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "version": "0.7.4",
   "built": "2026-10-17T15:49:07.000Z",
+=======
+  "version": "0.8.0",
+  "built": "2026-10-18T20:28:24.465Z",
+>>>>>>> 830ef1b (sync: shared masters (kit 0.7.4 mirror, wq-push 1.1.0, wq-sync 1.7.3, components, library-bar))
   "modules": [
     "sonor-theme.js",
     "sonor-icons.js",
@@ -11,7 +16,8 @@
     "sonor-rack-calc.js",
     "sonor-sortable.js",
     "sonor-catalogue-picker.js",
-    "sonor-rack-data.js"
+    "sonor-rack-data.js",
+    "sonor-library-bar.js"
   ],
   "css": "kit.css"
 }
