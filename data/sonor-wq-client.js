@@ -147,7 +147,7 @@
   var WQ_WEB = 'https://app.wequote.cloud/sonor-ltd';
   function webUrl(kind, id) { return id ? WQ_WEB + '/' + ({ quote: 'quotes', project: 'projects', customer: 'customers' }[kind] || kind) + '/' + encodeURIComponent(id) : WQ_WEB; }
   root.SonorWQClient = {
-    VERSION: '1.3.1', pill: pill, webUrl: webUrl, findContacts: findContacts, getContact: getContact, init: init, configure: configure, status: status, setTransport: setTransport, setSource: setSource, source: sourceName,
+    VERSION: '1.4.0', proposalPdf: proposalPdf, latestTemplate: latestTemplate, pill: pill, webUrl: webUrl, findContacts: findContacts, getContact: getContact, init: init, configure: configure, status: status, setTransport: setTransport, setSource: setSource, source: sourceName,
     get: get, arr: arr, one: one, clearCache: clearCache,
     searchProducts: searchProducts, getProduct: getProduct, listQuotes: listQuotes, getQuote: getQuote,
     quoteLines: quoteLines, quoteLinesResolved: quoteLinesResolved, productMap: productMap, listProjects: listProjects, findCustomer: findCustomer, getProject: getProject, getCustomer: getCustomer
