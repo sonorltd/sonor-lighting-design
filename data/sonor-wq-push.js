@@ -21,11 +21,7 @@
 */
 (function (global) {
   'use strict';
-<<<<<<< HEAD
-  var VERSION = '1.1.0';
-=======
   var VERSION = '1.2.0';   // 1.2.0 (2026-10-17) — addContact(): a person onto a WeQuote customer through wq-push 1.5.0 add_contact
->>>>>>> 830ef1b (sync: shared masters (kit 0.7.4 mirror, wq-push 1.1.0, wq-sync 1.7.3, components, library-bar))
   var KEY = 'sonor-wq-push-token';
   function _token(force) {
     var t = ''; try { t = localStorage.getItem(KEY) || ''; } catch (_) {}
