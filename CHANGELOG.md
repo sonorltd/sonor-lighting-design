@@ -1,3 +1,6 @@
+## v0.6.3 — 2026-10-31
+- LED & Drivers: `SonorLedEng.load()` before engineering — Library LED catalogue (v_led_catalogue) + house rules; driver picks are Library products (engine 1.3.0).
+
 # Lighting Design — CHANGELOG
 
 ## v0.6.0 — 2026-10-16 — LED & Drivers engineered by the workspace master

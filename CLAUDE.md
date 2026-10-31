@@ -1,4 +1,6 @@
-# Lighting Design — Claude Code Context (v0.6.2)
+# Lighting Design — Claude Code Context (v0.6.3)
+
+> v0.6.3 (2026-10-31) — LED & Drivers step loads the Library LED catalogue first (`SonorLedEng.load`, engine 1.3.0): drivers are real Library products, rules from `library_settings.led_engineering`. Project-wide LED overview lives in APP - LED Calc.
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
 

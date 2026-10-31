@@ -507,6 +507,7 @@
   async function loadStripTypes() {
     if (_stripTypes) return _stripTypes;
     _stripTypes = {};
+    try { if (global.SonorLedEng && global.SonorLedEng.load) await global.SonorLedEng.load(dbc()); } catch (e) {}   // v0.6.3 — Library LED catalogue + rules (drivers = real products)
     try { var db = dbc(); if (db) { var r = await db.from('pm_led_strip_types').select('id,label,watts_per_metre,volts,dmx_channels,kelvin,ip_rating,metadata').eq('active', true); (r.data || []).forEach(function (t) { _stripTypes[t.id] = t; }); } } catch (e) {}
     return _stripTypes;
   }
