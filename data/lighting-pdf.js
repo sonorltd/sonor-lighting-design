@@ -866,9 +866,9 @@
     var F = await lx.makeFonts(doc, BASE);
 
     // cover assets
-    var hero = null, cedia = null, fadeImg = null;
+    var hero = null, cedia = null, fadeImg = null, heroArt = false;
     if (m.heroImage) { try { hero = await lx.loadImage(doc, m.heroImage); } catch (e) {} }
-    if (!hero) { try { hero = await lx.loadImage(doc, BASE + 'lighting-cover.jpg'); } catch (e) {} } // B-567: permanent cover (Branding - CORE/PDF-COVERS/lighting.jpg via sync-pdf-covers) when the project has no hero
+    if (!hero) { try { hero = await lx.loadCoverArt(doc, BASE + 'lighting-cover.jpg'); heroArt = true; } catch (e) {} }   // cover art set (2026-11-01): the house art → art layout (a project hero keeps the photo layout) // B-567: permanent cover (Branding - CORE/PDF-COVERS/lighting.jpg via sync-pdf-covers) when the project has no hero
     try { cedia = await lx.loadImage(doc, BASE + 'cedia-member-stacked.png'); } catch (e) {}
     try { var fd = lx.fadePngDataUrl(); if (fd) fadeImg = await doc.embedPng(await lx.fetchBytes(fd)); } catch (e) {}
 
@@ -921,7 +921,7 @@
     var TOTAL = sections.length + 1 + dsPageCount;
     var p1 = doc.addPage([lx.A4.w, lx.A4.h]);
     lx.cover(lx.mk(p1, doc), F, {
-      hero: hero, fadeImg: fadeImg, cediaImg: cedia,
+      layout: heroArt ? 'art' : undefined, hero: hero, fadeImg: fadeImg, cediaImg: cedia,
       eyebrow: DOC_LABEL,
       title: m.title || 'Your Home',
       subtitle: 'by Sonor',

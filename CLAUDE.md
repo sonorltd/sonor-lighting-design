@@ -1,5 +1,7 @@
 # Lighting Design — Claude Code Context (v0.6.3)
 
+> **Current version: v0.6.4** — 2026-11-01 COVER ART SET (Bryn: "use the file list and review notes in 027, then ingest … and check the actual A3/A4 cover overlays and crops"): `lighting-cover(-landscape).jpg` when the project has no hero image — a project hero keeps the photo layout; the PDF cover is the house cover ART (Branding - CORE/PDF-COVERS via sync-pdf-covers) in the new art layout of sonor-pdf-luxury 1.7.0 (`cover({ layout: 'art' })`): portrait sheet → `<name>.jpg`, landscape sheet → `<name>-landscape.jpg` (twin fallback, `lx.loadCoverArt`), full bleed, no fade, mark / eyebrow / title (wraps) / subtitle / info cells only in the clean zone (portrait top 52 %, landscape left 55 %); tested A4 + A3 portrait / landscape with a long title (reports/covers-2026-11-01/).
+
 > v0.6.3 (2026-10-31) — LED & Drivers step loads the Library LED catalogue first (`SonorLedEng.load`, engine 1.3.0): drivers are real Library products, rules from `library_settings.led_engineering`. Project-wide LED overview lives in APP - LED Calc.
 
 > **Active theme: locked custom / slate canvas** — client-facing surface, `data-theme-lock` (sonor-platform §2 exemption); the cross-app ◐ cookie never flips it.
