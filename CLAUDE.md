@@ -11,7 +11,7 @@
 > **Spine version: 1.3** (SONOR-APP-SPINE.md — SonorShell-mounted like Seating; declaration reconciled 2026-09-30)
 > Inherits: `../CLAUDE.md` (master brand rules + cross-project references)
 > Brand source: `../Branding - CORE/brand-core.xml`
-> Repo: `sonor-lighting-design` · Pages: https://sonorltd.github.io/sonor-lighting-design/
+> Repo: `sonor-lighting-design` · Pages: https://apps.sonor.co.uk/sonor-lighting-design/
 
 ## What this is
 Client-facing **whole-home lighting design configurator** — the lighting counterpart
@@ -246,3 +246,5 @@ data/build-seed.sh                    regenerates the seed from v_lighting_catal
 - Photometrics v0.2: in-browser IES parser (polar curve + cone diagrams on the PDF
   datasheet pages) — `iesna` npm lib assessed viable in the research pass.
 - A lighting hero image for landing + PDF cover (`heroImage` is one-line swappable).
+
+- 2026-11-01 — links → apps.sonor.co.uk (github.io retired)
